@@ -10,7 +10,7 @@ namespace ConceptMario
     class Player
     {
         private Ellipse Object = null;
-        private int Size = 22;
+        private int Size = 25;
         private int X;
         private int Y;
         private int[] DinamicJump = { 30, 25, 20, 15, 10 };
@@ -19,7 +19,9 @@ namespace ConceptMario
 
         public bool CanJump { set; get; }
         public bool IsJump { set; get; }
+        public bool CanLeft { set; get; }
         public bool Left { set; get; }
+        public bool CanRight { set; get; }
         public bool Right { set; get; }
 
         public Player(int X, int Y)
@@ -31,12 +33,15 @@ namespace ConceptMario
             Object.Width = Size;
             this.X = X;
             this.Y = Y;
+            CanRight = true;
+            CanLeft = true;
         }
         public Ellipse Get()
         {
             return Object;
         }
         public int GetX() { return X; }
+        public int GetCenterX() {return X+12; }
         public int GetY() { return Y; }
         public void Move()
         {
@@ -54,11 +59,17 @@ namespace ConceptMario
         }
         private void MoveLeft()
         {
-            X -= MoveSpeed;
+            if (CanLeft)
+            {
+                X -= MoveSpeed;
+            }
         }
         private void MoveRight()
         {
-            X += MoveSpeed;
+            if (CanRight)
+            {
+                X += MoveSpeed;
+            }
         }
         private void MoveUp()
         {

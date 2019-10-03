@@ -20,30 +20,41 @@ namespace ConceptMario
         {
             XY[0] = X;
             XY[1] = Y;
-            XX[0] = Y;
-            XX[1] = X + Size;
+            XX[0] = X + Size;
+            XX[1] = Y;
             YY[0] = X;
             YY[1] = Y + Size;
-            YX[0] = Y + Size;
+            YX[0] = X + Size;
             YX[1] = Y + Size;
         }
         public bool CheckUp(int X, int Y)
         {
-            if (Y > YY[1])
-                return true;
-            else
-                return false;
+            return false;
         }
         public bool CheckDown(int X, int Y)
         {
-            if (Y + 22 < XY[1])
+            if (Y <= YY[1])
                 return true;
             else
                 return false;
         }
-        public bool ThisCollider(int X, int Y)
+        /*public bool ThisCollider(int X, int Y)
         {
             if (X >= XY[0] && X <= XX[1] && 15 >= Y - YY[1])
+                return true;
+            else
+                return false;
+        }*/
+        public bool CheckRight(int X, int Y)
+        {
+            if (X + 25 <= XY[0])
+                return true;
+            else
+                return false;
+        }
+        public bool CheckLeft(int X, int Y)
+        {
+            if (X <= XX[0])
                 return true;
             else
                 return false;

@@ -26,10 +26,10 @@ namespace ConceptMario
         {
             return Terrain;
         }
-        public bool Check(int X, int Y)
+        /*public bool Check(int X, int Y)
         {
             return Col.ThisCollider(X, Y);
-        }
+        }*/
         public bool CheckUp(int X, int Y)
         {
             return Col.CheckUp(X, Y);
@@ -37,6 +37,14 @@ namespace ConceptMario
         public bool CheckDown(int X, int Y)
         {
             return Col.CheckDown(X, Y);
+        }
+        public bool CheckRight(int X, int Y)
+        {
+            return Col.CheckRight(X, Y);
+        }
+        public bool CheckLeft(int X, int Y)
+        {
+            return Col.CheckLeft(X, Y);
         }
         public int X() { return Col.GetX(); }
         public int Y() { return Col.GetY(); }
