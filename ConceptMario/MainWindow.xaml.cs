@@ -37,7 +37,7 @@ namespace ConceptMario
             Frame = new DispatcherTimer();
             Frame.Interval = TimeSpan.FromSeconds(FPS.GetSecByFrames(60));
             Frame.Tick += Frame_Tick;
-            Player = new Player(30, 30);
+            Player = new Player(25, 25);
             Map = new Map(Player);
             MainGrind.Children.Add(Map.Get());
             Frame.Start();
@@ -46,9 +46,9 @@ namespace ConceptMario
         //          Frames or Iterations
         //---------------------------------------------------
         private void Frame_Tick(object sender, EventArgs e)
-        {
-            Player.Move();
+        {           
             Map.UpdatePlayer(Player);
+            Player.Move();
             //throw new NotImplementedException();
         }
 
