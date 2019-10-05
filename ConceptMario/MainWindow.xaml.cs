@@ -35,7 +35,7 @@ namespace ConceptMario
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Frame = new DispatcherTimer();
-            Frame.Interval = TimeSpan.FromSeconds(FPS.GetSecByFrames(60));
+            Frame.Interval = TimeSpan.FromSeconds(MetaData.FPS);
             Frame.Tick += Frame_Tick;
             Player = new Player(25, 25);
             Map = new Map(Player);
