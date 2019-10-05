@@ -9,11 +9,11 @@ namespace ConceptMario
     class MapGrid
     {
         private Block[,] _Grid;
-        private int Width = 36;
+        private int Width = MetaData.Width;
         public int W { get { return Width; } }
-        private int Height = 24;
+        private int Height = MetaData.Height;
         public int H { get { return Height; } }
-        private int Size = 25;
+        private int Size = MetaData.Size;
         public int S { get { return Size; } }
         /*public MapGrid(int Width, int Height, int Size)
         {
@@ -74,8 +74,8 @@ namespace ConceptMario
         private string _0GRID = "" +
             "111111111111111111111111111111111111" +
             "100000100000000000000000000000000001" +
-            "000000000000000000000000000000000000" +
-            "000000000000000000000000000000000000" +
+            "000001100000000000000000000000000000" +
+            "000000100000000000000000000000000000" +
             "000000000000000000000000000000000000" +
             "000000000000000000000000000000000000" +
             "000000000000000000000000000000000000" +

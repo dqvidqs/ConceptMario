@@ -10,7 +10,7 @@ namespace ConceptMario
     class Player
     {
         private Ellipse Object = null;
-        private int Size = 25;
+        private int Size = MetaData.Size;
         private int X;
         private int Y;
         private int[] DinamicJump = { 30, 25, 20, 15, 10 };

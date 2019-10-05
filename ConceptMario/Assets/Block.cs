@@ -12,15 +12,15 @@ namespace ConceptMario
     {
         private Rectangle Terrain = null;
         private Collider Col = null;
-        private int size = 25;
+        private int Size = MetaData.Size;
         public Block(int X, int Y)
         {
             Terrain = new Rectangle();
             Terrain.Stroke = System.Windows.Media.Brushes.Black;
             Terrain.Fill = System.Windows.Media.Brushes.Red;
-            Terrain.Height = size;
-            Terrain.Width = size;
-            Col = new Collider(X, Y, size);
+            Terrain.Height = Size;
+            Terrain.Width = Size;
+            Col = new Collider(X, Y, Size);
         }
         public Rectangle Get()
         {

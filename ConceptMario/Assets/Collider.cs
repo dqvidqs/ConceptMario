@@ -29,7 +29,10 @@ namespace ConceptMario
         }
         public bool CheckUp(int X, int Y)
         {
-            return false;
+            if (Y + MetaData.Size <= XY[1])
+                return true;
+            else
+                return false;
         }
         public bool CheckDown(int X, int Y)
         {
@@ -47,7 +50,7 @@ namespace ConceptMario
         }*/
         public bool CheckRight(int X, int Y)
         {
-            if (X + 25 <= XY[0])
+            if (X + MetaData.Size <= XY[0])
                 return true;
             else
                 return false;

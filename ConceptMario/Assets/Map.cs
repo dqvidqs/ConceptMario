@@ -35,7 +35,6 @@ namespace ConceptMario
         {
             //4 nes, UP, RIGHT,DOWN, LEFT
             Block[] Blocks = Grid.FindNearByPlayer(Player);
-
             //DOWN
             if (Blocks[2] != null)
             {
