@@ -10,6 +10,8 @@ namespace ConceptMario
 {
     class Block
     {
+        //Blokas - turintis savo grafini blocko ivaizdi
+        //turi collideri tam kad per ji negaletu pereiti žaidėjas
         private Rectangle Terrain = null;
         private Collider Col = null;
         private int Size = MetaData.Size;

@@ -41,8 +41,9 @@ namespace ConceptMario
             return Object;
         }
         public int GetX() { return X; }
-        public int GetCenterX() {return X+12; }
+        public int GetCenterX() { return X + Size / 2; }
         public int GetY() { return Y; }
+        public int GetCenterY() { return Y + Size / 2; }
         public void Move()
         {
             Gravity();
