@@ -65,8 +65,9 @@
     </Compile>
     <Compile Include="Assets\Block.cs" />
     <Compile Include="Assets\Collider.cs" />
-    <Compile Include="Assets\FPS.cs" />
     <Compile Include="Assets\Map.cs" />
+    <Compile Include="Assets\MapGrid.cs" />
+    <Compile Include="Assets\MetaData.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
