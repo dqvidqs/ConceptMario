@@ -36,6 +36,11 @@ namespace ConceptMario
             CanRight = true;
             CanLeft = true;
         }
+		public void update(int x, int y)
+		{
+			this.X = x;
+			this.Y = y;
+		}
         public Ellipse Get()
         {
             return Object;
