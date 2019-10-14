@@ -20,5 +20,6 @@ namespace ConceptMario
         public static int HeightPx { get { return _heightpx; } }
         public static int Size { get { return _size; } }
         public static double FPS { get { return _fps; } }
-    }
+		
+	}
 }

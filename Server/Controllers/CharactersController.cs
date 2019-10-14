@@ -93,7 +93,7 @@ namespace Server.Controllers
             _context.Character.Add(character);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCharacter", new { id = character.id }, character);
+            return Ok(character);
         }
 
         // DELETE: api/Characters/5

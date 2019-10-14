@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
 using ConceptMario.Models;
+using ConceptMario;
 
 namespace ConceptMario
 {
@@ -57,13 +58,23 @@ namespace ConceptMario
 			Player.Move();
 			loadPlayer();
 			Map.UpdatePlayer(Player2);
-			updatePlayer(new Character { id = 1, x = Player.GetX() + 15, y = Player.GetY() + 15 });
+			updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY() });
 			//throw new NotImplementedException();
 		}
 
 		async void loadPlayer()
 		{
-			string page = "https://localhost:44353/api/characters/1";
+			string page;
+			int id = Session.GetSession().GetId();
+			if (id == 1)
+			{
+				page = "https://localhost:44353/api/characters/2";
+			}
+			else
+			{
+				page = "https://localhost:44353/api/characters/1";
+
+			}
 			HttpClient client = new HttpClient();
 			HttpResponseMessage respones = await client.GetAsync(page);
 			HttpContent content = respones.Content;
@@ -71,13 +82,13 @@ namespace ConceptMario
 			var result = JsonConvert.DeserializeObject<Character>(data);
 			if (data != null)
 			{
-				Player2.update(result.x,result.y);
+				Player2.update(result.x, result.y);
 			}
 
 		}
 		async void updatePlayer(Character chara)
 		{
-			string page = "https://localhost:44353/api/characters/1";
+			string page = "https://localhost:44353/api/characters/" + Session.GetSession().GetId().ToString();
 			HttpClient client = new HttpClient();
 			HttpResponseMessage respones = await client.PutAsync(page, new StringContent(
    JsonConvert.SerializeObject(chara), Encoding.UTF8, "application/json"));

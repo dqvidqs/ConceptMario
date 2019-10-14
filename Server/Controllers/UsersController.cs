@@ -28,15 +28,15 @@ namespace Server.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        [HttpPut]
+        public async Task<IActionResult> GetUser([FromBody] User usr)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FirstOrDefaultAsync(x=>x.username==usr.username && x.password==usr.password);
 
             if (user == null)
             {
@@ -78,7 +78,7 @@ namespace Server.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(user);
         }
 
         // POST: api/Users
