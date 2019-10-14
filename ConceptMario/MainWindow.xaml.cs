@@ -52,17 +52,17 @@ namespace ConceptMario
 		//---------------------------------------------------
 		//          Frames or Iterations
 		//---------------------------------------------------
-		private void Frame_Tick(object sender, EventArgs e)
+		private async void Frame_Tick(object sender, EventArgs e)
 		{
 			Map.UpdatePlayer(Player);
 			Player.Move();
-			loadPlayer();
+			await loadPlayer();
 			Map.UpdatePlayer(Player2);
-			updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY() });
+			await updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY() });
 			//throw new NotImplementedException();
 		}
 
-		async void loadPlayer()
+		async Task loadPlayer()
 		{
 			string page;
 			int id = Session.GetSession().GetId();
@@ -86,7 +86,7 @@ namespace ConceptMario
 			}
 
 		}
-		async void updatePlayer(Character chara)
+		async Task updatePlayer(Character chara)
 		{
 			string page = "https://localhost:44353/api/characters/" + Session.GetSession().GetId().ToString();
 			HttpClient client = new HttpClient();

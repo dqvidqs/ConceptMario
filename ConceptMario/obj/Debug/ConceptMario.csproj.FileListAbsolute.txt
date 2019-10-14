@@ -34,3 +34,4 @@ D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.Net.Http.Formatting.dll
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.Net.Http.Formatting.xml
 D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Login.baml
 D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Login.g.cs
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csprojAssemblyReference.cache
