@@ -79,6 +79,7 @@
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="Assets\MetaData.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Files\HttpAdapter.cs" />
     <Compile Include="Files\Session.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

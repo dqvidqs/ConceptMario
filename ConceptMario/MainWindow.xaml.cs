@@ -38,6 +38,8 @@ namespace ConceptMario
 		private DispatcherTimer Frame = null;
 		private Player Player = null;
 		private Player Player2 = null;
+		private HttpAdapter Server = new HttpAdapter();
+
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			Frame = new DispatcherTimer();
@@ -64,35 +66,29 @@ namespace ConceptMario
 
 		async Task loadPlayer()
 		{
-			string page;
 			int id = Session.GetSession().GetId();
 			if (id == 1)
 			{
-				page = "https://localhost:44353/api/characters/2";
+				var result = await Server.GetTeammate(2);
+				if (result != null)
+				{
+					Player2.update(result.x, result.y);
+				}
 			}
 			else
 			{
-				page = "https://localhost:44353/api/characters/1";
+				var result = await Server.GetTeammate(1);
+				if (result != null)
+				{
+					Player2.update(result.x, result.y);
+				}
 
-			}
-			HttpClient client = new HttpClient();
-			HttpResponseMessage respones = await client.GetAsync(page);
-			HttpContent content = respones.Content;
-			string data = await content.ReadAsStringAsync();
-			var result = JsonConvert.DeserializeObject<Character>(data);
-			if (data != null)
-			{
-				Player2.update(result.x, result.y);
 			}
 
 		}
 		async Task updatePlayer(Character chara)
 		{
-			string page = "https://localhost:44353/api/characters/" + Session.GetSession().GetId().ToString();
-			HttpClient client = new HttpClient();
-			HttpResponseMessage respones = await client.PutAsync(page, new StringContent(
-   JsonConvert.SerializeObject(chara), Encoding.UTF8, "application/json"));
-
+			await Server.UpdateCharacter(Session.GetSession().GetId(),chara);
 		}
 
 		//---------------------------------------------------

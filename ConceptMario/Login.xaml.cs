@@ -23,6 +23,7 @@ namespace ConceptMario
 	/// </summary>
 	public partial class Login : Window
 	{
+		private HttpAdapter Server = new HttpAdapter();
 		public Login()
 		{
 			InitializeComponent();
@@ -33,8 +34,7 @@ namespace ConceptMario
 			String message = "Invalid Credentials";
 			try
 			{
-
-				LoginPlayer(txtUserId.Text.ToString(),txtPassword.Password.ToString());
+				LoginPlayer(txtUserId.Text.ToString(), txtPassword.Password.ToString());
 			}
 			catch (Exception ex)
 			{
@@ -47,19 +47,10 @@ namespace ConceptMario
 			this.Close();
 		}
 
-		async void LoginPlayer(string username,string password)
+		async void LoginPlayer(string username, string password)
 		{
-			User user = new User();
-			user.password=password;
-			user.username = username;
-			string page = "https://localhost:44353/api/users";
-			HttpClient client = new HttpClient();
-			HttpResponseMessage respones = await client.PutAsync(page, new StringContent(
-   JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json"));
-			HttpContent content = respones.Content;
-			string data = await content.ReadAsStringAsync();
-			var result = JsonConvert.DeserializeObject<User>(data);
-			if (data != null)
+			var result = await Server.Login(username, password);
+			if (result != null)
 			{
 				Session.GetSession().Login(result.id, result.username);
 				MainWindow mainWindow = new MainWindow();
