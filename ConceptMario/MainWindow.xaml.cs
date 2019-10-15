@@ -47,7 +47,7 @@ namespace ConceptMario
 			Frame.Tick += Frame_Tick;
 			Player = new Player(25, 25);
 			Player2 = new Player(25, 25);
-			Map = new Map(Player, Player2);
+            Map = new Map(Player, Player2, 0);
 			MainGrind.Children.Add(Map.Get());
 			Frame.Start();
 		}
