@@ -20,8 +20,8 @@ namespace ConceptMario
             Grid = new MapGrid(MapId);
             Can = new Canvas();
             Can.Background = Brushes.AliceBlue;
-            Can.Height = 600;
-            Can.Width = 900;
+            Can.Height = MetaData.HeightPx;
+            Can.Width = MetaData.WidthPx;
             Can.Margin = new System.Windows.Thickness(0, 0, 0, 0);
             SetupBlock();
             Can.Children.Add(player1.Get());
