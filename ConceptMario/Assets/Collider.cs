@@ -12,21 +12,11 @@ namespace ConceptMario
         // |       |
         // |       |
         // XY --- XX
-        private int[] XX = new int[2];
-        private int[] XY = new int[2];
-        private int[] YX = new int[2];
-        private int[] YY = new int[2];
-        public Collider(int X, int Y, int Size)
-        {
-            XY[0] = X;
-            XY[1] = Y;
-            XX[0] = X + Size;
-            XX[1] = Y;
-            YY[0] = X;
-            YY[1] = Y + Size;
-            YX[0] = X + Size;
-            YX[1] = Y + Size;
-        }
+        protected int[] XX = new int[2];
+        protected int[] XY = new int[2];
+        protected int[] YX = new int[2];
+        protected int[] YY = new int[2];
+
         public bool CheckUp(int X, int Y)
         {
             if (Y + MetaData.Size <= XY[1])

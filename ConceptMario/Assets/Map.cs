@@ -108,8 +108,8 @@ namespace ConceptMario
                     if (Grid.GetBlock(i, j) != null)
                     {
                         Can.Children.Add(Grid.GetBlock(i, j).Get());
-                        Canvas.SetBottom(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).Y());
-                        Canvas.SetLeft(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).X());
+                        Canvas.SetBottom(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).GetY());
+                        Canvas.SetLeft(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).GetX());
                     }
                 }
             }
