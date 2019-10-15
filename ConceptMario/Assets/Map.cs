@@ -14,9 +14,10 @@ namespace ConceptMario
     {
         private Canvas Can = null;
         // private Block[] Blocks = null;
-        private MapGrid Grid = new MapGrid();
-        public Map(Player player1, Player player2 )
+        private MapGrid Grid = null;
+        public Map(Player player1, Player player2, int MapId)
         {
+            Grid = new MapGrid(MapId);
             Can = new Canvas();
             Can.Background = Brushes.AliceBlue;
             Can.Height = 600;
@@ -28,8 +29,8 @@ namespace ConceptMario
             Canvas.SetLeft(player1.Get(), player1.GetX());
 			Can.Children.Add(player2.Get());
 			Canvas.SetBottom(player2.Get(), player2.GetY());
-			Canvas.SetLeft(player2.Get(), player2.GetX());
-		}
+			Canvas.SetLeft(player2.Get(), player2.GetX());           
+        }
         public Canvas Get()
         {
             return Can;
