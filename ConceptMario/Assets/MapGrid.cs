@@ -8,7 +8,7 @@ namespace ConceptMario
 {
     class MapGrid
     {
-        private Block[,] _grid;
+        private object[,] _grid;
         private int Width = MetaData.Width;
         public int W { get { return Width; } }
         private int Height = MetaData.Height;
@@ -18,62 +18,62 @@ namespace ConceptMario
 
         public MapGrid(int MapID)
         {
+            MapBuilder Builder = new MapBuilder(W, H, S);
+            _grid = new object[Height, Width];
             switch (MapID)
             {
                 case 0:
-                    BuildMap(_0GRID);
+                    MapObjects obj = Builder.PrepareBlocks(_0GRID);
+                    BuildMap(obj.GetBlocks());
+                    obj = null;
                     break;
             }
+            Builder = null;
         }
-        public Block GetBlock(int X,int Y)
+        public object GetBlock(int X, int Y)
         {
-            if (_grid[X, Y] != null)
-            {
-                return _grid[X, Y];
-            }
-            else { return null; }
+            /*if (_grid[X, Y] != null)
+            {*/
+                return _grid[Y, X];
+            /*}
+            else { return null; }*/
         }
-        public Block[] FindNearByPlayer(Player Player)
+        public Wall[] FindNearByPlayer(Player Player)
         {
             int Sides = 4;
-            Block[] Blocks = new Block[Sides];
-            Blocks[0] = _grid[ Player.GetY() / Size + 1, Player.GetX() / Size];//UP
-            Blocks[1] = _grid[ Player.GetY() / Size,Player.GetX() / Size + 1];//RIGHT
-            Blocks[2] = _grid[ Player.GetY() / Size - 1, Player.GetCenterX() / Size];//DOWN
-            Blocks[3] = _grid[ Player.GetY() / Size, Player.GetX() / Size - 1];//LEFT
+            Wall[] Blocks = new Wall[Sides];
+            Blocks[0] = _grid[Player.GetY() / Size + 1, Player.GetX() / Size] as Wall;//UP
+            Blocks[1] = _grid[Player.GetY() / Size, Player.GetX() / Size + 1] as Wall;//RIGHT
+            Blocks[2] = _grid[Player.GetY() / Size - 1, Player.GetCenterX() / Size] as Wall;//DOWN
+            Blocks[3] = _grid[Player.GetY() / Size, Player.GetX() / Size - 1] as Wall;//LEFT
             return Blocks;
         }
-        public void BuildMap(string Grid)
+        public void BuildMap(List<Block> Blocks)
         {
-            _grid = new Block[Height, Width];//Heigh;Width; or y;x;
-
-            int Step = 0;
-            for (int i = 0; i < Grid.Length; i++)
+            foreach (Block block in Blocks)
             {
-                if (Grid[i] == '1')
-                {
-                    _grid[Step, i % Width] = new Block(i % Width * Size, Step * Size);
-                }
-                if ((i + 1) % Width == 0 && i != 0)
-                {
-                    Step++;
-                }
+                _grid[block.GetY() / Size, block.GetX() / Size] = block ;
             }
+        }
+        public void Remove(int X, int Y)
+        {
+            _grid[Y / Size, X / Size] = null;
         }
         //MAPAS GENERUOJAMAS PAGAL STRING
         //ATVIRKSCIAS
         //JEI VIRSUS TAI BUS APACIA
-        //PVZ 1 = blockas
+        //1 = Wall
+        //2 = Diamond
         private string _0GRID = "" +
             "111111111111111111111111111111111111" +
-            "100000100000000000000000000000000001" +
+            "100002100000000000000000000000000001" +
             "100001100000000000000000000000000001" +
             "100000100000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
-            "100000000000000000000000000000000001" +
+            "100000000000000000020000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
@@ -89,6 +89,5 @@ namespace ConceptMario
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "111111111111111111111111111111111111";
-
     }
 }

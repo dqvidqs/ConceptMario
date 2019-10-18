@@ -15,6 +15,7 @@ namespace ConceptMario
         private Canvas Can = null;
         // private Block[] Blocks = null;
         private MapGrid Grid = null;
+        private int  Size = MetaData.Size;
         public Map(Player player1, Player player2, int MapId)
         {
             Grid = new MapGrid(MapId);
@@ -38,7 +39,7 @@ namespace ConceptMario
         public void UpdatePlayer(Player Player)
         {
             //4 nes, UP, RIGHT,DOWN, LEFT
-            Block[] Blocks = Grid.FindNearByPlayer(Player);
+            Wall[] Blocks = Grid.FindNearByPlayer(Player);
             //DOWN
             if (Blocks[2] != null)
             {
@@ -63,40 +64,15 @@ namespace ConceptMario
                 else { Player.CanLeft = true; }
             }
             else { Player.CanLeft = true; }
-            /*if (Blocks[3] != null)
+            Diamond diamond = Grid.GetBlock(Player.GetCenterX()/Size, Player.GetCenterY()/Size) as Diamond;
+            if (diamond != null)
             {
-                if (Blocks[3].CheckUp(Player.GetX(), Player.GetY()))
-                { Player.CanJump = false; }
-                else { Player.CanJump = true; }
+                Can.Children.RemoveAt(diamond.ID());
+                Grid.Remove(Player.GetCenterX(), Player.GetCenterY());
             }
-            if (Blocks[3] != null)
-            {
-                if (Blocks[3].CheckUp(Player.GetX(), Player.GetY()))
-                { Player.CanJump = false; }
-                else { Player.CanJump = true; }
-            }*/
-            //jei null reiskia salia nera :D
-
-            /*int index = -1;
-            bool status = false;
-            for (int i = 0; i < Blocks.Length; i++)
-            {
-                status = Blocks[i].Check(player.GetX(), player.GetY());
-                if (status)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            if (index != -1)
-            {
-                if (Blocks[index].CheckUp(player.GetX(), player.GetY()))
-                { player.CanJump = false; }
-                else { player.CanJump = true; }
-            }
-            else { player.CanJump = false; }*/
+            else
             Canvas.SetBottom(Player.Get(), Player.GetY());
-            Canvas.SetLeft(Player.Get(), Player.GetX());
+            Canvas.SetLeft(Player.Get(), Player.GetX());           
         }
         // ---------- PRIVATE ----------
         private void SetupBlock()
@@ -105,11 +81,12 @@ namespace ConceptMario
             {
                 for (int j = 0; j < Grid.W; j++)
                 {
-                    if (Grid.GetBlock(i, j) != null)
+                    if (Grid.GetBlock(j, i) != null)
                     {
-                        Can.Children.Add(Grid.GetBlock(i, j).Get());
-                        Canvas.SetBottom(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).GetY());
-                        Canvas.SetLeft(Grid.GetBlock(i, j).Get(), Grid.GetBlock(i, j).GetX());
+                        Block block = Grid.GetBlock(j, i) as Block;
+                        Can.Children.Add(block.Get());
+                        Canvas.SetBottom(block.Get(), block.GetY());
+                        Canvas.SetLeft(block.Get(), block.GetX());
                     }
                 }
             }

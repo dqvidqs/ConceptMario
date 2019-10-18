@@ -73,9 +73,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Assets\Block.cs" />
-    <Compile Include="Assets\Collider.cs" />
+    <Compile Include="Assets\MapBuilder\Block.cs" />
     <Compile Include="Assets\Map.cs" />
+    <Compile Include="Assets\MapBuilder\Diamond.cs" />
+    <Compile Include="Assets\MapBuilder\MapBuilder.cs" />
+    <Compile Include="Assets\MapBuilder\MapObjects.cs" />
+    <Compile Include="Assets\MapBuilder\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="Assets\MetaData.cs" />
     <Compile Include="Assets\Player.cs" />
