@@ -12,9 +12,12 @@ namespace Server.Models
 			base.OnModelCreating(builder);
 		}
 
-		public DbSet<User> Users { get; set; }
-
-		public DbSet<Server.Models.Character> Character { get; set; }
-		//public DbSet<User> Characters { get; set; }
+		public virtual DbSet<User> Users { get; set; }
+		public virtual DbSet<Character> Characters { get; set; }
+		public virtual DbSet<Ability> Abilities { get; set; }
+		public virtual DbSet<Gun> Guns { get; set; }
+		public virtual DbSet<Inventory> Inventories { get; set; }
+		public virtual DbSet<Inventory_gun> Inventory_Guns { get; set; }
+		public virtual DbSet<Room> Rooms { get; set; }
 	}
 }

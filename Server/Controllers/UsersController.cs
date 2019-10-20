@@ -24,7 +24,7 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<User> GetUsers()
         {
-            return _context.Users;
+			return _context.Users;
         }
 
         // GET: api/Users/5
@@ -36,7 +36,7 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(x=>x.username==usr.username && x.password==usr.password);
+			var user = await _context.Users.FirstAsync(x => x.username == usr.username && x.password == usr.password);
 
             if (user == null)
             {
@@ -78,7 +78,7 @@ namespace Server.Controllers
                 }
             }
 
-            return Ok(user);
+            return NoContent();
         }
 
         // POST: api/Users
@@ -89,11 +89,26 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            _context.Users.Add(user);
+			int id = _context.Users.Count() + 1;
+			user.id = id;
+			_context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.id }, user);
+			Inventory inventory = new Inventory();
+			inventory.id = id;
+			_context.Inventories.Add(inventory);
+			await _context.SaveChangesAsync();
+
+			Character character = new Character();
+			character.id = id;
+			character.fk_user = id;
+			character.fk_inventory= id;
+			character.x = 25;
+			character.y = 25;
+			_context.Characters.Add(character);
+			await _context.SaveChangesAsync();
+
+			return Ok(user);
         }
 
         // DELETE: api/Users/5

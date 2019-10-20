@@ -24,7 +24,7 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<Character> GetCharacter()
         {
-            return _context.Character;
+            return _context.Characters.ToList();
         }
 
         // GET: api/Characters/5
@@ -36,7 +36,7 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var character = await _context.Character.FindAsync(id);
+            var character = await _context.Characters.FindAsync(id);
 
             if (character == null)
             {
@@ -90,7 +90,7 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Character.Add(character);
+            _context.Characters.Add(character);
             await _context.SaveChangesAsync();
 
             return Ok(character);
@@ -105,13 +105,13 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var character = await _context.Character.FindAsync(id);
+            var character = await _context.Characters.FindAsync(id);
             if (character == null)
             {
                 return NotFound();
             }
 
-            _context.Character.Remove(character);
+            _context.Characters.Remove(character);
             await _context.SaveChangesAsync();
 
             return Ok(character);
@@ -119,7 +119,7 @@ namespace Server.Controllers
 
         private bool CharacterExists(int id)
         {
-            return _context.Character.Any(e => e.id == id);
+            return _context.Characters.Any(e => e.id == id);
         }
     }
 }

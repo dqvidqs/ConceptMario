@@ -11,7 +11,7 @@ namespace ConceptMario
 {
 	class HttpAdapter
 	{
-		static string page = "https://localhost:44353/api/";
+		static string page = "http://localhost:60951/api/";
 		static HttpClient client = new HttpClient();
 
 		public async Task<Character> GetTeammate(int id)

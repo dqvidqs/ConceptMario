@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptMario", "ConceptMario\ConceptMario.csproj", "{975614D6-172A-4157-9610-C7C6D1BB76A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{C967FC5C-33F4-4438-898B-84101AD3B997}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{4DD037B7-A920-4E90-AF0A-D791C3DC69F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C967FC5C-33F4-4438-898B-84101AD3B997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C967FC5C-33F4-4438-898B-84101AD3B997}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C967FC5C-33F4-4438-898B-84101AD3B997}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C967FC5C-33F4-4438-898B-84101AD3B997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD037B7-A920-4E90-AF0A-D791C3DC69F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD037B7-A920-4E90-AF0A-D791C3DC69F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD037B7-A920-4E90-AF0A-D791C3DC69F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD037B7-A920-4E90-AF0A-D791C3DC69F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

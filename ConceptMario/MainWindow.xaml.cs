@@ -44,6 +44,8 @@ namespace ConceptMario
 		{
 			Frame = new DispatcherTimer();
 			Frame.Interval = TimeSpan.FromSeconds(MetaData.FPS);
+			// Su tokiu intervalu labai gerai matos multiplayer game bet belekaip letai
+			//Frame.Interval = TimeSpan.FromSeconds(0.25);
 			Frame.Tick += Frame_Tick;
 			Player = new Player(25, 25);
 			Player2 = new Player(25, 25);
@@ -60,7 +62,7 @@ namespace ConceptMario
 			Player.Move();
 			await loadPlayer();
 			Map.UpdatePlayer(Player2);
-			await updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY() });
+			await updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY(),fk_inventory= Session.GetSession().GetId(),fk_user= Session.GetSession().GetId() });
 			//throw new NotImplementedException();
 		}
 
