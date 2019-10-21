@@ -20,23 +20,25 @@ namespace ConceptMario
         {
             MapBuilder Builder = new MapBuilder(W, H, S);
             _grid = new object[Height, Width];
+            MapObjects objWalls = null;
+            MapObjects objDiamonds = null;
             switch (MapID)
             {
                 case 0:
-                    MapObjects obj = Builder.PrepareBlocks(_0GRID);
-                    BuildMap(obj.GetBlocks());
-                    obj = null;
+                    objWalls = Builder.PrepareWalls(_0GRID);
+                    objDiamonds = Builder.PrepareDiamons(_0GRID);
                     break;
             }
+            
+            BuildMap(objWalls.GetBlocks());
+            BuildMap(objDiamonds.GetBlocks());
+            objWalls = null;
+            objDiamonds = null;
             Builder = null;
         }
         public object GetBlock(int X, int Y)
         {
-            /*if (_grid[X, Y] != null)
-            {*/
-                return _grid[Y, X];
-            /*}
-            else { return null; }*/
+            return _grid[Y, X];
         }
         public Wall[] FindNearByPlayer(Player Player)
         {

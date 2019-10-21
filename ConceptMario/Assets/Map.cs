@@ -38,6 +38,14 @@ namespace ConceptMario
         }
         public void UpdatePlayer(Player Player)
         {
+            PlayerMovements(Player);
+            CatchDiamond(Player);
+            Canvas.SetBottom(Player.Get(), Player.GetY());
+            Canvas.SetLeft(Player.Get(), Player.GetX());           
+        }
+        // ---------- PRIVATE ----------
+        private void PlayerMovements(Player Player)
+        {
             //4 nes, UP, RIGHT,DOWN, LEFT
             Wall[] Blocks = Grid.FindNearByPlayer(Player);
             //DOWN
@@ -64,17 +72,17 @@ namespace ConceptMario
                 else { Player.CanLeft = true; }
             }
             else { Player.CanLeft = true; }
-            Diamond diamond = Grid.GetBlock(Player.GetCenterX()/Size, Player.GetCenterY()/Size) as Diamond;
+        }
+        private void CatchDiamond(Player Player)
+        {
+            Diamond diamond = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Diamond;
             if (diamond != null)
             {
-                Can.Children.RemoveAt(diamond.ID());
+                int index = Can.Children.IndexOf(diamond.Get());
+                Can.Children.RemoveAt(index);
                 Grid.Remove(Player.GetCenterX(), Player.GetCenterY());
             }
-            else
-            Canvas.SetBottom(Player.Get(), Player.GetY());
-            Canvas.SetLeft(Player.Get(), Player.GetX());           
         }
-        // ---------- PRIVATE ----------
         private void SetupBlock()
         {
             for (int i = 0; i < Grid.H; i++)
