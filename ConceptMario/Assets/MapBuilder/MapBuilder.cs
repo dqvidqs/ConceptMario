@@ -18,19 +18,32 @@ namespace ConceptMario
             this.Width = Width;
             this.Size = Size;
         }
-        public MapObjects PrepareBlocks(string GridMap)
+        public MapObjects PrepareWalls(string GridMap)
         {
+            Step = 0;
             MapObjects obj = new MapObjects();
             for (int i = 0; i < GridMap.Length; i++)
             {
-                switch (GridMap[i])
+                if(GridMap[i] == '1')
                 {
-                    case '1':
-                        obj.AddBock(new Wall(i % Width * Size, Step * Size, '1', obj.Count));
-                        break;
-                    case '2':
-                        obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2', obj.Count));
-                        break;
+                    obj.AddBock(new Wall(i % Width * Size, Step * Size, '1'));
+                }
+                if ((i + 1) % Width == 0 && i != 0)
+                {
+                    Step++;
+                }
+            }
+            return obj;
+        }
+        public MapObjects PrepareDiamons(string GridMap)
+        {
+            Step = 0;
+            MapObjects obj = new MapObjects();
+            for (int i = 0; i < GridMap.Length; i++)
+            {
+                if (GridMap[i] == '2')
+                {
+                    obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2'));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
