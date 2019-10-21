@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConceptMario.Assets.MapBuilder;
 
-namespace ConceptMario
+namespace ConceptMario.Assets.MapBuilder
 {
-    class MapBuilder
+    //Builder
+    class MapBuilder : IMapBuilder
     {
-        private int Height;
-        private int Width;
-        private int Size;
-        private int Step = 0;
-        public MapBuilder(int Width, int Height, int Size)
+        private MapObjects obj;
+        private string Grid;
+        private int Step;
+        private int Width = MetaData.Width;
+        private int Size = MetaData.Size;
+        public MapBuilder(string Grid)
         {
-            this.Height = Height;
-            this.Width = Width;
-            this.Size = Size;
+            obj = new MapObjects();
+            this.Grid = Grid;
         }
-        public MapObjects PrepareWalls(string GridMap)
+        public void BuildDiamonds()
         {
             Step = 0;
-            MapObjects obj = new MapObjects();
-            for (int i = 0; i < GridMap.Length; i++)
+            for (int i = 0; i < Grid.Length; i++)
             {
-                if(GridMap[i] == '1')
+                if (Grid[i] == '1')
                 {
                     obj.AddBock(new Wall(i % Width * Size, Step * Size, '1'));
                 }
@@ -33,15 +34,14 @@ namespace ConceptMario
                     Step++;
                 }
             }
-            return obj;
         }
-        public MapObjects PrepareDiamons(string GridMap)
+
+        public void BuildWalls()
         {
             Step = 0;
-            MapObjects obj = new MapObjects();
-            for (int i = 0; i < GridMap.Length; i++)
+            for (int i = 0; i < Grid.Length; i++)
             {
-                if (GridMap[i] == '2')
+                if (Grid[i] == '2')
                 {
                     obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2'));
                 }
@@ -50,7 +50,10 @@ namespace ConceptMario
                     Step++;
                 }
             }
-            return obj;
+        }
+        public List<Block> GetBlocks()
+        {
+            return obj.GetBlocks();
         }
     }
 }
