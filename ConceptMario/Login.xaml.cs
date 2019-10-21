@@ -47,14 +47,22 @@ namespace ConceptMario
 			this.Close();
 		}
 
+		private void btnRegister_Click_1(object sender, RoutedEventArgs e)
+		{
+			Register reg = new Register();
+			reg.Show();
+			this.Close();
+		}
+
 		async void LoginPlayer(string username, string password)
 		{
 			var result = await Server.Login(username, password);
 			if (result != null)
 			{
 				Session.GetSession().Login(result.id, result.username);
-				MainWindow mainWindow = new MainWindow();
-				mainWindow.Show();
+				MyShop.GetShop();
+				Menu menu = new Menu();
+				menu.Show();
 				this.Close();
 			}
 

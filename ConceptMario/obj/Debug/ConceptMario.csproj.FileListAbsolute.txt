@@ -57,3 +57,9 @@ C:\Users\Deividas\Desktop\ConceptMario-master\ConceptMario\obj\Debug\ConceptMari
 C:\Users\Deividas\Desktop\ConceptMario-master\ConceptMario\obj\Debug\ConceptMario.exe
 C:\Users\Deividas\Desktop\ConceptMario-master\ConceptMario\obj\Debug\ConceptMario.pdb
 C:\Users\Deividas\Desktop\ConceptMario-master\ConceptMario\obj\Debug\ConceptMario.csprojAssemblyReference.cache
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Register.baml
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Register.g.cs
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Menu.g.cs
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Menu.baml
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Shop.g.cs
+D:\GitHub\ConceptMario\ConceptMario\obj\Debug\Shop.baml
