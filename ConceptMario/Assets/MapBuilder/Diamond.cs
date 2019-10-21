@@ -14,9 +14,8 @@ namespace ConceptMario
     {
         private Polygon Terrain = null;
         private int Size = MetaData.Size;
-        public Diamond(int X, int Y, char Indicator, int Id)
+        public Diamond(int X, int Y, char Indicator)
         {
-            this.Id = Id;
             this.Indicator = Indicator;
             XY[0] = X;
             XY[1] = Y;
@@ -63,10 +62,6 @@ namespace ConceptMario
                 new Point(Size*5/10, Size*8/10),
                 new Point(Size*1/10, Size*3/10),
             };
-        }
-        public int ID()
-        {
-            return Id;
         }
     }
 }

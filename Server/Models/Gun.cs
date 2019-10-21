@@ -10,5 +10,6 @@ namespace Server.Models
 		public int fire_rate { get; set; }
 		public int ammo { get; set; }
 		public int damage { get; set; } 
+		public int price { get; set; }
 	}
 }

@@ -38,6 +38,7 @@ namespace ConceptMario
 		private DispatcherTimer Frame = null;
 		private Player Player = null;
 		private Player Player2 = null;
+		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -58,11 +59,11 @@ namespace ConceptMario
 		//---------------------------------------------------
 		private async void Frame_Tick(object sender, EventArgs e)
 		{
+			
 			Map.UpdatePlayer(Player);
 			Player.Move();
-			await loadPlayer();
-			Map.UpdatePlayer(Player2);
-			await updatePlayer(new Character { id = Session.GetSession().GetId(), x = Player.GetX(), y = Player.GetY(),fk_inventory= Session.GetSession().GetId(),fk_user= Session.GetSession().GetId() });
+			//await loadPlayer();
+			//Map.UpdatePlayer(Player2);
 			//throw new NotImplementedException();
 		}
 

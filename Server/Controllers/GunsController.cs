@@ -90,12 +90,12 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-			gun.id = _context.Guns.Count();
+			gun.id = _context.Guns.Count()+1;
 
 			_context.Guns.Add(gun);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGun", new { id = gun.id }, gun);
+            return NoContent();
         }
 
         // DELETE: api/Guns/5

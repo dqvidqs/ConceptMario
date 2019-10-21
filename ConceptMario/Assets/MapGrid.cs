@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConceptMario.Assets.MapBuilder;
 
 namespace ConceptMario
 {
@@ -16,27 +17,25 @@ namespace ConceptMario
         private int Size = MetaData.Size;
         public int S { get { return Size; } }
 
-        public MapGrid(int MapID)
+        public MapGrid(int MapID)//CLIENT
         {
-            MapBuilder Builder = new MapBuilder(W, H, S);
+            MapBuilder MapBuilder = null;
             _grid = new object[Height, Width];
             switch (MapID)
             {
                 case 0:
-                    MapObjects obj = Builder.PrepareBlocks(_0GRID);
-                    BuildMap(obj.GetBlocks());
-                    obj = null;
+                    MapBuilder = new MapBuilder(_0GRID);
                     break;
             }
-            Builder = null;
+            MapDirector Director = new MapDirector(MapBuilder);
+            Director.Construct();
+            BuildMap(Director.GetBlocks());
+            Director = null;
+            MapBuilder = null;
         }
         public object GetBlock(int X, int Y)
         {
-            /*if (_grid[X, Y] != null)
-            {*/
-                return _grid[Y, X];
-            /*}
-            else { return null; }*/
+            return _grid[Y, X];
         }
         public Wall[] FindNearByPlayer(Player Player)
         {

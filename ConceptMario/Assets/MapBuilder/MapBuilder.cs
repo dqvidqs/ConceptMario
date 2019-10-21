@@ -3,41 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConceptMario.Assets.MapBuilder;
 
-namespace ConceptMario
+namespace ConceptMario.Assets.MapBuilder
 {
-    class MapBuilder
+    //Builder
+    class MapBuilder : IMapBuilder
     {
-        private int Height;
-        private int Width;
-        private int Size;
-        private int Step = 0;
-        public MapBuilder(int Width, int Height, int Size)
+        private MapObjects obj;
+        private string Grid;
+        private int Step;
+        private int Width = MetaData.Width;
+        private int Size = MetaData.Size;
+        public MapBuilder(string Grid)
         {
-            this.Height = Height;
-            this.Width = Width;
-            this.Size = Size;
+            obj = new MapObjects();
+            this.Grid = Grid;
         }
-        public MapObjects PrepareBlocks(string GridMap)
+        public void BuildDiamonds()
         {
-            MapObjects obj = new MapObjects();
-            for (int i = 0; i < GridMap.Length; i++)
+            Step = 0;
+            for (int i = 0; i < Grid.Length; i++)
             {
-                switch (GridMap[i])
+                if (Grid[i] == '1')
                 {
-                    case '1':
-                        obj.AddBock(new Wall(i % Width * Size, Step * Size, '1', obj.Count));
-                        break;
-                    case '2':
-                        obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2', obj.Count));
-                        break;
+                    obj.AddBock(new Wall(i % Width * Size, Step * Size, '1'));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
                     Step++;
                 }
             }
-            return obj;
+        }
+
+        public void BuildWalls()
+        {
+            Step = 0;
+            for (int i = 0; i < Grid.Length; i++)
+            {
+                if (Grid[i] == '2')
+                {
+                    obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2'));
+                }
+                if ((i + 1) % Width == 0 && i != 0)
+                {
+                    Step++;
+                }
+            }
+        }
+        public List<Block> GetBlocks()
+        {
+            return obj.GetBlocks();
         }
     }
 }

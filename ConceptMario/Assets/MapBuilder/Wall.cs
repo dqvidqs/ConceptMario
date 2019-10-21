@@ -15,9 +15,8 @@ namespace ConceptMario
         //Wall - turintis savo grafini blocko ivaizdi
         private Polygon Terrain = null;
         private int Size = MetaData.Size;
-        public Wall(int X, int Y, char Indicator, int Id)
+        public Wall(int X, int Y, char Indicator)
         {
-            this.Id = Id;
             this.Indicator = Indicator;
             XY[0] = X;
             XY[1] = Y;

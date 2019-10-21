@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConceptMario
+namespace ConceptMario.Assets.MapBuilder
 {
     class MapObjects
     {
@@ -17,6 +17,5 @@ namespace ConceptMario
         {
             return Blocks;
         }
-        public int Count { get { return Blocks.Count; } }
     }
 }
