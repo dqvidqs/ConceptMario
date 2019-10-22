@@ -19,5 +19,6 @@ namespace Server.Models
 		public virtual DbSet<Inventory> Inventories { get; set; }
 		public virtual DbSet<Inventory_gun> Inventory_Guns { get; set; }
 		public virtual DbSet<Room> Rooms { get; set; }
+		public virtual DbSet<Diamond> Diamond { get; set; }
 	}
 }

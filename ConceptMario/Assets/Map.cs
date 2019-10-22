@@ -12,6 +12,7 @@ namespace ConceptMario
 {
     class Map
     {
+        private bool[] Updates = new bool[] { false };
         private Canvas Can = null;
         // private Block[] Blocks = null;
         private MapGrid Grid = null;
@@ -36,12 +37,13 @@ namespace ConceptMario
         {
             return Can;
         }
-        public void UpdatePlayer(Player Player)
+        public bool[] UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
-            CatchDiamond(Player);
+            Updates[0] = CatchDiamond(Player);
             Canvas.SetBottom(Player.Get(), Player.GetY());
-            Canvas.SetLeft(Player.Get(), Player.GetX());           
+            Canvas.SetLeft(Player.Get(), Player.GetX());
+            return Updates;
         }
         // ---------- PRIVATE ----------
         private void PlayerMovements(Player Player)
@@ -73,7 +75,7 @@ namespace ConceptMario
             }
             else { Player.CanLeft = true; }
         }
-        private void CatchDiamond(Player Player)
+        public bool CatchDiamond(Player Player)
         {
             Diamond diamond = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Diamond;
             if (diamond != null)
@@ -81,7 +83,9 @@ namespace ConceptMario
                 int index = Can.Children.IndexOf(diamond.Get());
                 Can.Children.RemoveAt(index);
                 Grid.Remove(Player.GetCenterX(), Player.GetCenterY());
+                return true;
             }
+            return false;
         }
         private void SetupBlock()
         {

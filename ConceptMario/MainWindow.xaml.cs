@@ -40,6 +40,7 @@ namespace ConceptMario
 		private Player Player2 = null;
 		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
+        private bool[] Updates;
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -59,11 +60,18 @@ namespace ConceptMario
 		//---------------------------------------------------
 		private async void Frame_Tick(object sender, EventArgs e)
 		{
-			
-			Map.UpdatePlayer(Player);
+
+            Updates = Map.UpdatePlayer(Player);
 			Player.Move();
-			//await loadPlayer();
-			//Map.UpdatePlayer(Player2);
+            if (Updates[0])
+            {
+                await updateDiamond();
+            }
+
+            /*await loadPlayer();
+            await RemoveDiamond();
+
+			Map.UpdatePlayer(Player2);*/
 			//throw new NotImplementedException();
 		}
 
@@ -91,13 +99,25 @@ namespace ConceptMario
 		}
 		async Task updatePlayer(Character chara)
 		{
-			await Server.UpdateCharacter(Session.GetSession().GetId(),chara);
+            await Server.UpdateCharacter(Session.GetSession().GetId(), chara);
 		}
-
-		//---------------------------------------------------
-		//          Players Controls
-		//---------------------------------------------------       
-		private void Window_KeyDown(object sender, KeyEventArgs e)//Pushed buttons
+        async Task updateDiamond()
+        {
+            await Server.UpdateDiamond(new DiamondModel() { id = 1, x = Player.GetCenterX(), y = Player.GetCenterY() });
+        }
+        async Task RemoveDiamond()
+        {
+            try
+            {
+                await Server.DeleteDiamond();
+                Map.CatchDiamond(Player2);
+            }
+            catch { }
+        }
+        //---------------------------------------------------
+        //          Players Controls
+        //---------------------------------------------------       
+        private void Window_KeyDown(object sender, KeyEventArgs e)//Pushed buttons
 		{
 			switch (e.Key)
 			{

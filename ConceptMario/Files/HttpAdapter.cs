@@ -61,5 +61,14 @@ namespace ConceptMario
 			var result = JsonConvert.DeserializeObject<User>(data);
 			return result;
 		}
+        public async Task UpdateDiamond(DiamondModel diamond)
+        {
+            HttpResponseMessage response = await client.PostAsync(page + "Diamonds/",
+            new StringContent(JsonConvert.SerializeObject(diamond), Encoding.UTF8, "application/json"));
+        }
+        public async Task DeleteDiamond()
+        {
+            HttpResponseMessage response = await client.DeleteAsync(page + "Diamonds/1");
+        }
 	}
 }
