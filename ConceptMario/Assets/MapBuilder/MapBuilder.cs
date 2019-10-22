@@ -51,6 +51,21 @@ namespace ConceptMario.Assets.MapBuilder
                 }
             }
         }
+        public void BuilDoors()
+        {
+            Step = 0;
+            for (int i = 0; i < Grid.Length; i++)
+            {
+                if (Grid[i] == '3')
+                {
+                    obj.AddBock(new Door(i % Width * Size, Step * Size, '3'));
+                }
+                if ((i + 1) % Width == 0 && i != 0)
+                {
+                    Step++;
+                }
+            }
+        }
         public List<Block> GetBlocks()
         {
             return obj.GetBlocks();

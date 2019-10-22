@@ -12,3 +12,17 @@ D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfo.cs
 D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
 D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.dll
 D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Server.deps.json
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Server.runtimeconfig.json
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Server.runtimeconfig.dev.json
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Server.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Server.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.csprojAssemblyReference.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.csproj.CoreCompileInputs.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cs
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfoInputs.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfo.cs
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.pdb
