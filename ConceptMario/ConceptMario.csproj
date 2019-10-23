@@ -62,9 +62,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Assets\MapBuilder\Objects\Door.cs" />
-    <Compile Include="Assets\ShapePrototype\Shape.cs" />
-    <Compile Include="Assets\ShapePrototype\ShapeStore.cs" />
-    <Compile Include="Assets\ShapePrototype\Shapes\SWall.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
