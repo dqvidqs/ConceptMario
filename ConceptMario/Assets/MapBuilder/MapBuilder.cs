@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConceptMario.Assets.MapBuilder;
+using ConceptMario.Assets.ShapeFactory;
 
 namespace ConceptMario.Assets.MapBuilder
 {
     //Builder
     class MapBuilder : IMapBuilder
     {
+        private ShapeFactory.ShapeFactory ShapeFactory = new ShapeFactory.ShapeFactory();
         private MapObjects obj;
         private string Grid;
         private int Step;
@@ -20,14 +22,14 @@ namespace ConceptMario.Assets.MapBuilder
             obj = new MapObjects();
             this.Grid = Grid;
         }
-        public void BuildDiamonds()
+        public void BuildWalls()
         {
             Step = 0;
             for (int i = 0; i < Grid.Length; i++)
             {
                 if (Grid[i] == '1')
                 {
-                    obj.AddBock(new Wall(i % Width * Size, Step * Size, '1'));
+                    obj.AddBock(new Wall(i % Width * Size, Step * Size, ShapeFactory.GetShape("wall").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -36,14 +38,14 @@ namespace ConceptMario.Assets.MapBuilder
             }
         }
 
-        public void BuildWalls()
+        public void BuildDiamonds()
         {
             Step = 0;
             for (int i = 0; i < Grid.Length; i++)
             {
                 if (Grid[i] == '2')
                 {
-                    obj.AddBock(new Diamond(i % Width * Size, Step * Size, '2'));
+                    obj.AddBock(new Diamond(i % Width * Size, Step * Size, ShapeFactory.GetShape("diamond").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -58,7 +60,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '3')
                 {
-                    obj.AddBock(new Door(i % Width * Size, Step * Size, '3'));
+                    obj.AddBock(new Door(i % Width * Size, Step * Size, ShapeFactory.GetShape("door").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {

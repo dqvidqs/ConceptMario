@@ -62,6 +62,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Assets\MapBuilder\Objects\Door.cs" />
+    <Compile Include="Assets\ShapeFactory\ShapeFactory.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\DiamondShape.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\DoorShape.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\IShapeObjects.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\WallShape.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -155,5 +160,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

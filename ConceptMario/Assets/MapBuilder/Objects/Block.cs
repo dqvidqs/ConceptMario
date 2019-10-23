@@ -14,16 +14,23 @@ namespace ConceptMario
         // |       |
         // |       |
         // XY --- XX
-        protected int[] XX = new int[2];
         protected int[] XY = new int[2];
         protected int[] YX = new int[2];
-        protected int[] YY = new int[2];
-        protected abstract void Draw();
-        protected char Indicator;
-        public abstract void Set(Polygon Type);
-        public abstract Polygon Get();
-        public abstract char GetIndicator();
-        public abstract int GetX();
-        public abstract int GetY();
+        protected int Size = MetaData.Size;
+        protected Polygon Terrain = new Polygon();
+        public Block(int X, int Y, Polygon Terrain)
+        {
+            XY[0] = X;
+            XY[1] = Y;
+            YX[0] = X + Size;
+            YX[1] = Y + Size;
+            this.Terrain = Terrain;
+        }
+        public Polygon Get()
+        {
+            return Terrain;
+        }
+        public int GetX() { return XY[0]; }
+        public int GetY() { return XY[1]; }
     }
 }
