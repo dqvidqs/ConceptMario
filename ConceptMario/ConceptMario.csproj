@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Assets\MapBuilder\Door.cs" />
+    <Compile Include="Assets\MapBuilder\Objects\Door.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -90,14 +90,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Assets\MapBuilder\Block.cs" />
+    <Compile Include="Assets\MapBuilder\Objects\Block.cs" />
     <Compile Include="Assets\Map.cs" />
-    <Compile Include="Assets\MapBuilder\Diamond.cs" />
+    <Compile Include="Assets\MapBuilder\Objects\Diamond.cs" />
     <Compile Include="Assets\MapBuilder\IMapBuilder.cs" />
     <Compile Include="Assets\MapBuilder\MapBuilder.cs" />
     <Compile Include="Assets\MapBuilder\MapDirector.cs" />
     <Compile Include="Assets\MapBuilder\MapObjects.cs" />
-    <Compile Include="Assets\MapBuilder\Wall.cs" />
+    <Compile Include="Assets\MapBuilder\Objects\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="Assets\MetaData.cs" />
     <Compile Include="Assets\Player.cs" />
