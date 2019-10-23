@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConceptMario
+﻿namespace ConceptMario
 {
     static class MetaData
     {
@@ -19,7 +13,6 @@ namespace ConceptMario
         public static int WidthPx { get { return _widthpx; } }
         public static int HeightPx { get { return _heightpx; } }
         public static int Size { get { return _size; } }
-        public static double FPS { get { return _fps; } }
-		
+        public static double FPS { get { return _fps; } }		
 	}
 }

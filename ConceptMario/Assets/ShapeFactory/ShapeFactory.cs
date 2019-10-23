@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConceptMario.Assets.ShapeFactory.Shapes;
+﻿using ConceptMario.Assets.ShapeFactory.Shapes;
 
 namespace ConceptMario.Assets.ShapeFactory
 {
@@ -20,6 +15,8 @@ namespace ConceptMario.Assets.ShapeFactory
                     return new DiamondShape();
                 case "door":
                     return new DoorShape();
+                case "player":
+                    return new PlayerShape();
                 default:
                     return null;
             }

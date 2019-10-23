@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Windows.Shapes;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Windows.Controls;
+using ConceptMario.Assets.MapBuilder.Objects;
 
-namespace ConceptMario
+namespace ConceptMario.Assets
 {
     class Map
     {

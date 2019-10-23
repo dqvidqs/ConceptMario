@@ -61,11 +61,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Assets\MapBuilder\Objects\Door.cs" />
+    <Compile Include="Assets\Builder\Objects\Door.cs" />
     <Compile Include="Assets\ShapeFactory\ShapeFactory.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DiamondShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DoorShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\IShapeObjects.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\WallShape.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
@@ -95,14 +96,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Assets\MapBuilder\Objects\Block.cs" />
+    <Compile Include="Assets\Builder\Objects\Block.cs" />
     <Compile Include="Assets\Map.cs" />
-    <Compile Include="Assets\MapBuilder\Objects\Diamond.cs" />
-    <Compile Include="Assets\MapBuilder\IMapBuilder.cs" />
-    <Compile Include="Assets\MapBuilder\MapBuilder.cs" />
-    <Compile Include="Assets\MapBuilder\MapDirector.cs" />
-    <Compile Include="Assets\MapBuilder\MapObjects.cs" />
-    <Compile Include="Assets\MapBuilder\Objects\Wall.cs" />
+    <Compile Include="Assets\Builder\Objects\Diamond.cs" />
+    <Compile Include="Assets\Builder\IMapBuilder.cs" />
+    <Compile Include="Assets\Builder\MapBuilder.cs" />
+    <Compile Include="Assets\Builder\MapDirector.cs" />
+    <Compile Include="Assets\Builder\MapObjects.cs" />
+    <Compile Include="Assets\Builder\Objects\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="Assets\MetaData.cs" />
     <Compile Include="Assets\Player.cs" />

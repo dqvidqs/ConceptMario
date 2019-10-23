@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ConceptMario.Assets.MapBuilder;
+using ConceptMario.Assets.MapBuilder.Objects;
 
-namespace ConceptMario
+namespace ConceptMario.Assets
 {
     class MapGrid
     {
@@ -19,12 +16,12 @@ namespace ConceptMario
 
         public MapGrid(int MapID)//CLIENT
         {
-            MapBuilder MapBuilder = null;
+            MapBuilder.MapBuilder MapBuilder = null;
             _grid = new object[Height, Width];
             switch (MapID)
             {
                 case 0:
-                    MapBuilder = new MapBuilder(_0GRID);
+                    MapBuilder = new MapBuilder.MapBuilder(_0GRID);
                     break;
             }
             MapDirector Director = new MapDirector(MapBuilder);

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
+﻿using System.Windows.Shapes;
 
-namespace ConceptMario
+namespace ConceptMario.Assets
 {
     class Player
     {
-        private Ellipse Object = null;
+        private Polygon Object = null;
         private int Size = MetaData.Size;
         private int X;
         private int Y;
@@ -26,11 +21,13 @@ namespace ConceptMario
 
         public Player(int X, int Y)
         {
-            Object = new Ellipse();
+            /*Object = new Ellipse();
             Object.Stroke = System.Windows.Media.Brushes.Black;
             Object.Fill = System.Windows.Media.Brushes.Red;
             Object.Height = Size;
-            Object.Width = Size;
+            Object.Width = Size;*/
+            ShapeFactory.ShapeFactory Factory = new ShapeFactory.ShapeFactory();
+            Object = Factory.GetShape("player").Get();
             this.X = X;
             this.Y = Y;
             CanRight = true;
@@ -41,7 +38,7 @@ namespace ConceptMario
 			this.X = x;
 			this.Y = y;
 		}
-        public Ellipse Get()
+        public Polygon Get()
         {
             return Object;
         }

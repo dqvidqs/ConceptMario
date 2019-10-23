@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
 using ConceptMario.Models;
-using ConceptMario;
+using ConceptMario.Assets;
 
 namespace ConceptMario
 {
