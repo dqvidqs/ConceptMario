@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConceptMario.Assets.MapBuilder;
+using ConceptMario.Assets.ShapePrototype;
 
 namespace ConceptMario.Assets.MapBuilder
 {
     //Builder
     class MapBuilder : IMapBuilder
     {
+        private ShapeStore Store = new ShapeStore();
         private MapObjects obj;
         private string Grid;
         private int Step;
@@ -19,6 +21,7 @@ namespace ConceptMario.Assets.MapBuilder
         {
             obj = new MapObjects();
             this.Grid = Grid;
+            Store.Load();
         }
         public void BuildDiamonds()
         {

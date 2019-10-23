@@ -20,6 +20,7 @@ namespace ConceptMario
         protected int[] YY = new int[2];
         protected abstract void Draw();
         protected char Indicator;
+        public abstract void Set(Polygon Type);
         public abstract Polygon Get();
         public abstract char GetIndicator();
         public abstract int GetX();

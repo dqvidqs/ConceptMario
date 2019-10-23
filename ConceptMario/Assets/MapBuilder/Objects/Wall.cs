@@ -35,6 +35,10 @@ namespace ConceptMario
             Terrain.Fill = Brushes.Red;
             Terrain.Points = new PointCollection() { new Point(0, 0), new Point(Size, 0), new Point(Size, Size), new Point(0, Size) };
         }
+        public override void Set(Polygon Type)
+        {
+            Terrain = Type;
+        }
         public override Polygon Get()
         {
             return Terrain;

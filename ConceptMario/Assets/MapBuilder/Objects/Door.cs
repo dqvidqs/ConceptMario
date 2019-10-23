@@ -30,6 +30,10 @@ namespace ConceptMario.Assets.MapBuilder
         {
             return Terrain;
         }
+        public override void Set(Polygon Type)
+        {
+            throw new NotImplementedException();
+        }
 
         public override char GetIndicator()
         {
