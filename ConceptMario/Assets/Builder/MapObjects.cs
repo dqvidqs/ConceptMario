@@ -14,5 +14,6 @@ namespace ConceptMario.Assets.MapBuilder
         {
             return Blocks;
         }
+        public int Count { get { return Blocks.Count; } }
     }
 }

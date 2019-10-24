@@ -2,8 +2,9 @@
 
 namespace ConceptMario.Assets.MapBuilder.Objects
 {
-    class Diamond : Block
+    public class Diamond : Block
     {
+        public Diamond() : base() { }
         public Diamond(int X, int Y, Polygon Terrain) : base(X, Y, Terrain) { }
         public bool CheckCenter(int X, int Y)
         {

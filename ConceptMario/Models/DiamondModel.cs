@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConceptMario.Models
 {
-    class DiamondModel
+    public class DiamondModel
     {
         public int id { get; set; }
         public int x { get; set; }

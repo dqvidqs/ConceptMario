@@ -4,7 +4,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 namespace ConceptMario.Assets.MapBuilder
 {
     //Builder
-    class MapBuilder : IMapBuilder
+    public class MapBuilder : IMapBuilder
     {
         private ShapeFactory.ShapeFactory ShapeFactory = new ShapeFactory.ShapeFactory();
         private MapObjects obj;

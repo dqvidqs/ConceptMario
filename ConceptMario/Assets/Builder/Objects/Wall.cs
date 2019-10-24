@@ -2,7 +2,7 @@
 
 namespace ConceptMario.Assets.MapBuilder.Objects
 {
-    class Wall : Block
+    public class Wall : Block
     {
         public Wall(int X, int Y, Polygon Terrain) : base(X, Y, Terrain) { }
         public bool CheckUp(int X, int Y)

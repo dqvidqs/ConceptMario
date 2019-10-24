@@ -4,7 +4,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 
 namespace ConceptMario.Assets
 {
-    class MapGrid
+    public class MapGrid
     {
         private object[,] _grid;
         private int Width = MetaData.Width;

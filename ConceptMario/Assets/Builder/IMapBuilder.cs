@@ -3,7 +3,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 
 namespace ConceptMario.Assets.MapBuilder
 {
-     interface IMapBuilder
+    interface IMapBuilder
     {
         void BuildWalls();
 

@@ -2,7 +2,7 @@
 
 namespace ConceptMario.Assets.ShapeFactory
 {
-    class ShapeFactory
+     class ShapeFactory
     {
         public ShapeFactory() { }
         public IShapeObjects GetShape(string Object)
