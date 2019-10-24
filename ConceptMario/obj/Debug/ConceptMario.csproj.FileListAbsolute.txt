@@ -70,7 +70,6 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\Newtonsoft.Json.d
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\System.Net.Http.Formatting.dll
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\Newtonsoft.Json.xml
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\System.Net.Http.Formatting.xml
-C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csprojAssemblyReference.cache
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\Login.baml
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\Register.baml
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\Login.g.cs

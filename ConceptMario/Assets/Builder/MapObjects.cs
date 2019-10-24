@@ -3,7 +3,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 
 namespace ConceptMario.Assets.MapBuilder
 {
-    class MapObjects
+    public class MapObjects
     {
         private List<Block> Blocks = new List<Block>();
         public void AddBock(Block block)

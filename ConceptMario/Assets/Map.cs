@@ -4,7 +4,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 
 namespace ConceptMario.Assets
 {
-    class Map
+    public class Map
     {
         private bool[] Updates = new bool[] { false };
         private Canvas Can = null;

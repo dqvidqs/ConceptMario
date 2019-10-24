@@ -2,7 +2,7 @@
 
 namespace ConceptMario.Assets
 {
-    class Player
+    public class Player
     {
         private Polygon Object = null;
         private int Size = MetaData.Size;
