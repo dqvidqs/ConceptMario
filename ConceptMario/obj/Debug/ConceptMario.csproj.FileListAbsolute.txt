@@ -90,3 +90,9 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.cspr
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csproj.CopyComplete
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.pdb
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.exe
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.ComponentModel.Annotations.dll
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\netstandard.dll
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.pdb
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.exe.config
+D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.ComponentModel.Annotations.xml

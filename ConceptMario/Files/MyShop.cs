@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConceptMario.Models;
-using ConceptMario.Strategy;
+using Objects.Models;
+using Objects.Strategy;
 
-namespace ConceptMario
+namespace ConceptMario.Files
 {
 	public class MyShop
 	{
