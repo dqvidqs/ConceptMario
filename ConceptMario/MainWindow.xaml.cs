@@ -36,24 +36,29 @@ namespace ConceptMario
 		//---------------------------------------------------
 		private Map Map = null;
 		private DispatcherTimer Frame = null;
+		private DispatcherTimer Frame2 = null;
 		private Player Player = null;
 		private Player Player2 = null;
 		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
         private bool[] Updates;
+        private bool send = true;
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			Frame = new DispatcherTimer();
+			Frame2 = new DispatcherTimer();
 			Frame.Interval = TimeSpan.FromSeconds(MetaData.FPS);
-			// Su tokiu intervalu labai gerai matos multiplayer game bet belekaip letai
-			//Frame.Interval = TimeSpan.FromSeconds(0.25);
+			Frame2.Interval = TimeSpan.FromSeconds(0.25);
 			Frame.Tick += Frame_Tick;
+			Frame2.Tick += Frame_Tick2;
 			Player = new Player(25, 25);
 			Player2 = new Player(25, 25);
-            Map = new Map(Player, Player2, 0);
+			oldOne.update(Player.GetX(), Player.GetY());
+			Map = new Map(Player, Player2, 0);
 			MainGrind.Children.Add(Map.Get());
 			Frame.Start();
+			Frame2.Start();
 		}
 		//---------------------------------------------------
 		//          Frames or Iterations
@@ -65,17 +70,38 @@ namespace ConceptMario
 			Player.Move();
             if (Updates[0])
             {
-                await updateDiamond();
+                await UpdateDiamond();
             }
 
-            /*await loadPlayer();
+            if (Math.Abs(Player.GetCenterX() - oldOne.GetCenterX()) > 5 ||
+                Math.Abs(Player.GetCenterY() - oldOne.GetCenterY()) > 5)
+            {
+	            send = true;
+            }
+
+			/*await loadPlayer();
             await RemoveDiamond();
 
 			Map.UpdatePlayer(Player2);*/
 			//throw new NotImplementedException();
 		}
 
-		async Task loadPlayer()
+		private async void Frame_Tick2(object sender, EventArgs e)
+		{
+			if (send)
+				await UpdatePlayer(new Character
+				{
+					id = Session.GetSession().GetId(),
+					x = Player.GetX(),
+					y = Player.GetY(),
+					fk_inventory = Session.GetSession().GetId(),
+					fk_user = Session.GetSession().GetId()
+				});
+			await LoadPlayer();
+			Map.UpdatePlayer(Player2);
+		}
+
+		async Task LoadPlayer()
 		{
 			int id = Session.GetSession().GetId();
 			if (id == 1)
@@ -97,11 +123,12 @@ namespace ConceptMario
 			}
 
 		}
-		async Task updatePlayer(Character chara)
+		async Task UpdatePlayer(Character chara)
 		{
-            await Server.UpdateCharacter(Session.GetSession().GetId(), chara);
+			send = false;
+			await Server.UpdateCharacter(Session.GetSession().GetId(), chara);
 		}
-        async Task updateDiamond()
+        async Task UpdateDiamond()
         {
             await Server.UpdateDiamond(new DiamondModel() { id = 1, x = Player.GetCenterX(), y = Player.GetCenterY() });
         }
