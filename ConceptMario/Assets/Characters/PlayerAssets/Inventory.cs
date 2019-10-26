@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Controls;
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
     class Inventory
@@ -29,15 +30,19 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
             if (Index == 0)
                 Index = Items.Count - 1;
         }
-        public void Behave(int X, int Y)
+        public void Shoot(int X, int Y, int Direction)
         {
-            Items[Index].Shoot(X, Y);
+            Items[Index].Shoot(X, Y, Direction);
         }
-        public void Update()
+        public void Reload()
         {
-            for(int i =0;i< Items.Count; i++)
+            Items[Index].Relaod();
+        }
+        public void Update(Canvas canvas)
+        {
+            for (int i = 0; i < Items.Count; i++)
             {
-                Items[i].Update();
+                Items[i].Update(canvas);
             }
         }
     }

@@ -148,7 +148,10 @@ namespace ConceptMario
                     break;
                 case (Key.Space):
                     Player.IsShooting = true;
-					break;
+                    break;
+                case (Key.R):
+                    Player.Reload();
+                    break;
 			}
 		}
 

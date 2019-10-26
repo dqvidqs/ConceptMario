@@ -35,7 +35,7 @@ namespace ConceptMario.Assets
         public bool[] UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
-            Player.Inventory();
+            Player.Inventory(Can);
             Updates[0] = CatchDiamond(Player);
             Canvas.SetBottom(Player.Get(), Player.GetY());
             Canvas.SetLeft(Player.Get(), Player.GetX());

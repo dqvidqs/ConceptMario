@@ -7,5 +7,6 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         public int X { get; set; }
         public int Y { get; set; }
         public Polygon bullet { get; set; }
+        public int Direction { get; set; }
     }
 }

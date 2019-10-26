@@ -1,4 +1,6 @@
 ﻿using System.Windows.Shapes;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 using ConceptMario.Assets.Characters.PlayerAssets;
 
@@ -13,8 +15,7 @@ namespace ConceptMario.Assets.Characters
         private int[] DinamicJump = { 30, 25, 20, 15, 10 };
         private int DinamicIterartion = 0;
         private int MoveSpeed = 5;
-        private bool DirectionRight = false;
-        private bool DirectionLeft = true;
+        private int Direction = 1;
         private Inventory Inv = new Inventory();
 
         public bool CanJump { set; get; }
@@ -48,9 +49,13 @@ namespace ConceptMario.Assets.Characters
         public int GetCenterX() { return X + Size / 2; }
         public int GetY() { return Y; }
         public int GetCenterY() { return Y + Size / 2; }
-        public void Inventory()
+        public void Inventory(Canvas canvas)
         {
-            Inv.Update();
+            Inv.Update(canvas);
+        }
+        public void Reload()
+        {
+            Inv.Reload();
         }
         public void Move()
         {
@@ -62,7 +67,7 @@ namespace ConceptMario.Assets.Characters
         }
         private void Shooting()
         {
-            Inv.Behave(X, Y);
+            Inv.Shoot(X, Y, Direction);
         }
         private void Gravity()
         {
@@ -76,8 +81,7 @@ namespace ConceptMario.Assets.Characters
             if (CanLeft)
             {
                 X -= MoveSpeed;
-                DirectionRight = false;
-                DirectionLeft = true;
+                Direction = -1;
             }
         }
         private void MoveRight()
@@ -85,8 +89,7 @@ namespace ConceptMario.Assets.Characters
             if (CanRight)
             {
                 X += MoveSpeed;
-                DirectionRight = false;
-                DirectionLeft = true;
+                Direction = 1;
             }
         }
         private void MoveUp()

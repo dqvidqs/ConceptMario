@@ -25,23 +25,38 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
             this.Ammo = Ammo;
             this.FireRate = FireRate;           
         }
-        public void Update()
+        public void Update(Canvas canvas)
         {
-            CurrectRate++;
-            for(int i = 0; i < Bullets.Count; i++)
+            if (CurrectRate != FireRate)
             {
-                Bullets[i].X += BulletSpeed;
+                CurrectRate++;
+            }
+            for (int i = 0; i < Bullets.Count; i++)
+            {
+                if (!canvas.Children.Contains(Bullets[i].bullet))
+                    canvas.Children.Add(Bullets[i].bullet);
                 Canvas.SetBottom(Bullets[i].bullet, Bullets[i].Y);
                 Canvas.SetLeft(Bullets[i].bullet, Bullets[i].X);
+                Bullets[i].X += BulletSpeed* Bullets[i].Direction;
+                if (Bullets[i].X > MetaData.WidthPx || Bullets[i].X < 0)
+                {
+                    canvas.Children.Remove(Bullets[i].bullet);
+                    Bullets.RemoveAt(i);
+                }
             }
         }
-        public void Shoot(int X, int Y)
+        public void Shoot(int X, int Y,int Direction)
         {
             if (CurrectAmmo > 0 && CurrectRate == FireRate)
             {
-                Bullets.Add(new Bullet { X = X, Y = Y, bullet = factory.GetShape("bullet").Get() });
+                CurrectRate = 0;
+                Bullets.Add(new Bullet { X = X, Y = Y, bullet = factory.GetShape("bullet").Get(),Direction=Direction });
                 CurrectAmmo--;
             }
+        }
+        public void Relaod()
+        {
+            CurrectAmmo = Ammo;
         }
     }
 }
