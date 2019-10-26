@@ -5,6 +5,7 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
     class Inventory
     {
         private List<Item> Items = new List<Item>();
+        private List<Bullet> Bullets = new List<Bullet>();
         private int Index = 0;
         public void AddItem(Item Item)
         {
@@ -32,17 +33,29 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         }
         public void Shoot(int X, int Y, int Direction)
         {
-            Items[Index].Shoot(X, Y, Direction);
+            Bullet bullet = Items[Index].Shoot(X, Y, Direction);
+            if (bullet != null)
+            {
+                Bullets.Add(bullet);
+            }
         }
         public void Reload()
         {
             Items[Index].Relaod();
         }
-        public void Update(Canvas canvas)
+        public void Update()
         {
-            for (int i = 0; i < Items.Count; i++)
+            Items[Index].Update();
+        }
+        public List<Bullet> GetBullets()
+        {
+            return Bullets;
+        }
+        public void Remove(Bullet bullet)
+        {
+            if (Bullets.Contains(bullet))
             {
-                Items[i].Update(canvas);
+                Bullets.Remove(bullet);
             }
         }
     }
