@@ -50,6 +50,7 @@ namespace ConceptMario.Assets.Characters
         public int GetCenterY() { return Y + Size / 2; }
         public void Inventory()
         {
+            Inv.Update();
         }
         public void Move()
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
@@ -30,6 +31,8 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
             for(int i = 0; i < Bullets.Count; i++)
             {
                 Bullets[i].X += BulletSpeed;
+                Canvas.SetBottom(Bullets[i].bullet, Bullets[i].Y);
+                Canvas.SetLeft(Bullets[i].bullet, Bullets[i].X);
             }
         }
         public void Shoot(int X, int Y)
