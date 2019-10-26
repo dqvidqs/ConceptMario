@@ -33,5 +33,12 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         {
             Items[Index].Shoot(X, Y);
         }
+        public void Update()
+        {
+            for(int i =0;i< Items.Count; i++)
+            {
+                Items[i].Update();
+            }
+        }
     }
 }
