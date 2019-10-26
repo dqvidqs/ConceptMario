@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ConceptMario.Assets.MapBuilder;
 using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Characters;
 
 namespace ConceptMario.Assets
 {
@@ -48,12 +49,17 @@ namespace ConceptMario.Assets
         {
             foreach (Block block in Blocks)
             {
-                _grid[block.GetY() / Size, block.GetX() / Size] = block ;
+                _grid[block.GetYGrid(), block.GetXGrid()] = block ;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X">GRID</param>
+        /// <param name="Y">GRID</param>
         public void Remove(int X, int Y)
         {
-            _grid[Y / Size, X / Size] = null;
+            _grid[Y, X] = null;
         }
         //MAPAS GENERUOJAMAS PAGAL STRING
         //ATVIRKSCIAS

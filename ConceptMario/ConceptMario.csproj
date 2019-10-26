@@ -77,7 +77,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Assets\Builder\Objects\Door.cs" />
+    <Compile Include="Assets\Characters\PlayerAssets\Bullet.cs" />
+    <Compile Include="Assets\Characters\PlayerAssets\Pistol.cs" />
+    <Compile Include="Assets\Characters\PlayerAssets\Inventory.cs" />
+    <Compile Include="Assets\Characters\PlayerAssets\Item.cs" />
     <Compile Include="Assets\ShapeFactory\ShapeFactory.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\BulletShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DiamondShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DoorShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\IShapeObjects.cs" />
@@ -116,7 +121,7 @@
     <Compile Include="Assets\Builder\Objects\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="Assets\MetaData.cs" />
-    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\Characters\Player.cs" />
     <Compile Include="Files\HttpAdapter.cs" />
     <Compile Include="Files\Session.cs" />
     <Compile Include="Login.xaml.cs">

@@ -4,22 +4,17 @@
 winexe
 C#
 .cs
-D:\GitHub\ConceptMario\ConceptMario\obj\Debug\
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\
 ConceptMario
 none
 false
 DEBUG;TRACE
-D:\GitHub\ConceptMario\ConceptMario\App.xaml
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\App.xaml
 51414076924
 
-<<<<<<< HEAD
-35-1452351601
+36155711584
 161331766601
-=======
-311365688589
-16735875432
->>>>>>> 58c7e0528464559a8ca1bde38656454bfb1718f3
 Login.xaml;MainWindow.xaml;Menu.xaml;Register.xaml;Shop.xaml;
 
-True
+False
 

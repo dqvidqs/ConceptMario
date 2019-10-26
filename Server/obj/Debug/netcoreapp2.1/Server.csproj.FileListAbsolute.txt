@@ -30,3 +30,7 @@ D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.csproj.CopyComplete
 D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe
 D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.pdb
 D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe.config
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe.config
+C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.csproj.CopyComplete

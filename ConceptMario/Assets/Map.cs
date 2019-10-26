@@ -1,6 +1,7 @@
 ﻿using System.Windows.Media;
 using System.Windows.Controls;
 using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Characters;
 
 namespace ConceptMario.Assets
 {
@@ -34,6 +35,7 @@ namespace ConceptMario.Assets
         public bool[] UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
+            Player.Inventory();
             Updates[0] = CatchDiamond(Player);
             Canvas.SetBottom(Player.Get(), Player.GetY());
             Canvas.SetLeft(Player.Get(), Player.GetX());
@@ -76,7 +78,7 @@ namespace ConceptMario.Assets
             {
                 int index = Can.Children.IndexOf(diamond.Get());
                 Can.Children.RemoveAt(index);
-                Grid.Remove(Player.GetCenterX(), Player.GetCenterY());
+                Grid.Remove(Player.GetCenterX() / Size, Player.GetCenterY() / Size);
                 return true;
             }
             return false;

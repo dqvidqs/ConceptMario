@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using ConceptMario.Models;
 using ConceptMario.Assets;
 using Objects.Models;
+using ConceptMario.Assets.Characters;
 
 namespace ConceptMario
 {
@@ -55,7 +56,7 @@ namespace ConceptMario
 			Frame2.Tick += Frame_Tick2;
 			Player = new Player(25, 25);
 			Player2 = new Player(25, 25);
-			oldOne.update(Player.GetX(), Player.GetY());
+			oldOne.Update(Player.GetX(), Player.GetY());
 			Map = new Map(Player, Player2, 0);
 			MainGrind.Children.Add(Map.Get());
 			Frame.Start();
@@ -69,10 +70,10 @@ namespace ConceptMario
 
             Updates = Map.UpdatePlayer(Player);
 			Player.Move();
-            if (Updates[0])
+            /*if (Updates[0])
             {
                 await UpdateDiamond();
-            }
+            }*/
 
             if (Math.Abs(Player.GetCenterX() - oldOne.GetCenterX()) > 5 ||
                 Math.Abs(Player.GetCenterY() - oldOne.GetCenterY()) > 5)
@@ -110,7 +111,7 @@ namespace ConceptMario
 				var result = await Server.GetTeammate(2);
 				if (result != null)
 				{
-					Player2.update(result.x, result.y);
+					Player2.Update(result.x, result.y);
 				}
 			}
 			else
@@ -118,7 +119,7 @@ namespace ConceptMario
 				var result = await Server.GetTeammate(1);
 				if (result != null)
 				{
-					Player2.update(result.x, result.y);
+					Player2.Update(result.x, result.y);
 				}
 
 			}
@@ -129,19 +130,6 @@ namespace ConceptMario
 			send = false;
 			await Server.UpdateCharacter(Session.GetSession().GetId(), chara);
 		}
-        async Task UpdateDiamond()
-        {
-            await Server.UpdateDiamond(new DiamondModel() { id = 1, x = Player.GetCenterX(), y = Player.GetCenterY() });
-        }
-        async Task RemoveDiamond()
-        {
-            try
-            {
-                await Server.DeleteDiamond();
-                Map.CatchDiamond(Player2);
-            }
-            catch { }
-        }
         //---------------------------------------------------
         //          Players Controls
         //---------------------------------------------------       
@@ -157,6 +145,9 @@ namespace ConceptMario
 					break;
 				case (Key.Up):
 					Player.IsJump = true;
+                    break;
+                case (Key.Space):
+                    Player.IsShooting = true;
 					break;
 			}
 		}
@@ -174,7 +165,10 @@ namespace ConceptMario
 				case (Key.Up):
 					Player.IsJump = false;
 					break;
-			}
+                case (Key.Space):
+                    Player.IsShooting = false;
+                    break;
+            }
 		}
 
 	}

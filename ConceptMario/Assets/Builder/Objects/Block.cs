@@ -27,5 +27,7 @@ namespace ConceptMario.Assets.MapBuilder.Objects
         }
         public int GetX() { return XY[0]; }
         public int GetY() { return XY[1]; }
+        public int GetXGrid() { return XY[0] / Size; }
+        public int GetYGrid() { return XY[1] / Size; }
     }
 }

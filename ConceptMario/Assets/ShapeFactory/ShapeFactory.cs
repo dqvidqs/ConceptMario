@@ -17,6 +17,8 @@ namespace ConceptMario.Assets.ShapeFactory
                     return new DoorShape();
                 case "player":
                     return new PlayerShape();
+                case "bullet":
+                    return new BulletShape();
                 default:
                     return null;
             }
