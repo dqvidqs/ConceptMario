@@ -91,12 +91,18 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.cspr
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.pdb
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csprojAssemblyReference.cache
 =======
+=======
+>>>>>>> 58c7e0528464559a8ca1bde38656454bfb1718f3
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.exe
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.ComponentModel.Annotations.dll
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\netstandard.dll
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.pdb
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\Objects.exe.config
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\System.ComponentModel.Annotations.xml
+<<<<<<< HEAD
+>>>>>>> 58c7e0528464559a8ca1bde38656454bfb1718f3
+=======
 >>>>>>> 58c7e0528464559a8ca1bde38656454bfb1718f3
