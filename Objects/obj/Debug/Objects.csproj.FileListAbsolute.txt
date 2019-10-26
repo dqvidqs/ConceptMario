@@ -215,3 +215,4 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CoreCom
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CopyComplete
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.pdb
+D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.csprojAssemblyReference.cache
