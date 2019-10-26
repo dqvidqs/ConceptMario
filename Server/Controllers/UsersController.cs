@@ -28,8 +28,15 @@ namespace Server.Controllers
 			return _context.Users;
         }
 
-        // GET: api/Users/5
-        [HttpPut]
+        // GET: api/Users/Logged
+        [HttpGet("logged")]
+        public int GetLoggedUsers()
+        {
+	        return _context.Users.Where(x=>x.status==true).Count();
+        }
+
+		// GET: api/Users/5
+		[HttpPut]
         public async Task<IActionResult> GetUser([FromBody] User usr)
         {
             if (!ModelState.IsValid)
@@ -44,11 +51,38 @@ namespace Server.Controllers
                 return NotFound();
             }
 
-            return Ok(user);
+            user.status = true;
+            _context.Entry(user).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+			return Ok(user);
         }
 
-        // PUT: api/Users/5
-        [HttpPut("{id}")]
+        // GET: api/Users/logout/5
+        [HttpGet("logout/{id}")]
+        public async Task<IActionResult> Logout([FromRoute] int id)
+        {
+	        if (!ModelState.IsValid)
+	        {
+		        return BadRequest(ModelState);
+	        }
+
+	        var user = await _context.Users.FindAsync(id);
+
+	        if (user == null)
+	        {
+		        return NotFound();
+	        }
+
+	        user.status = false;
+	        _context.Entry(user).State = EntityState.Modified;
+	        await _context.SaveChangesAsync();
+
+	        return NoContent();
+        }
+
+		// PUT: api/Users/5
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
         {
             if (!ModelState.IsValid)

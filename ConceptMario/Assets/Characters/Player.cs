@@ -28,7 +28,7 @@ namespace ConceptMario.Assets.Characters
 
         public Player(int X, int Y)
         {
-            ShapeFactory.ShapeFactory Factory = new ShapeFactory.ShapeFactory();
+            ShapeFactory.Factory Factory = new ShapeFactory.Factory();
             Object = Factory.GetShape("player").Get();
             this.X = X;
             this.Y = Y;
@@ -41,6 +41,20 @@ namespace ConceptMario.Assets.Characters
 			this.X = X;
 			this.Y = Y;
 		}
+        public void Update(Canvas can)
+        {
+            Canvas.SetBottom(Object,Y);
+            Canvas.SetLeft(Object, X);
+            Inv.Update();
+        }
+        public List<Bullet> GetBullets()
+        {
+            return Inv.GetBullets();
+        }
+        public void RemoveBullet(Bullet bullet)
+        {
+            Inv.Remove(bullet);
+        }
         public Polygon Get()
         {
             return Object;
@@ -49,10 +63,6 @@ namespace ConceptMario.Assets.Characters
         public int GetCenterX() { return X + Size / 2; }
         public int GetY() { return Y; }
         public int GetCenterY() { return Y + Size / 2; }
-        public void Inventory(Canvas canvas)
-        {
-            Inv.Update(canvas);
-        }
         public void Reload()
         {
             Inv.Reload();

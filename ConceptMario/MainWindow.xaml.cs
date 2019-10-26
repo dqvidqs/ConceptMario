@@ -33,6 +33,18 @@ namespace ConceptMario
 			InitializeComponent();
 		}
 
+		public MainWindow(Room room)
+		{
+			InitializeComponent();
+			Room = room;
+			if (room.fk_firstPlayer != Session.GetSession().GetId())
+			{
+				SecondPlayerId = room.fk_firstPlayer;
+			}
+
+			SecondPlayerId = room.fk_secondPlayer ?? default(int);
+		}
+
 		//---------------------------------------------------
 		//          Creating new objects
 		//---------------------------------------------------
@@ -43,8 +55,11 @@ namespace ConceptMario
 		private Player Player2 = null;
 		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
-        private bool[] Updates;
-        private bool send = true;
+		private bool[] Updates;
+		private bool send = true;
+		private Room Room;
+		private int SecondPlayerId;
+		private readonly int id = Session.GetSession().GetId();
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -62,27 +77,28 @@ namespace ConceptMario
 			Frame.Start();
 			Frame2.Start();
 		}
+
 		//---------------------------------------------------
 		//          Frames or Iterations
 		//---------------------------------------------------
-		private async void Frame_Tick(object sender, EventArgs e)
+		private void Frame_Tick(object sender, EventArgs e)
 		{
 
-            Updates = Map.UpdatePlayer(Player);
+			Updates = Map.UpdatePlayer(Player);
 			Player.Move();
-            /*if (Updates[0])
-            {
-                await UpdateDiamond();
-            }*/
+			/*if (Updates[0])
+			{
+				await UpdateDiamond();
+			}*/
 
-            if (Math.Abs(Player.GetCenterX() - oldOne.GetCenterX()) > 5 ||
-                Math.Abs(Player.GetCenterY() - oldOne.GetCenterY()) > 5)
-            {
-	            send = true;
-            }
+			if (Math.Abs(Player.GetCenterX() - oldOne.GetCenterX()) > 5 ||
+				Math.Abs(Player.GetCenterY() - oldOne.GetCenterY()) > 5)
+			{
+				send = true;
+			}
 
 			/*await loadPlayer();
-            await RemoveDiamond();
+			await RemoveDiamond();
 
 			Map.UpdatePlayer(Player2);*/
 			//throw new NotImplementedException();
@@ -105,6 +121,10 @@ namespace ConceptMario
 
 		async Task LoadPlayer()
 		{
+			/*var result = await Server.GetTeammate(SecondPlayerId);
+			Player2.Update(result.x, result.y);*/
+
+
 			int id = Session.GetSession().GetId();
 			if (id == 1)
 			{
@@ -125,15 +145,17 @@ namespace ConceptMario
 			}
 
 		}
+
 		async Task UpdatePlayer(Character chara)
 		{
 			send = false;
-			await Server.UpdateCharacter(Session.GetSession().GetId(), chara);
+			await Server.UpdateCharacter(id, chara);
 		}
-        //---------------------------------------------------
-        //          Players Controls
-        //---------------------------------------------------       
-        private void Window_KeyDown(object sender, KeyEventArgs e)//Pushed buttons
+
+		//---------------------------------------------------
+		//          Players Controls
+		//---------------------------------------------------       
+		private void Window_KeyDown(object sender, KeyEventArgs e) //Pushed buttons
 		{
 			switch (e.Key)
 			{
@@ -145,17 +167,17 @@ namespace ConceptMario
 					break;
 				case (Key.Up):
 					Player.IsJump = true;
-                    break;
-                case (Key.Space):
-                    Player.IsShooting = true;
-                    break;
-                case (Key.R):
-                    Player.Reload();
-                    break;
+					break;
+				case (Key.Space):
+					Player.IsShooting = true;
+					break;
+				case (Key.R):
+					Player.Reload();
+					break;
 			}
 		}
 
-		private void Window_KeyUp(object sender, KeyEventArgs e)//Released buttons
+		private void Window_KeyUp(object sender, KeyEventArgs e) //Released buttons
 		{
 			switch (e.Key)
 			{
@@ -168,10 +190,10 @@ namespace ConceptMario
 				case (Key.Up):
 					Player.IsJump = false;
 					break;
-                case (Key.Space):
-                    Player.IsShooting = false;
-                    break;
-            }
+				case (Key.Space):
+					Player.IsShooting = false;
+					break;
+			}
 		}
 
 	}

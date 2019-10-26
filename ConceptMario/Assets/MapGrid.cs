@@ -27,7 +27,7 @@ namespace ConceptMario.Assets
             }
             MapDirector Director = new MapDirector(MapBuilder);
             Director.Construct();
-            BuildMap(Director.GetBlocks());
+            BuildGrid(Director.GetBlocks());
             Director = null;
             MapBuilder = null;
         }
@@ -45,7 +45,7 @@ namespace ConceptMario.Assets
             Blocks[3] = _grid[Player.GetY() / Size, Player.GetX() / Size - 1] as Wall;//LEFT
             return Blocks;
         }
-        public void BuildMap(List<Block> Blocks)
+        public void BuildGrid(List<Block> Blocks)
         {
             foreach (Block block in Blocks)
             {
@@ -66,12 +66,14 @@ namespace ConceptMario.Assets
         //JEI VIRSUS TAI BUS APACIA
         //1 = Wall
         //2 = Diamond
+        //3 = Door
+        //4 = Box
         private string _0GRID = "" +
             "111111111111111111111111111111111111" +
-            "100002100000000000000000000000000001" +
-            "100001100000000000000000000000000001" +
-            "100003100000000000000000000000000001" +
-            "100000000000000000000000000000000001" +
+            "100002100000000000444000000004000001" +
+            "100001100000000000044000000000000001" +
+            "100003100000000000004000000000000001" +
+            "100000000000000000004000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +

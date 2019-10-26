@@ -51,6 +51,11 @@ namespace ConceptMario
 			return result;
 		}
 
+		public async Task Logout(int userId)
+		{
+			HttpResponseMessage response = await client.GetAsync(page + "users/logout/" + userId.ToString());
+		}
+
 		public async Task<User> Register(string username, string password)
 		{
 			User user = new User();
@@ -60,6 +65,45 @@ namespace ConceptMario
 				new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json"));
 			string data = await response.Content.ReadAsStringAsync();
 			var result = JsonConvert.DeserializeObject<User>(data);
+			return result;
+		}
+
+		public async Task<Inventory> GetInventory(int userId)
+		{
+			HttpResponseMessage response = await client.GetAsync(page + "inventories/"+userId.ToString());
+			string data = await response.Content.ReadAsStringAsync();
+			var result = JsonConvert.DeserializeObject<Inventory>(data);
+			return result;
+		}
+
+		public async Task<string> GetLoggedUsers()
+		{
+			HttpResponseMessage response = await client.GetAsync(page + "users/logged");
+			var result = await response.Content.ReadAsStringAsync();
+
+			return result;
+		}
+
+		public async Task<Room> StartMatchmaking(int userId)
+		{
+			HttpResponseMessage response = await client.PostAsync(page + "rooms",
+				new StringContent(JsonConvert.SerializeObject(new MyClass {id = userId}), Encoding.UTF8,"application/json"));
+			string data = await response.Content.ReadAsStringAsync();
+			var result = JsonConvert.DeserializeObject<Room>(data);
+			return result;
+		}
+
+		public async Task StopMatchmaking(int roomId)
+		{
+			HttpResponseMessage response =await client.DeleteAsync(page + "rooms/" + roomId.ToString());
+			string data = await response.Content.ReadAsStringAsync();
+		}
+
+		public async Task<Room> GetRoom(int userId)
+		{
+			HttpResponseMessage response = await client.GetAsync(page + "rooms/" + userId.ToString());
+			string data = await response.Content.ReadAsStringAsync();
+			var result = JsonConvert.DeserializeObject<Room>(data);
 			return result;
 		}
 	}

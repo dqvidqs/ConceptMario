@@ -23,7 +23,7 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<Room> GetRooms()
         {
-            return _context.Rooms;
+	        return _context.Rooms;
         }
 
         // GET: api/Rooms/5
@@ -34,7 +34,6 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var room = await _context.Rooms.FindAsync(id);
 
             if (room == null)
@@ -82,18 +81,34 @@ namespace Server.Controllers
 
         // POST: api/Rooms
         [HttpPost]
-        public async Task<IActionResult> PostRoom([FromBody] Room room)
+        public async Task<IActionResult> PostRoom([FromBody] MyClass my)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-			room.id = _context.Rooms.Count();
 
-			_context.Rooms.Add(room);
-            await _context.SaveChangesAsync();
+            Room room = null;
 
-			return NoContent();
+			room = await _context.Rooms.FirstOrDefaultAsync(x => x.fk_secondPlayer == null);
+			if (room == null)
+			{
+				room = new Room();
+				room.fk_firstPlayer = my.id;
+				_context.Rooms.Add(room);
+				await _context.SaveChangesAsync();
+				return Ok(room);
+			}
+
+			if (room.fk_firstPlayer != my.id)
+			{
+				room.fk_secondPlayer = my.id;
+				_context.Entry(room).State = EntityState.Modified;
+				await _context.SaveChangesAsync();
+				return Ok(room);
+			}
+
+			return Ok(room);
 		}
 
         // DELETE: api/Rooms/5

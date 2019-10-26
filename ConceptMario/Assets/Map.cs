@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using ConceptMario.Assets.MapBuilder.Objects;
 using ConceptMario.Assets.Characters;
+using ConceptMario.Assets.Characters.PlayerAssets;
+using System.Collections.Generic;
 
 namespace ConceptMario.Assets
 {
@@ -11,6 +13,7 @@ namespace ConceptMario.Assets
         private Canvas Can = null;
         // private Block[] Blocks = null;
         private MapGrid Grid = null;
+        private List<Bullet> Bullets = new List<Bullet>();
         private int  Size = MetaData.Size;
         public Map(Player player1, Player player2, int MapId)
         {
@@ -35,13 +38,36 @@ namespace ConceptMario.Assets
         public bool[] UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
-            Player.Inventory(Can);
+            Player.Update(Can);
+            UpdateBullets(Player);
             Updates[0] = CatchDiamond(Player);
-            Canvas.SetBottom(Player.Get(), Player.GetY());
-            Canvas.SetLeft(Player.Get(), Player.GetX());
             return Updates;
         }
         // ---------- PRIVATE ----------
+        private void UpdateBullets(Player Player)
+        {
+            Bullets = Player.GetBullets();
+            for (int i = 0; i < Bullets.Count; i++)
+            {
+                if (!Can.Children.Contains(Bullets[i].bullet))
+                    Can.Children.Add(Bullets[i].bullet);
+                Canvas.SetBottom(Bullets[i].bullet, Bullets[i].Y);
+                Canvas.SetLeft(Bullets[i].bullet, Bullets[i].X);
+                Bullets[i].X += Bullets[i].BulletSpeed * Bullets[i].Direction;
+                Wall block = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Wall;
+                if (block != null)
+                {
+                    Can.Children.Remove(Bullets[i].bullet);
+                    Bullets.RemoveAt(i);
+                    Box box = block as Box;
+                    if(box != null)
+                    {
+                        Can.Children.Remove(box.Get());
+                        Grid.Remove(box.GetXGrid(), box.GetYGrid());
+                    }
+                }
+            }
+        }
         private void PlayerMovements(Player Player)
         {
             //4 nes, UP, RIGHT,DOWN, LEFT
@@ -76,8 +102,8 @@ namespace ConceptMario.Assets
             Diamond diamond = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Diamond;
             if (diamond != null)
             {
-                int index = Can.Children.IndexOf(diamond.Get());
-                Can.Children.RemoveAt(index);
+                //int index = Can.Children.IndexOf(diamond.Get());
+                Can.Children.RemoveAt(Can.Children.IndexOf(diamond.Get()));
                 Grid.Remove(Player.GetCenterX() / Size, Player.GetCenterY() / Size);
                 return true;
             }

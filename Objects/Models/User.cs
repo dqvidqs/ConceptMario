@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace Objects.Models
 {
 	public class User
@@ -7,6 +8,6 @@ namespace Objects.Models
 		public string username { get; set; }
 		public string password { get; set; }
 		public int gold { get; set; }
-		public byte status { get; set; }
+		public bool status { get; set; }
 	}
 }

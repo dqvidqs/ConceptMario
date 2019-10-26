@@ -23,45 +23,45 @@ namespace Server.Controllers
 
         // GET: api/InventoryGuns
         [HttpGet]
-        public IEnumerable<Inventory_gun> GetInventory_guns()
+        public IEnumerable<InventoryGun> GetInventoryGuns()
         {
-            return _context.Inventory_Guns;
+            return _context.InventoryGuns.Include(g=>g.Gun);
         }
 
         // GET: api/InventoryGuns/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetInventory_gun([FromRoute] int id)
+        public async Task<IActionResult> GetInventoryGun([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var inventory_gun = await _context.Inventory_Guns.FindAsync(id);
+            var inventoryGun = await _context.InventoryGuns.FindAsync(id);
 
-            if (inventory_gun == null)
+            if (inventoryGun == null)
             {
                 return NotFound();
             }
 
-            return Ok(inventory_gun);
+            return Ok(inventoryGun);
         }
 
         // PUT: api/InventoryGuns/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutInventory_gun([FromRoute] int id, [FromBody] Inventory_gun inventory_gun)
+        public async Task<IActionResult> PutInventoryGun([FromRoute] int id, [FromBody] InventoryGun inventoryGun)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != inventory_gun.id)
+            if (id != inventoryGun.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(inventory_gun).State = EntityState.Modified;
+            _context.Entry(inventoryGun).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +69,7 @@ namespace Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Inventory_gunExists(id))
+                if (!InventoryGunExists(id))
                 {
                     return NotFound();
                 }
@@ -84,43 +84,43 @@ namespace Server.Controllers
 
         // POST: api/InventoryGuns
         [HttpPost]
-        public async Task<IActionResult> PostInventory_gun([FromBody] Inventory_gun inventory_gun)
+        public async Task<IActionResult> PostInventoryGun([FromBody] InventoryGun inventoryGun)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Inventory_Guns.Add(inventory_gun);
+            _context.InventoryGuns.Add(inventoryGun);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInventory_gun", new { id = inventory_gun.id }, inventory_gun);
-        }
+			return NoContent();
+		}
 
         // DELETE: api/InventoryGuns/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInventory_gun([FromRoute] int id)
+        public async Task<IActionResult> DeleteInventoryGun([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var inventory_gun = await _context.Inventory_Guns.FindAsync(id);
-            if (inventory_gun == null)
+            var inventoryGun = await _context.InventoryGuns.FindAsync(id);
+            if (inventoryGun == null)
             {
                 return NotFound();
             }
 
-            _context.Inventory_Guns.Remove(inventory_gun);
+            _context.InventoryGuns.Remove(inventoryGun);
             await _context.SaveChangesAsync();
 
-            return Ok(inventory_gun);
+            return Ok(inventoryGun);
         }
 
-        private bool Inventory_gunExists(int id)
+        private bool InventoryGunExists(int id)
         {
-            return _context.Inventory_Guns.Any(e => e.id == id);
+            return _context.InventoryGuns.Any(e => e.id == id);
         }
     }
 }

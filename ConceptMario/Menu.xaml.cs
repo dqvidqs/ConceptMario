@@ -26,8 +26,10 @@ namespace ConceptMario
 
 		private void btnPlay_Click_1(object sender, RoutedEventArgs e)
 		{
-			MainWindow mainWindow = new MainWindow();
-			mainWindow.Show();
+			MainWindow main = new MainWindow();
+			main.Show();
+			/*Waiting waiting = new Waiting();
+			waiting.Show();*/
 			this.Close();
 		}
 

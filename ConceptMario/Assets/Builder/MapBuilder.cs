@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.ShapeFactory;
 
 namespace ConceptMario.Assets.MapBuilder
 {
     //Builder
     public class MapBuilder : IMapBuilder
     {
-        private ShapeFactory.ShapeFactory ShapeFactory = new ShapeFactory.ShapeFactory();
+        private Factory ShapeFactory = new Factory();
         private MapObjects obj;
         private string Grid;
         private int Step;
@@ -56,6 +57,21 @@ namespace ConceptMario.Assets.MapBuilder
                 if (Grid[i] == '3')
                 {
                     obj.AddBock(new Door(i % Width * Size, Step * Size, ShapeFactory.GetShape("door").Get()));
+                }
+                if ((i + 1) % Width == 0 && i != 0)
+                {
+                    Step++;
+                }
+            }
+        }
+        public void BuilBoxes()
+        {
+            Step = 0;
+            for (int i = 0; i < Grid.Length; i++)
+            {
+                if (Grid[i] == '4')
+                {
+                    obj.AddBock(new Box(i % Width * Size, Step * Size, ShapeFactory.GetShape("box").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {

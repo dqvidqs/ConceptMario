@@ -11,6 +11,8 @@ namespace ConceptMario.Assets.MapBuilder
 
         void BuilDoors();
 
+        void BuilBoxes();
+
         List<Block> GetBlocks();
     }
 }
