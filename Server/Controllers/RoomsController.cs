@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Server.Models;
+using Objects.Models;
+using Server.Database;
 
 namespace Server.Controllers
 {
@@ -94,8 +93,8 @@ namespace Server.Controllers
 			_context.Rooms.Add(room);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRoom", new { id = room.id }, room);
-        }
+			return NoContent();
+		}
 
         // DELETE: api/Rooms/5
         [HttpDelete("{id}")]

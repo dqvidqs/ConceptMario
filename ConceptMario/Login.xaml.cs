@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ConceptMario.Models;
 using ConceptMario;
+using ConceptMario.Files;
 using Newtonsoft.Json;
 
 namespace ConceptMario
@@ -54,7 +55,7 @@ namespace ConceptMario
 			this.Close();
 		}
 
-		async void LoginPlayer(string username, string password)
+		private async void LoginPlayer(string username, string password)
 		{
 			var result = await Server.Login(username, password);
 			if (result != null)

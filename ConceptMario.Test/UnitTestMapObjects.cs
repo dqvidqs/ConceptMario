@@ -25,7 +25,7 @@ namespace ConceptMario.Test
             list.Add(example);
             MapObjects Objects = new MapObjects();
             Objects.AddBock(example);
-            Assert.AreSame(list[0], Objects.GetBlocks()[0]);
+            Assert.AreEqual(list[0], Objects.GetBlocks()[0]);
         }
         [TestMethod]
         public void BlockCount()

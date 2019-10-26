@@ -26,3 +26,7 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.As
 C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
 C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.dll
 C:\MyFiles\MainData\07\OPP\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.pdb
+D:\GitHub\ConceptMario\Server\obj\Debug\netcoreapp2.1\Server.csproj.CopyComplete
+D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe
+D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.pdb
+D:\GitHub\ConceptMario\Server\bin\Debug\netcoreapp2.1\Objects.exe.config
