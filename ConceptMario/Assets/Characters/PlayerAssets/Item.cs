@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.Windows.Controls;
+using ConceptMario.Assets.ShapeFactory;
 
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
@@ -14,7 +15,7 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         protected int CurrectRate;
         protected int Ammo;
         protected int CurrectAmmo;
-        ShapeFactory.Factory factory = new ShapeFactory.Factory();
+        Factory factory = new Factory();
         public Item(int FireRate, int Ammo)
         {
             CurrectAmmo = Ammo;
