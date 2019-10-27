@@ -49,7 +49,7 @@ namespace ConceptMario.Assets.MapBuilder
                 }
             }
         }
-        public void BuilDoors()
+        public void BuildDoors()
         {
             Step = 0;
             for (int i = 0; i < Grid.Length; i++)
@@ -64,7 +64,7 @@ namespace ConceptMario.Assets.MapBuilder
                 }
             }
         }
-        public void BuilBoxes()
+        public void BuildBoxes()
         {
             Step = 0;
             for (int i = 0; i < Grid.Length; i++)
@@ -72,6 +72,21 @@ namespace ConceptMario.Assets.MapBuilder
                 if (Grid[i] == '4')
                 {
                     obj.AddBock(new Box(i % Width * Size, Step * Size, ShapeFactory.GetShape("box").Get()));
+                }
+                if ((i + 1) % Width == 0 && i != 0)
+                {
+                    Step++;
+                }
+            }
+        }
+        public void BuildEnemies()
+        {
+            Step = 0;
+            for (int i = 0; i < Grid.Length; i++)
+            {
+                if (Grid[i] == '5')
+                {
+                    obj.AddBock(new Enemy(i % Width * Size, Step * Size, ShapeFactory.GetShape("enemy").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {

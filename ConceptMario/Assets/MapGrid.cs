@@ -35,6 +35,10 @@ namespace ConceptMario.Assets
         {
             return _grid[Y, X];
         }
+        public void SetBlock(int X, int Y,object Block)
+        {
+            _grid[Y, X] = Block;
+        }
         public Wall[] FindNearByPlayer(Player Player)
         {
             int Sides = 4;
@@ -64,13 +68,15 @@ namespace ConceptMario.Assets
         //MAPAS GENERUOJAMAS PAGAL STRING
         //ATVIRKSCIAS
         //JEI VIRSUS TAI BUS APACIA
+        //0 = null
         //1 = Wall
         //2 = Diamond
         //3 = Door
         //4 = Box
+        //5 = enemy
         private string _0GRID = "" +
             "111111111111111111111111111111111111" +
-            "100002100000000000444000000004000001" +
+            "100002100000000000444000500004000001" +
             "100001100000000000044000000000000001" +
             "100003100000000000004000000000000001" +
             "100000000000000000004000000000000001" +

@@ -78,6 +78,7 @@
     </ApplicationDefinition>
     <Compile Include="Assets\Builder\Objects\Box.cs" />
     <Compile Include="Assets\Builder\Objects\Door.cs" />
+    <Compile Include="Assets\Builder\Objects\Enemy.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Bullet.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Pistol.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Inventory.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\ShapeFactory\Shapes\BulletShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DiamondShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DoorShape.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\EnemyShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\IShapeObjects.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\WallShape.cs" />

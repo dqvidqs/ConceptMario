@@ -41,7 +41,7 @@ namespace ConceptMario.Assets.Characters
 			this.X = X;
 			this.Y = Y;
 		}
-        public void Update(Canvas can)
+        public void Update()
         {
             Canvas.SetBottom(Object,Y);
             Canvas.SetLeft(Object, X);
@@ -51,10 +51,10 @@ namespace ConceptMario.Assets.Characters
         {
             return Inv.GetBullets();
         }
-        public void RemoveBullet(Bullet bullet)
+        /*public void RemoveBullet(Bullet bullet)
         {
             Inv.Remove(bullet);
-        }
+        }*/
         public Polygon Get()
         {
             return Object;

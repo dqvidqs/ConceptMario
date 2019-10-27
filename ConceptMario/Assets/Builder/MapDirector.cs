@@ -14,8 +14,9 @@ namespace ConceptMario.Assets.MapBuilder
         {
             mapBuilder.BuildDiamonds();
             mapBuilder.BuildWalls();
-            mapBuilder.BuilDoors();
-            mapBuilder.BuilBoxes();
+            mapBuilder.BuildDoors();
+            mapBuilder.BuildBoxes();
+            mapBuilder.BuildEnemies();
         }
         public List<Block> GetBlocks()
         {

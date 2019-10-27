@@ -42,3 +42,9 @@ D:\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.csproj.Core
 D:\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.csproj.CopyComplete
 D:\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.dll
 D:\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\Objects.exe
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\System.ComponentModel.Annotations.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\netstandard.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\Objects.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\Objects.exe.config
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\System.ComponentModel.Annotations.xml

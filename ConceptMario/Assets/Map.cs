@@ -11,9 +11,12 @@ namespace ConceptMario.Assets
     {
         private bool[] Updates = new bool[] { false };
         private Canvas Can = null;
-        // private Block[] Blocks = null;
+        //MAP GRID
         private MapGrid Grid = null;
+        //MAP MOVING PARSTS
         private List<Bullet> Bullets = new List<Bullet>();
+        private List<Enemy> Enemies = new List<Enemy>();
+        //other
         private int  Size = MetaData.Size;
         public Map(Player player1, Player player2, int MapId)
         {
@@ -38,12 +41,29 @@ namespace ConceptMario.Assets
         public bool[] UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
-            Player.Update(Can);
+            Player.Update();
             UpdateBullets(Player);
             Updates[0] = CatchDiamond(Player);
+            UpdateEnemies(Player);
             return Updates;
         }
         // ---------- PRIVATE ----------
+        private void UpdateEnemies(Player Player)
+        {
+            for(int i = 0; i < Enemies.Count; i++)
+            {               
+                Grid.Remove(Enemies[i].GetXGrid(), Enemies[i].GetYGrid());
+                Wall Block = Grid.GetBlock(Enemies[i].GetXGrid() + Enemies[i].Direction, Enemies[i].GetYGrid()) as Wall;
+                Enemies[i].Move();
+                Grid.SetBlock(Enemies[i].GetXGrid(), Enemies[i].GetYGrid(), Enemies[i]);
+                if (Block != null)
+                {
+                    Enemies[i].Direction *= -1;
+                }
+                Canvas.SetBottom(Enemies[i].Get(), Enemies[i].GetY());
+                Canvas.SetLeft(Enemies[i].Get(), Enemies[i].GetX());
+            }
+        }
         private void UpdateBullets(Player Player)
         {
             Bullets = Player.GetBullets();
@@ -55,6 +75,7 @@ namespace ConceptMario.Assets
                 Canvas.SetLeft(Bullets[i].bullet, Bullets[i].X);
                 Bullets[i].X += Bullets[i].BulletSpeed * Bullets[i].Direction;
                 Wall block = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Wall;
+                Enemy EnemyBlock = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Enemy;
                 if (block != null)
                 {
                     Can.Children.Remove(Bullets[i].bullet);
@@ -65,6 +86,11 @@ namespace ConceptMario.Assets
                         Can.Children.Remove(box.Get());
                         Grid.Remove(box.GetXGrid(), box.GetYGrid());
                     }
+                }
+                if(EnemyBlock != null)
+                {
+                    Can.Children.Remove(EnemyBlock.Get());
+                    Grid.Remove(EnemyBlock.GetXGrid(), EnemyBlock.GetYGrid());
                 }
             }
         }
@@ -118,6 +144,10 @@ namespace ConceptMario.Assets
                     if (Grid.GetBlock(j, i) != null)
                     {
                         Block block = Grid.GetBlock(j, i) as Block;
+                        if(block is Enemy)
+                        {
+                            Enemies.Add(block as Enemy);
+                        }
                         Can.Children.Add(block.Get());
                         Canvas.SetBottom(block.Get(), block.GetY());
                         Canvas.SetLeft(block.Get(), block.GetX());

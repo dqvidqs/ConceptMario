@@ -9,9 +9,11 @@ namespace ConceptMario.Assets.MapBuilder
 
         void BuildDiamonds();
 
-        void BuilDoors();
+        void BuildDoors();
 
-        void BuilBoxes();
+        void BuildBoxes();
+
+        void BuildEnemies();
 
         List<Block> GetBlocks();
     }
