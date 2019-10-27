@@ -215,3 +215,4 @@ D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
 D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.csproj.CopyComplete
 D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.exe
 D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.pdb
+D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.csprojAssemblyReference.cache

@@ -101,6 +101,9 @@
     <Compile Include="Shop.xaml.cs">
       <DependentUpon>Shop.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Waiting.xaml.cs">
+      <DependentUpon>Waiting.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Waiting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

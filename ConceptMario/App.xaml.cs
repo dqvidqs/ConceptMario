@@ -13,5 +13,11 @@ namespace ConceptMario
     /// </summary>
     public partial class App : Application
     {
-    }
+	    private HttpAdapter Server = new HttpAdapter();
+
+		private async void Application_Exit(object sender, ExitEventArgs e)
+		{
+			await Server.Logout(Session.GetSession().GetId());
+		}
+	}
 }

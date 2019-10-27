@@ -36,6 +36,7 @@ namespace ConceptMario
 			try
 			{
 				LoginPlayer(txtUserId.Text.ToString(), txtPassword.Password.ToString());
+				message = "1";
 			}
 			catch (Exception ex)
 			{
@@ -57,16 +58,36 @@ namespace ConceptMario
 
 		private async void LoginPlayer(string username, string password)
 		{
-			var result = await Server.Login(username, password);
-			if (result != null)
+			String message ="";
+			try
 			{
-				Session.GetSession().Login(result.id, result.username);
+				var result = await Server.Login(username, password);
+				if (result != null)
+				{
+					Session.GetSession().Login(result.id, result.username);
+					message = "1";
+				}
+				var result2 = await Server.GetInventory(result.id);
+				if (result2 != null)
+				{
+					Session.GetSession().SetInventory(result2);
+					message += "1";
+				}
+			}
+			catch (Exception ex)
+			{
+				message = "Invalid Credentials\n"+ "or\n" + ex.Message.ToString();
+			}
+
+			if (message == "11")
+			{
 				MyShop.GetShop();
 				Menu menu = new Menu();
 				menu.Show();
 				this.Close();
 			}
-
+			else
+				MessageBox.Show(message, "Info");
 		}
 	}
 }

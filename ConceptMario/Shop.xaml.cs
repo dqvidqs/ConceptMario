@@ -23,6 +23,7 @@ namespace ConceptMario
 	public partial class Shop : Window
 	{
 		List<Gun> guns;
+		private List<InventoryGun> userGuns;
 		public Shop()
 		{
 			InitializeComponent();
@@ -32,6 +33,7 @@ namespace ConceptMario
 		public void GetGuns()
 		{
 			guns = MyShop.GetShop().Guns;
+			userGuns = Session.GetSession().GetUserGuns();
 		}
 
 		private void btnMenu_Click_1(object sender, RoutedEventArgs e)

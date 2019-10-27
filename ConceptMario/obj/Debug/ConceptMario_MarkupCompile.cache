@@ -9,12 +9,18 @@ ConceptMario
 none
 false
 DEBUG;TRACE
-C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\App.xaml
-51414076924
+D:\GitHub\ConceptMario\ConceptMario\App.xaml
+6-785430868
 
+<<<<<<< HEAD
 42-983294711
 161331766601
 Login.xaml;MainWindow.xaml;Menu.xaml;Register.xaml;Shop.xaml;
+=======
+37-1376612965
+16735875432
+Login.xaml;MainWindow.xaml;Menu.xaml;Register.xaml;Shop.xaml;Waiting.xaml;
+>>>>>>> edb605e36c7f71e25114a374657d183579c3cd55
 
 True
 

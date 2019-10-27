@@ -51,10 +51,10 @@
   <ItemGroup>
     <Compile Include="Models\Ability.cs" />
     <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\Diamond.cs" />
     <Compile Include="Models\Gun.cs" />
     <Compile Include="Models\Inventory.cs" />
-    <Compile Include="Models\Inventory_gun.cs" />
+    <Compile Include="Models\InventoryGun.cs" />
+    <Compile Include="Models\MyClass.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
