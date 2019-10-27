@@ -59,6 +59,7 @@
     <Reference Include="System.Windows.Input.Manipulations" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestPlayerAssets.cs" />
     <Compile Include="UnitTestCharacter.cs" />
     <Compile Include="UnitTestMapObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

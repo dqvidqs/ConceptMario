@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    class BoxShape : IShapeObjects
+    public class BoxShape : IShapeObjects
     {
         private Polygon Terrain = null;
         private int Size = MetaData.Size;

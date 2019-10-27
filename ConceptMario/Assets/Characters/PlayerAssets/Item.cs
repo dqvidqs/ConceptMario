@@ -9,7 +9,7 @@ using ConceptMario.Assets.ShapeFactory;
 
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
-    abstract class Item
+    public abstract class Item
     {
         protected int FireRate;
         protected int CurrectRate;

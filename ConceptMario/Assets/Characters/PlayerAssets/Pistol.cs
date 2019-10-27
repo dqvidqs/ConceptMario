@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
-    class Pistol : Item
+    public class Pistol : Item
     {
         public Pistol(int FireRate, int Ammo) : base(FireRate, Ammo) { }
     }

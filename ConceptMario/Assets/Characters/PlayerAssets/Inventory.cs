@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
-    class Inventory
+    public class Inventory
     {
         private List<Item> Items = new List<Item>();
         private List<Bullet> Bullets = new List<Bullet>();
@@ -11,11 +11,14 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         {
             Items.Add(Item);
         }
+        public int Count { get { return Items.Count; } }
         public void Remove(int Index)
         {
             if (Items.Count > 0 && Index < Items.Count)
             {
                 Items.RemoveAt(Index);
+                if (Index == Items.Count)
+                    this.Index -=1;
             }
         }
         public int CurrectItem { get { return Index; } }
@@ -28,7 +31,7 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         public void Previous()
         {
             Index -= 1;
-            if (Index == 0)
+            if (Index < 0)
                 Index = Items.Count - 1;
         }
         public void Shoot(int X, int Y, int Direction)
