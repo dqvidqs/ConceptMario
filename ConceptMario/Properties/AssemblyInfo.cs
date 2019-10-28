@@ -55,4 +55,5 @@ using System.Windows;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: InternalsVisibleTo("ConceptMario.Test1")]
 [assembly: InternalsVisibleTo("ConceptMario.Explorables")]
+[assembly: InternalsVisibleTo("ConceptMario.Test11")]
 

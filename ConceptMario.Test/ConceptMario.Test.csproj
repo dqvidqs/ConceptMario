@@ -59,6 +59,9 @@
     <Reference Include="System.Windows.Input.Manipulations" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestMapGridTests.cs" />
+    <Compile Include="UnitTestMapTests.cs" />
+    <Compile Include="UnitTestShapes.cs" />
     <Compile Include="UnitTestPlayerAssets.cs" />
     <Compile Include="UnitTestCharacter.cs" />
     <Compile Include="UnitTestMapObjects.cs" />
@@ -76,6 +79,9 @@
       <Project>{975614d6-172a-4157-9610-c7c6d1bb76a1}</Project>
       <Name>ConceptMario</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

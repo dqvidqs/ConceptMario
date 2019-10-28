@@ -49,7 +49,7 @@ namespace ConceptMario.Assets
             Blocks[3] = _grid[Player.GetY() / Size, Player.GetX() / Size - 1] as Wall;//LEFT
             return Blocks;
         }
-        public void BuildGrid(List<Block> Blocks)
+        private void BuildGrid(List<Block> Blocks)
         {
             foreach (Block block in Blocks)
             {

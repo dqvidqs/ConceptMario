@@ -1,0 +1,8 @@
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\b\ConceptMario.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\b\ConceptMario.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\b\ConceptMario.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\b\ConceptMario.Test\bin\Debug\ConceptMario.Test.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test\Debug\ConceptMario.Test.csprojAssemblyReference.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test\Debug\ConceptMario.Test.csproj.CoreCompileInputs.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test\Debug\ConceptMario.Test.csproj.CopyComplete
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test\Debug\ConceptMario.Test.dll

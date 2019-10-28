@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "Objects\Objects.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptMario", "ConceptMario\ConceptMario.csproj", "{975614D6-172A-4157-9610-C7C6D1BB76A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptMario.Test1", "ConceptMario.Test1\ConceptMario.Test1.csproj", "{2796F14F-6008-43B5-B483-4C0D1DC4D268}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{975614D6-172A-4157-9610-C7C6D1BB76A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2796F14F-6008-43B5-B483-4C0D1DC4D268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2796F14F-6008-43B5-B483-4C0D1DC4D268}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2796F14F-6008-43B5-B483-4C0D1DC4D268}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2796F14F-6008-43B5-B483-4C0D1DC4D268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

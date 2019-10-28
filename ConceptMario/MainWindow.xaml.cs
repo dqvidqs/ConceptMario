@@ -55,7 +55,7 @@ namespace ConceptMario
 		private Player Player2 = null;
 		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
-		private bool[] Updates;
+		//private bool[] Updates;
 		private bool send = true;
 		private Room Room;
 		private int SecondPlayerId;
@@ -84,7 +84,7 @@ namespace ConceptMario
 		private void Frame_Tick(object sender, EventArgs e)
 		{
 
-			Updates = Map.UpdatePlayer(Player);
+			Map.UpdatePlayer(Player);
 			Player.Move();
 			/*if (Updates[0])
 			{

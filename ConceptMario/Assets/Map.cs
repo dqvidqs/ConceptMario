@@ -9,7 +9,7 @@ namespace ConceptMario.Assets
 {
     public class Map
     {
-        private bool[] Updates = new bool[] { false };
+        //private bool[] Updates = new bool[] { false };
         private Canvas Can = null;
         //MAP GRID
         private MapGrid Grid = null;
@@ -38,14 +38,14 @@ namespace ConceptMario.Assets
         {
             return Can;
         }
-        public bool[] UpdatePlayer(Player Player)
+        public void UpdatePlayer(Player Player)
         {
             PlayerMovements(Player);
             Player.Update();
             UpdateBullets(Player);
-            Updates[0] = CatchDiamond(Player);
+            CatchDiamond(Player);
             UpdateEnemies(Player);
-            return Updates;
+            //return Updates;
         }
         // ---------- PRIVATE ----------
         private void UpdateEnemies(Player Player)
@@ -123,7 +123,7 @@ namespace ConceptMario.Assets
             }
             else { Player.CanLeft = true; }
         }
-        public bool CatchDiamond(Player Player)
+        private void CatchDiamond(Player Player)
         {
             Diamond diamond = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Diamond;
             if (diamond != null)
@@ -131,9 +131,9 @@ namespace ConceptMario.Assets
                 //int index = Can.Children.IndexOf(diamond.Get());
                 Can.Children.RemoveAt(Can.Children.IndexOf(diamond.Get()));
                 Grid.Remove(Player.GetCenterX() / Size, Player.GetCenterY() / Size);
-                return true;
+                //return true;
             }
-            return false;
+            //return false;
         }
         private void SetupBlock()
         {

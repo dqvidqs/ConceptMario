@@ -1,0 +1,5 @@
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\b\ConceptMario.Test11\bin\Debug\ConceptMario.Test11.dll
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test11\Debug\ConceptMario.Test11.csprojAssemblyReference.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test11\Debug\ConceptMario.Test11.csproj.CoreCompileInputs.cache
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test11\Debug\ConceptMario.Test11.csproj.CopyComplete
+C:\MyFiles\MainData\07\OPP\ConceptMario\.vs\ConceptMario\lut\0\i\ConceptMario.Test11\Debug\ConceptMario.Test11.dll
