@@ -6,7 +6,7 @@ using ConceptMario.Assets.MapBuilder.Objects;
 namespace ConceptMario.Test
 {
     [TestClass()]
-    public class MapGridTests
+    public class UnitTestMapGridTests
     {
         [TestMethod()]
         public void MapGridTest()
