@@ -12,7 +12,7 @@ namespace ConceptMario.Assets.MapBuilder.Objects
         protected int[] YX = new int[2];
         protected int Size = MetaData.Size;
         protected Polygon Terrain = null;
-        public Block() { }
+        //public Block() { }
         public Block(int X, int Y, Polygon Terrain)
         {
             XY[0] = X;

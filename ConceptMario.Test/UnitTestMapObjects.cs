@@ -83,7 +83,7 @@ namespace ConceptMario.Test
             List<Block> Blocks = Builder.GetBlocks();
             Assert.AreEqual(expected, Blocks[0] is Box);
         }
-
+        [TestMethod]
         public void BuilderEnemy()
         {
             string example = "00500";

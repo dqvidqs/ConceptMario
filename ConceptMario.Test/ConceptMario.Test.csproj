@@ -80,6 +80,10 @@
       <Project>{975614d6-172a-4157-9610-c7c6d1bb76a1}</Project>
       <Name>ConceptMario</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Objects\Objects.csproj">
+      <Project>{bfd1aa9f-4c7b-4a31-baad-cd96151622b4}</Project>
+      <Name>Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

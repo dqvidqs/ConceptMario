@@ -53,6 +53,13 @@ namespace ConceptMario.Test
             Assert.AreEqual(expected, block.CheckCenter(12, 190));
         }
         [TestMethod]
+        public void BoxCheckCenterFalse()
+        {
+            bool expected = false;
+            Box block = new Box(0, 175, null);
+            Assert.AreEqual(expected, block.CheckCenter(12, 201));
+        }
+        [TestMethod]
         public void BoxCheckDown()
         {
             bool expected = true;
@@ -80,6 +87,7 @@ namespace ConceptMario.Test
             Box block = new Box(175, 175, null);
             Assert.AreEqual(expected, block.CheckUp(175, 150));
         }
+
         //----------------------
         //Test Diamond class
         //----------------------
@@ -124,6 +132,13 @@ namespace ConceptMario.Test
             bool expected = true;
             Diamond block = new Diamond(0, 175, null);
             Assert.AreEqual(expected, block.CheckCenter(24, 176));
+        }
+        [TestMethod]
+        public void DiamondCheckCenterFalse()
+        {
+            bool expected = false;
+            Diamond block = new Diamond(0, 175, null);
+            Assert.AreEqual(expected, block.CheckCenter(24, 201));
         }
         //----------------------
         //Test Door class
@@ -209,6 +224,13 @@ namespace ConceptMario.Test
             Assert.AreEqual(expected, block.CheckCenter(24, 176));
         }
         [TestMethod]
+        public void EnemyCheckCenterFalse()
+        {
+            bool expected = false;
+            Enemy block = new Enemy(0, 175, null);
+            Assert.AreEqual(expected, block.CheckCenter(24, 201));
+        }
+        [TestMethod]
         public void EnemyDirectionGet()
         {
             int expected = 1;
@@ -284,11 +306,27 @@ namespace ConceptMario.Test
             Assert.AreEqual(expected, block.CheckLeft(175, 0));
         }
         [TestMethod]
+        public void WallCheckLeftFalse()
+        {
+            bool expected = false;
+            Wall block = new Wall(175, 175, null);
+            Assert.AreEqual(expected, block.CheckLeft(201, 0));
+        }
+        [TestMethod]
+
         public void WallCheckRight()
         {
             bool expected = true;
             Wall block = new Wall(175, 175, null);
             Assert.AreEqual(expected, block.CheckRight(150, 175));
+        }
+        [TestMethod]
+
+        public void WallCheckRightFalse()
+        {
+            bool expected = false;
+            Wall block = new Wall(175, 175, null);
+            Assert.AreEqual(expected, block.CheckRight(175, 175));
         }
         [TestMethod]
         public void WallCheckUp()

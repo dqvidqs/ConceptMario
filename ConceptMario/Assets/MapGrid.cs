@@ -13,7 +13,7 @@ namespace ConceptMario.Assets
         private int Height = MetaData.Height;
         public int H { get { return Height; } }
         private int Size = MetaData.Size;
-        public int S { get { return Size; } }
+        //public int S { get { return Size; } }
 
         public MapGrid(int MapID)//CLIENT
         {

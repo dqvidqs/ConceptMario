@@ -62,6 +62,36 @@ namespace ConceptMario.Test
             Assert.AreNotEqual(expected, player.GetX());
         }
         [TestMethod]
+        public void PlayerUpdateIntInt()
+        {
+            int expected = 50;
+            Player player = new Player(50, 50);
+            player.Update(0, 0);
+            Assert.AreNotEqual(expected, player.GetX());
+        }
+        [TestMethod]
+        public void PlayerMoveY2()
+        {
+            int expected = 50;
+            Player player = new Player(50, 50);
+            player.CanJump = true;
+            player.IsJump = true;
+            for (int i = 0; i < 10; i++)
+            {
+                player.Move();
+            }
+            Assert.AreNotEqual(expected, player.GetY());
+        }
+        [TestMethod]
+        public void PlayerMoveX2()
+        {
+            int expected = 50;
+            Player player = new Player(50, 50);
+            player.Right = true;
+            player.Move();
+            Assert.AreNotEqual(expected, player.GetX());
+        }
+        [TestMethod]
         public void PlayerShootingGetBullets()
         {
             int expected = 1; 
