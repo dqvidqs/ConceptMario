@@ -59,6 +59,7 @@
     <Reference Include="System.Windows.Input.Manipulations" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Files\UnitTestHttpAdapter.cs" />
     <Compile Include="UnitTestMyShopTests.cs" />
     <Compile Include="UnitTestMapGridTests.cs" />
     <Compile Include="UnitTestMapTests.cs" />
