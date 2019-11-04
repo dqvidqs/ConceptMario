@@ -28,7 +28,7 @@ namespace ConceptMario
 		public Login()
 		{
 			InitializeComponent();
-		}
+        }
 
 		private void btnLogin_Click_1(object sender, RoutedEventArgs e)
 		{

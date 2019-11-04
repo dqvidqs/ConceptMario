@@ -42,14 +42,18 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
                 Bullets.Add(bullet);
             }
         }
-        public void Reload()
+        public Item GetItem()
+        {
+            return Items[CurrectItem];
+        }
+        /*public void Reload()
         {
             Items[Index].Relaod();
         }
         public void Update()
         {
             Items[Index].Update();
-        }
+        }*/
         public List<Bullet> GetBullets()
         {
             return Bullets;

@@ -1,28 +1,29 @@
 ﻿using ConceptMario.Assets.ShapeFactory.Shapes;
+using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory
 {
-    class Factory
+    static class Factory
     {
-        public Factory() { }
-        public IShapeObjects GetShape(string Object)
+        //public Factory() { }
+        static public IShapeObjects GetShape(string Object)
         {
             switch (Object.ToLower())
             {
                 case "wall":
-                    return new WallShape();
+                    return new BlockShape(new Black(), new Red());
                 case "diamond":
-                    return new DiamondShape();
+                    return new DiamondShape(new Black(), new Blue());
                 case "door":
-                    return new DoorShape();
+                    return new DoorShape(new Black(), new Gray());
                 case "player":
-                    return new PlayerShape();
+                    return new PlayerShape(new Black(), new Green());
                 case "bullet":
-                    return new BulletShape();
+                    return new BulletShape(new Black(), new Black());
                 case "box":
-                    return new BoxShape();
+                    return new BlockShape(new Black(), new Brown());
                 case "enemy":
-                    return new EnemyShape();
+                    return new EnemyShape(new Black(), new Yellow());
                 default:
                     return null;
             }

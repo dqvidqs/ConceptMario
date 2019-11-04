@@ -1,7 +1,7 @@
 ﻿using System.Windows.Shapes;
 using System.Windows.Controls;
 using System.Collections.Generic;
-
+using ConceptMario.Assets.ShapeFactory;
 using ConceptMario.Assets.Characters.PlayerAssets;
 
 namespace ConceptMario.Assets.Characters
@@ -16,8 +16,9 @@ namespace ConceptMario.Assets.Characters
         private int DinamicIterartion = 0;
         private int MoveSpeed = 5;
         private int Direction = 1;
-        private Inventory Inv = new Inventory();
+        private Inventory Inv;
 
+        public int HitPoints { set; get; }
         public bool CanJump { set; get; }
         public bool IsJump { set; get; }
         public bool CanLeft { set; get; }
@@ -28,7 +29,8 @@ namespace ConceptMario.Assets.Characters
 
         public Player(int X, int Y)
         {
-            ShapeFactory.Factory Factory = new ShapeFactory.Factory();
+            this.HitPoints = 100;
+            this.Inv = new Inventory();
             Object = Factory.GetShape("player").Get();
             this.X = X;
             this.Y = Y;
@@ -45,7 +47,8 @@ namespace ConceptMario.Assets.Characters
         {
             Canvas.SetBottom(Object,Y);
             Canvas.SetLeft(Object, X);
-            Inv.Update();
+            Inv.GetItem().Update();
+            Move();
         }
         public List<Bullet> GetBullets()
         {
@@ -65,9 +68,9 @@ namespace ConceptMario.Assets.Characters
         public int GetCenterY() { return Y + Size / 2; }
         public void Reload()
         {
-            Inv.Reload();
+            Inv.GetItem().Relaod();
         }
-        public void Move()
+        private void Move()
         {
             Gravity();
             if(IsShooting) { Shooting(); }

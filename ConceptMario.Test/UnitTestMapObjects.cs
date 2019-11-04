@@ -89,7 +89,7 @@ namespace ConceptMario.Test
             string example = "00500";
             bool expected = true;
             MapBuilder Builder = new MapBuilder(example);
-            Builder.GetBlocks();
+            Builder.BuildEnemies();
             List<Block> Blocks = Builder.GetBlocks();
             Assert.AreEqual(expected, Blocks[0] is Enemy);
         }

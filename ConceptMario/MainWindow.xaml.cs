@@ -85,7 +85,7 @@ namespace ConceptMario
 		{
 
 			Map.UpdatePlayer(Player);
-			Player.Move();
+			//Player.Move();
 			/*if (Updates[0])
 			{
 				await UpdateDiamond();

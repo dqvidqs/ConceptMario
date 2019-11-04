@@ -15,7 +15,6 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
         protected int CurrectRate;
         protected int Ammo;
         protected int CurrectAmmo;
-        Factory factory = new Factory();
         public Item(int FireRate, int Ammo)
         {
             CurrectAmmo = Ammo;
@@ -36,7 +35,7 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
             {
                 CurrectRate = 0;
                 CurrectAmmo--;
-                return new Bullet { X = X, Y = Y, bullet = factory.GetShape("bullet").Get(), Direction = Direction, BulletSpeed= MetaData.Size};
+                return new Bullet { X = X, Y = Y, bullet = Factory.GetShape("bullet").Get(), Direction = Direction, BulletSpeed= MetaData.Size};
             }
             else
                 return null;

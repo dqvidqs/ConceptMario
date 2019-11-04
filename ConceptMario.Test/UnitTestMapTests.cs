@@ -34,7 +34,7 @@ namespace ConceptMario.Test
             Player player2 = new Player(100, 100);
             Map map = new Map(player1, player2, 0);           
             map.UpdatePlayer(player1);
-            player1.Move();
+            //player1.Move();
             Assert.AreNotEqual(Y, player1.GetCenterY());
         }
         [TestMethod()]
@@ -45,9 +45,9 @@ namespace ConceptMario.Test
             Player player2 = new Player(100, 100);
             Map map = new Map(player1, player2, 0);            
             map.UpdatePlayer(player2);
-            player2.Move();           
+           // player2.Move();           
             map.UpdatePlayer(player1);
-            player1.Move();
+            //player1.Move();
             Assert.AreNotEqual(Y, player2.GetCenterY());
         }
         [TestMethod()]
@@ -61,9 +61,9 @@ namespace ConceptMario.Test
             for (int i = 0; i < 20; i++)
             {
                 map.UpdatePlayer(player2);
-                player2.Move();
+                //player2.Move();
                 map.UpdatePlayer(player1);
-                player1.Move();
+                //player1.Move();
             }
             Assert.AreEqual(Y, player2.GetCenterY());
         }

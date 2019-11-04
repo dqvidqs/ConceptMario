@@ -1,18 +1,14 @@
 ﻿using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows;
+using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class EnemyShape : IShapeObjects
     {
-        private Polygon Terrain = null;
-        private int Size = MetaData.Size;
-        public EnemyShape()
+        public EnemyShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
         {
-            Terrain = new Polygon();
-            Terrain.Stroke = Brushes.Black;
-            Terrain.Fill = Brushes.Yellow;
             //PIESIA NUO VIRSAUS I APACIA
             Terrain.Margin = new Thickness(0, 0, 0, 0);
             Terrain.Points = new PointCollection() {
@@ -24,10 +20,6 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
                 new Point(Size*2/4, 0),
                 new Point(Size*1/4, Size*1/3),
             };
-        }
-        public Polygon Get()
-        {
-            return Terrain;
         }
     }
 }

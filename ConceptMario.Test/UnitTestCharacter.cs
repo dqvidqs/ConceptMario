@@ -49,7 +49,7 @@ namespace ConceptMario.Test
         {
             int expected = 50;
             Player player = new Player(50, 50);
-            player.Move();
+            player.Update(); ;
             Assert.AreNotEqual(expected, player.GetY());
         }
         [TestMethod]
@@ -58,7 +58,7 @@ namespace ConceptMario.Test
             int expected = 50;
             Player player = new Player(50, 50);
             player.Left = true;
-            player.Move();
+            player.Update();
             Assert.AreNotEqual(expected, player.GetX());
         }
         [TestMethod]
@@ -78,7 +78,7 @@ namespace ConceptMario.Test
             player.IsJump = true;
             for (int i = 0; i < 10; i++)
             {
-                player.Move();
+                player.Update();
             }
             Assert.AreNotEqual(expected, player.GetY());
         }
@@ -88,7 +88,7 @@ namespace ConceptMario.Test
             int expected = 50;
             Player player = new Player(50, 50);
             player.Right = true;
-            player.Move();
+            player.Update();
             Assert.AreNotEqual(expected, player.GetX());
         }
         [TestMethod]
@@ -97,7 +97,7 @@ namespace ConceptMario.Test
             int expected = 1; 
             Player player = new Player(50, 50);
             player.IsShooting = true;
-            player.Move();
+            player.Update();
             List<Bullet> bull = player.GetBullets();
             Assert.AreEqual(expected, bull.Count);
         }
@@ -110,7 +110,6 @@ namespace ConceptMario.Test
             for(int i =0; i < 999; i++)
             {
                 player.Update();
-                player.Move();
             }
             List<Bullet> bull = player.GetBullets();
             Assert.AreEqual(expected, bull.Count);
@@ -120,17 +119,17 @@ namespace ConceptMario.Test
         {
             int expected = 14;
             Player player = new Player(50, 50);
-            player.IsShooting = true;
-            for (int i = 0; i < 999; i++)
+            player.IsShooting = true;//parodo kad saudo
+            for (int i = 0; i < 999; i++)//iteracijos arba kadrai
             {
                 player.Update();
-                player.Move();
+                player.Update(); ;
             }
-            player.Reload();
+            player.Reload();//uztaiso
             for (int i = 0; i < 999; i++)
             {
                 player.Update();
-                player.Move();
+                player.Update(); 
             }
             List<Bullet> bull = player.GetBullets();
             Assert.AreEqual(expected, bull.Count);

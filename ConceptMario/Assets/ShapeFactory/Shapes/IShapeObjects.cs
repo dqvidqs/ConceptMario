@@ -1,9 +1,21 @@
 ﻿using System.Windows.Shapes;
+using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    interface IShapeObjects
+    public abstract class IShapeObjects
     {
-        Polygon Get();
+        protected Polygon Terrain = null;
+        protected int Size = MetaData.Size;
+        public IShapeObjects(IColor Stroke, IColor Fill)
+        {
+            Terrain = new Polygon();
+            Terrain.Stroke = Stroke.Get();
+            Terrain.Fill = Fill.Get();
+        }
+        public Polygon Get()
+        {
+            return Terrain;
+        }
     }
 }
