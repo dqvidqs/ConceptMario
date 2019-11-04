@@ -5,16 +5,18 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public abstract class IShapeObjects
     {
-        protected Polygon Terrain = null;
+        protected IColor Fill;
+        protected Polygon Terrain;
         protected int Size = MetaData.Size;
-        public IShapeObjects(IColor Stroke, IColor Fill)
+        public IShapeObjects(IColor Fill)
         {
+            this.Fill = Fill;
             Terrain = new Polygon();
-            Terrain.Stroke = Stroke.Get();
-            Terrain.Fill = Fill.Get();
+            Terrain.Stroke = new Brown().Get();
         }
         public Polygon Get()
         {
+            Terrain.Fill = Fill.Get();
             return Terrain;
         }
     }

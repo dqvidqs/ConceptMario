@@ -7,7 +7,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class BulletShape : IShapeObjects
     {
-        public BulletShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
+        public BulletShape(IColor Fill) : base( Fill)
         {
             //PIESIA NUO VIRSAUS I APACIA
             Terrain.Margin = new Thickness(0, 0, 0, 10);

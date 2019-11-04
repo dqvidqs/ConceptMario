@@ -11,19 +11,19 @@ namespace ConceptMario.Assets.ShapeFactory
             switch (Object.ToLower())
             {
                 case "wall":
-                    return new BlockShape(new Black(), new Red());
+                    return new BlockShape(new Red());
                 case "diamond":
-                    return new DiamondShape(new Black(), new Blue());
+                    return new DiamondShape(new Blue());
                 case "door":
-                    return new DoorShape(new Black(), new Gray());
+                    return new DoorShape(new Gray());
                 case "player":
-                    return new PlayerShape(new Black(), new Green());
+                    return new PlayerShape(new Green());
                 case "bullet":
-                    return new BulletShape(new Black(), new Black());
+                    return new BulletShape(new Black());
                 case "box":
-                    return new BlockShape(new Black(), new Brown());
+                    return new BlockShape(new Brown());
                 case "enemy":
-                    return new EnemyShape(new Black(), new Yellow());
+                    return new EnemyShape(new Yellow());
                 default:
                     return null;
             }

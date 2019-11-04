@@ -7,7 +7,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class EnemyShape : IShapeObjects
     {
-        public EnemyShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
+        public EnemyShape(IColor Fill) : base(Fill)
         {
             //PIESIA NUO VIRSAUS I APACIA
             Terrain.Margin = new Thickness(0, 0, 0, 0);

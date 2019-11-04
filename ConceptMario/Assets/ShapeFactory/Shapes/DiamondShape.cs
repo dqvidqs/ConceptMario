@@ -7,7 +7,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class DiamondShape : IShapeObjects
     {
-        public DiamondShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
+        public DiamondShape(IColor Fill) : base(Fill)
         {
             //PIESIA NUO VIRSAUS I APACIA
             Terrain.Margin = new Thickness(0, 0, 0, 2);

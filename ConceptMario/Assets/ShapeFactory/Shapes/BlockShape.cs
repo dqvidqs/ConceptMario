@@ -7,7 +7,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class BlockShape : IShapeObjects
     {
-        public BlockShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
+        public BlockShape(IColor Fill) : base(Fill)
         {
             Terrain.Points = new PointCollection() {
                 new Point(0, 0),

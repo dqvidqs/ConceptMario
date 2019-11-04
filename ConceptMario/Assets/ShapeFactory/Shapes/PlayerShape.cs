@@ -1,5 +1,4 @@
-﻿using System.Windows.Shapes;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Windows;
 using ConceptMario.Assets.ShapeFactory.Color;
 
@@ -7,7 +6,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
     public class PlayerShape : IShapeObjects
     {
-        public PlayerShape(IColor Stroke, IColor Fill) : base(Stroke, Fill)
+        public PlayerShape(IColor Fill) : base(Fill)
         {
             //PIESIA NUO VIRSAUS I APACIA
             Terrain.Margin = new Thickness(0, 0, 0, 0);
