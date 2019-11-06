@@ -17,19 +17,19 @@ namespace ConceptMario.Assets
 
         public MapGrid(int MapID)//CLIENT
         {
-            MapBuilder.MapBuilder MapBuilder = null;
+            //MapBuilder.MapBuilder MapBuilder = null;
             _grid = new object[Height, Width];
-            switch (MapID)
+            /*switch (MapID)
             {
                 case 0:
                     MapBuilder = new MapBuilder.MapBuilder(_0GRID);
                     break;
-            }
-            MapDirector Director = new MapDirector(MapBuilder);
+            }*/
+            MapDirector Director = new MapDirector(new MapBuilder.MapBuilder(_0GRID[MapID]));
             Director.Construct();
             BuildGrid(Director.GetBlocks());
             Director = null;
-            MapBuilder = null;
+            //MapBuilder = null;
         }
         public object GetBlock(int X, int Y)
         {
@@ -74,7 +74,7 @@ namespace ConceptMario.Assets
         //3 = Door
         //4 = Box
         //5 = enemy
-        private string _0GRID = "" +
+        private string[] _0GRID = {"" +
             "111111111111111111111111111111111111" +
             "100002100000000000444000500004000001" +
             "100001100000000000044000000000000001" +
@@ -98,6 +98,6 @@ namespace ConceptMario.Assets
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
             "100000000000000000000000000000000001" +
-            "111111111111111111111111111111111111";
+            "111111111111111111111111111111111111" };
     }
 }
