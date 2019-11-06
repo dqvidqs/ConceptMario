@@ -131,7 +131,6 @@
     <Compile Include="Assets\Builder\IMapBuilder.cs" />
     <Compile Include="Assets\Builder\MapBuilder.cs" />
     <Compile Include="Assets\Builder\MapDirector.cs" />
-    <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Builder\Objects\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="MetaData.cs" />
