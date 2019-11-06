@@ -25,7 +25,7 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<Inventory> GetInventories()
         {
-            return _context.Inventories.Include(g => g.Guns).ThenInclude(x=>x.Gun);
+            return _context.Inventories;
         }
 
         // GET: api/Inventories/5
@@ -37,7 +37,7 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var inventory = await _context.Inventories.Include(g => g.Guns).ThenInclude(x => x.Gun).FirstOrDefaultAsync(i=>i.id== id);
+            var inventory = await _context.Inventories.FirstOrDefaultAsync(i=>i.id== id);
 
             if (inventory == null)
             {
