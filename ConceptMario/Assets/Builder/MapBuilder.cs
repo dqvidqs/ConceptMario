@@ -9,13 +9,12 @@ namespace ConceptMario.Assets.MapBuilder
     {
         //private Factory ShapeFactory = new Factory();
         private List<Block> obj = new List<Block>();
-        private string Grid;
+        public string Grid { get; set; }
         private int Step;
         private int Width = MetaData.Width;
         private int Size = MetaData.Size;
-        public MapBuilder(string Grid)
+        public MapBuilder()
         {
-            this.Grid = Grid;
         }
         public void BuildWalls()
         {

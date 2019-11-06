@@ -10,8 +10,9 @@ namespace ConceptMario.Assets.MapBuilder
         {
             this.mapBuilder = mapBuilder;
         }
-        public void Construct()
+        public void Construct(string Grid)
         {
+            mapBuilder.Grid = Grid;
             mapBuilder.BuildDiamonds();
             mapBuilder.BuildWalls();
             mapBuilder.BuildDoors();
