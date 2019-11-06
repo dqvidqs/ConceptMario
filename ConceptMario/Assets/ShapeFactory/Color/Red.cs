@@ -4,9 +4,10 @@ namespace ConceptMario.Assets.ShapeFactory.Color
 {
     class Red : IColor
     {
+        private SolidColorBrush red = Brushes.Red;
         public SolidColorBrush Get()
         {
-            return Brushes.Red;
+            return red;
         }
     }
 }
