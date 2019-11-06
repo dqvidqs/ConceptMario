@@ -17,7 +17,7 @@ namespace ConceptMario.Assets
 
         public MapGrid(int MapID)//CLIENT
         {
-            MapBuilder.MapBuilder MapBuilder = new MapBuilder.MapBuilder();
+            MapBuilder.MapBuilder MapBuilder = new MapBuilder.MapBuilder(_0GRID[MapID]);
             _grid = new object[Height, Width];
             /*switch (MapID)
             {
@@ -26,8 +26,8 @@ namespace ConceptMario.Assets
                     break;
             }*/
             MapDirector Director = new MapDirector(MapBuilder);
-            Director.Construct(_0GRID[MapID]);
-            BuildGrid(MapBuilder.GetBlocks());
+            Director.Construct();
+            BuildGrid(MapBuilder.GetResult());
             Director = null;
             //MapBuilder = null;
         }
@@ -49,11 +49,11 @@ namespace ConceptMario.Assets
             Blocks[3] = _grid[Player.GetY() / Size, Player.GetX() / Size - 1] as Wall;//LEFT
             return Blocks;
         }
-        private void BuildGrid(List<Block> Blocks)
+        private void BuildGrid(MapObjects Blocks)
         {
-            foreach (Block block in Blocks)
+            for(int i =0; i < Blocks.Count;i++)
             {
-                _grid[block.GetYGrid(), block.GetXGrid()] = block ;
+                _grid[Blocks[i].GetYGrid(), Blocks[i].GetXGrid()] = Blocks[i];
             }
         }
         /// <summary>

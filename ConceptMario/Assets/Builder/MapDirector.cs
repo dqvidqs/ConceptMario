@@ -10,18 +10,13 @@ namespace ConceptMario.Assets.MapBuilder
         {
             this.mapBuilder = mapBuilder;
         }
-        public void Construct(string Grid)
+        public void Construct()
         {
-            mapBuilder.Grid = Grid;
             mapBuilder.BuildDiamonds();
             mapBuilder.BuildWalls();
             mapBuilder.BuildDoors();
             mapBuilder.BuildBoxes();
             mapBuilder.BuildEnemies();
         }
-        /*public List<Block> GetBlocks()
-        {
-            return mapBuilder.GetBlocks();
-        }*/
     }
 }

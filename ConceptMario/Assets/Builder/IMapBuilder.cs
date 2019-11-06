@@ -5,7 +5,6 @@ namespace ConceptMario.Assets.MapBuilder
 {
     interface IMapBuilder
     {
-        string Grid { set; get; }
         void BuildWalls();
 
         void BuildDiamonds();
@@ -16,6 +15,6 @@ namespace ConceptMario.Assets.MapBuilder
 
         void BuildEnemies();
 
-        List<Block> GetBlocks();
+        MapObjects GetResult();
     }
 }

@@ -7,14 +7,15 @@ namespace ConceptMario.Assets.MapBuilder
     //Builder
     public class MapBuilder : IMapBuilder
     {
-        //private Factory ShapeFactory = new Factory();
-        private List<Block> obj = new List<Block>();
-        public string Grid { get; set; }
+        private MapObjects Objects;
+        private string Grid;
         private int Step;
         private int Width = MetaData.Width;
         private int Size = MetaData.Size;
-        public MapBuilder()
+        public MapBuilder(string Grid)
         {
+            this.Grid = Grid;
+            Objects = new MapObjects();
         }
         public void BuildWalls()
         {
@@ -23,7 +24,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '1')
                 {
-                    obj.Add(new Wall(i % Width * Size, Step * Size, Factory.GetShape("wall").Get()));
+                    Objects.AddBlock(new Wall(i % Width * Size, Step * Size, Factory.GetShape("wall").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -39,7 +40,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '2')
                 {
-                    obj.Add(new Diamond(i % Width * Size, Step * Size, Factory.GetShape("diamond").Get()));
+                    Objects.AddBlock(new Diamond(i % Width * Size, Step * Size, Factory.GetShape("diamond").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -54,7 +55,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '3')
                 {
-                    obj.Add(new Door(i % Width * Size, Step * Size, Factory.GetShape("door").Get()));
+                    Objects.AddBlock(new Door(i % Width * Size, Step * Size, Factory.GetShape("door").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -69,7 +70,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '4')
                 {
-                    obj.Add(new Box(i % Width * Size, Step * Size, Factory.GetShape("box").Get()));
+                    Objects.AddBlock(new Box(i % Width * Size, Step * Size, Factory.GetShape("box").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -84,7 +85,7 @@ namespace ConceptMario.Assets.MapBuilder
             {
                 if (Grid[i] == '5')
                 {
-                    obj.Add(new Enemy(i % Width * Size, Step * Size, Factory.GetShape("enemy").Get()));
+                    Objects.AddBlock(new Enemy(i % Width * Size, Step * Size, Factory.GetShape("enemy").Get()));
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {
@@ -92,9 +93,9 @@ namespace ConceptMario.Assets.MapBuilder
                 }
             }
         }
-        public List<Block> GetBlocks()
+        public MapObjects GetResult()
         {
-            return obj;
+            return Objects;
         }
     }
 }

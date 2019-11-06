@@ -12,7 +12,7 @@ namespace ConceptMario.Assets.ShapeFactory.Shapes
         {
             this.Fill = Fill;
             Terrain = new Polygon();
-            Terrain.Stroke = new Brown().Get();
+            Terrain.Stroke = new Black().Get();
         }
         public Polygon Get()
         {

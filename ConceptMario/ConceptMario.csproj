@@ -81,6 +81,7 @@
     <Compile Include="Assets\Builder\Objects\Box.cs" />
     <Compile Include="Assets\Builder\Objects\Door.cs" />
     <Compile Include="Assets\Builder\Objects\Enemy.cs" />
+    <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Bullet.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Pistol.cs" />
     <Compile Include="Assets\Characters\PlayerAssets\Inventory.cs" />
