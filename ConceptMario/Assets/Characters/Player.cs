@@ -8,7 +8,7 @@ namespace ConceptMario.Assets.Characters
 {
     public class Player
     {
-        private Polygon Object = null;
+        private Polygon Object;
         private int Size = MetaData.Size;
         private int X;
         private int Y;

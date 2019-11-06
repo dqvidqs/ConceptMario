@@ -5,7 +5,7 @@ using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    public class DoorShape : IShapeObjects
+    public class DoorShape : ObjectShape
     {
         public DoorShape(IColor Fill) : base(Fill)
         {

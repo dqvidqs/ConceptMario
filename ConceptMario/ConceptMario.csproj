@@ -97,7 +97,7 @@
     <Compile Include="Assets\ShapeFactory\Shapes\DiamondShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\DoorShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\EnemyShape.cs" />
-    <Compile Include="Assets\ShapeFactory\Shapes\IShapeObjects.cs" />
+    <Compile Include="Assets\ShapeFactory\Shapes\ObjectShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">

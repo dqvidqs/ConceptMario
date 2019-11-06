@@ -5,7 +5,7 @@ using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    public class DiamondShape : IShapeObjects
+    public class DiamondShape : ObjectShape
     {
         public DiamondShape(IColor Fill) : base(Fill)
         {

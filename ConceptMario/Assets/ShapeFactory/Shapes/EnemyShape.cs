@@ -5,7 +5,7 @@ using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    public class EnemyShape : IShapeObjects
+    public class EnemyShape : ObjectShape
     {
         public EnemyShape(IColor Fill) : base(Fill)
         {

@@ -18,9 +18,9 @@ namespace ConceptMario.Assets.MapBuilder
             mapBuilder.BuildBoxes();
             mapBuilder.BuildEnemies();
         }
-        public List<Block> GetBlocks()
+        /*public List<Block> GetBlocks()
         {
             return mapBuilder.GetBlocks();
-        }
+        }*/
     }
 }

@@ -3,12 +3,12 @@ using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    public abstract class IShapeObjects
+    public abstract class ObjectShape
     {
         protected IColor Fill;
         protected Polygon Terrain;
         protected int Size = MetaData.Size;
-        public IShapeObjects(IColor Fill)
+        public ObjectShape(IColor Fill)
         {
             this.Fill = Fill;
             Terrain = new Polygon();

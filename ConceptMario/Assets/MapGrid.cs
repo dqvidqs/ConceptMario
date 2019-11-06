@@ -17,7 +17,7 @@ namespace ConceptMario.Assets
 
         public MapGrid(int MapID)//CLIENT
         {
-            //MapBuilder.MapBuilder MapBuilder = null;
+            MapBuilder.MapBuilder MapBuilder = new MapBuilder.MapBuilder(_0GRID[MapID]);
             _grid = new object[Height, Width];
             /*switch (MapID)
             {
@@ -25,9 +25,9 @@ namespace ConceptMario.Assets
                     MapBuilder = new MapBuilder.MapBuilder(_0GRID);
                     break;
             }*/
-            MapDirector Director = new MapDirector(new MapBuilder.MapBuilder(_0GRID[MapID]));
+            MapDirector Director = new MapDirector(MapBuilder);
             Director.Construct();
-            BuildGrid(Director.GetBlocks());
+            BuildGrid(MapBuilder.GetBlocks());
             Director = null;
             //MapBuilder = null;
         }

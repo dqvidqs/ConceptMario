@@ -5,7 +5,7 @@ using ConceptMario.Assets.ShapeFactory.Color;
 
 namespace ConceptMario.Assets.ShapeFactory.Shapes
 {
-    public class BlockShape : IShapeObjects
+    public class BlockShape : ObjectShape
     {
         public BlockShape(IColor Fill) : base(Fill)
         {

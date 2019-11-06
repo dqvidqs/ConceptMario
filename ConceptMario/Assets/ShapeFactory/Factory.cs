@@ -6,7 +6,7 @@ namespace ConceptMario.Assets.ShapeFactory
     static class Factory
     {
         //public Factory() { }
-        static public IShapeObjects GetShape(string Object)
+        static public ObjectShape GetShape(string Object)
         {
             switch (Object.ToLower())
             {
