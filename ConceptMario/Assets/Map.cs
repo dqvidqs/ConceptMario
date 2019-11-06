@@ -10,10 +10,8 @@ namespace ConceptMario.Assets
     public class Map
     {
         //private bool[] Updates = new bool[] { false };
-        private Canvas Can = null;
         private Canvas Can;
         //MAP GRID
-        private MapGrid Grid = null;
         private MapGrid Grid;
         //MAP MOVING PARSTS
         private List<Bullet> Bullets = new List<Bullet>();

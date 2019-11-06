@@ -33,7 +33,7 @@ namespace ConceptMario
 		public void GetGuns()
 		{
 			guns = MyShop.GetShop().Guns;
-			userGuns = Session.GetSession().GetUserGuns();
+			//userGuns = Session.GetSession().GetUserGuns();
 		}
 
 		private void btnMenu_Click_1(object sender, RoutedEventArgs e)
