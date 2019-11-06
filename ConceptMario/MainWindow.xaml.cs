@@ -48,11 +48,11 @@ namespace ConceptMario
 		//---------------------------------------------------
 		//          Creating new objects
 		//---------------------------------------------------
-		private Map Map = null;
-		private DispatcherTimer Frame = null;
-		private DispatcherTimer Frame2 = null;
-		private Player Player = null;
-		private Player Player2 = null;
+		private Map Map;
+		private DispatcherTimer Frame;
+		private DispatcherTimer Frame2;
+		private Player Player;
+		private Player Player2;
 		private Player oldOne = new Player(25, 25);
 		private HttpAdapter Server = new HttpAdapter();
 		//private bool[] Updates;
