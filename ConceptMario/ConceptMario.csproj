@@ -134,7 +134,7 @@
     <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Builder\Objects\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
-    <Compile Include="Assets\MetaData.cs" />
+    <Compile Include="MetaData.cs" />
     <Compile Include="Assets\Characters\Player.cs" />
     <Compile Include="Files\HttpAdapter.cs" />
     <Compile Include="Files\Session.cs" />
