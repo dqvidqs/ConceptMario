@@ -78,14 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assets\Builder\Objects\Blocks\Door.cs" />
+    <Compile Include="Assets\Builder\Objects\Blocks\Enemy.cs" />
     <Compile Include="Assets\Builder\Objects\Box.cs" />
-    <Compile Include="Assets\Builder\Objects\Door.cs" />
-    <Compile Include="Assets\Builder\Objects\Enemy.cs" />
     <Compile Include="Assets\Builder\MapObjects.cs" />
-    <Compile Include="Assets\Characters\PlayerAssets\Bullet.cs" />
-    <Compile Include="Assets\Characters\PlayerAssets\Pistol.cs" />
-    <Compile Include="Assets\Characters\PlayerAssets\Inventory.cs" />
-    <Compile Include="Assets\Characters\PlayerAssets\Item.cs" />
     <Compile Include="Assets\ShapeFactory\Color\Black.cs" />
     <Compile Include="Assets\ShapeFactory\Color\Blue.cs" />
     <Compile Include="Assets\ShapeFactory\Color\Brown.cs" />
@@ -212,6 +208,9 @@
       <Project>{bfd1aa9f-4c7b-4a31-baad-cd96151622b4}</Project>
       <Name>Objects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Characters\PlayerAssets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12548,23 +12548,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ugand\\.nuget\\packages\\": {},
+    "C:\\Users\\Dovydas\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ugand\\Documents\\GitHub\\ConceptMario\\Server\\Server.csproj",
+      "projectUniqueName": "D:\\GitHub\\ConceptMario\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\ugand\\Documents\\GitHub\\ConceptMario\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\ugand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ugand\\Documents\\GitHub\\ConceptMario\\Server\\obj\\",
+      "projectPath": "D:\\GitHub\\ConceptMario\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\Dovydas\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\ConceptMario\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ugand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dovydas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12577,8 +12577,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\ugand\\Documents\\GitHub\\ConceptMario\\Objects\\Objects.csproj": {
-              "projectPath": "C:\\Users\\ugand\\Documents\\GitHub\\ConceptMario\\Objects\\Objects.csproj"
+            "D:\\GitHub\\ConceptMario\\Objects\\Objects.csproj": {
+              "projectPath": "D:\\GitHub\\ConceptMario\\Objects\\Objects.csproj"
             }
           }
         }
@@ -12604,7 +12604,6 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
