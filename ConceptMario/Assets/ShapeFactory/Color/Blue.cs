@@ -2,7 +2,7 @@
 
 namespace ConceptMario.Assets.ShapeFactory.Color
 {
-    class Blue : IColor
+    public class Blue : IColor
     {
         public SolidColorBrush Get()
         {

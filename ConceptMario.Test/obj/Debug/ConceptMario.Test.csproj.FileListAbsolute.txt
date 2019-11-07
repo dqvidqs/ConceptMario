@@ -48,3 +48,7 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\netstandard.
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\Objects.pdb
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\Objects.exe.config
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario.Test\bin\Debug\System.ComponentModel.Annotations.xml
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.csprojAssemblyReference.cache
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.csproj.CoreCompileInputs.cache
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.dll
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario.Test\obj\Debug\ConceptMario.Test.pdb

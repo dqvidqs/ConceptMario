@@ -66,20 +66,20 @@ namespace ConceptMario.Assets
         }
         private void UpdateBullets(Player Player)
         {
-            Bullets = Player.GetBullets();
+            Bullets = Player.GetBullet(); // todo: rerender the whole screen to remove non existant bullets
             for (int i = 0; i < Bullets.Count; i++)
             {
                 if (!Can.Children.Contains(Bullets[i].bullet))
                     Can.Children.Add(Bullets[i].bullet);
-                Canvas.SetBottom(Bullets[i].bullet, Bullets[i].Y);
-                Canvas.SetLeft(Bullets[i].bullet, Bullets[i].X);
-                Bullets[i].X += Bullets[i].BulletSpeed * Bullets[i].Direction;
-                Wall block = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Wall;
-                Enemy EnemyBlock = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Enemy;
+                Canvas.SetBottom(Bullets[i].bullet, Bullets[i].data.Y);
+                Canvas.SetLeft(Bullets[i].bullet, Bullets[i].data.X);
+                Bullets[i].data.X += Bullets[i].data.BulletSpeed * Bullets[i].data.Direction;
+                Wall block = Grid.GetBlock((Bullets[i].data.X - Bullets[i].data.Direction * Size) / Size, Bullets[i].data.Y / Size) as Wall;
+                Enemy EnemyBlock = Grid.GetBlock((Bullets[i].data.X - Bullets[i].data.Direction * Size) / Size, Bullets[i].data.Y / Size) as Enemy;
                 if (block != null)
                 {
                     Can.Children.Remove(Bullets[i].bullet);
-                    Bullets.RemoveAt(i);
+                    Player.RemoveBullet(i);
                     Box box = block as Box;
                     if(box != null)
                     {

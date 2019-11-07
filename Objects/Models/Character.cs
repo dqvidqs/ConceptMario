@@ -10,5 +10,19 @@ namespace Objects.Models
 		public int fk_user { get; set; }
 		public int fk_inventory { get; set; }
 		public Nullable<int> fk_ability { get; set; }
+
+        public Character()
+        {
+
+        }
+
+        public Character(int id)
+        {
+            this.id = id;
+            fk_user = id;
+            fk_inventory = id;
+            x = 25;
+            y = 25;
+        }
 	}
 }

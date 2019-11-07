@@ -23,7 +23,7 @@ namespace ConceptMario
 	public partial class Shop : Window
 	{
 		List<Gun> guns;
-		private List<InventoryGun> userGuns;
+		//private List<InventoryGun> userGuns;
 		public Shop()
 		{
 			InitializeComponent();

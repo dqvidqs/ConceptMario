@@ -62,7 +62,6 @@ namespace ConceptMario.Files
 			{
 				_saleStrategy = new AfternoonSaleStrategy();
 			}
-
 		}
 	}
 }

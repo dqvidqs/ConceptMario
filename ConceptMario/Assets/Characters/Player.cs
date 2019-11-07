@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using ConceptMario.Assets.ShapeFactory;
 using ConceptMario.Assets.Characters.PlayerAssets;
+using System.Linq;
+using Objects.Enums;
 
 namespace ConceptMario.Assets.Characters
 {
@@ -36,7 +38,7 @@ namespace ConceptMario.Assets.Characters
             this.Y = Y;
             CanRight = true;
             CanLeft = true;
-            Inv.AddItem(new Pistol(20, 7));
+            Inv.AddItem(new Pistol());
         }
 		public void Update(int X, int Y)
 		{
@@ -50,14 +52,17 @@ namespace ConceptMario.Assets.Characters
             Inv.GetItem().Update();
             Move();
         }
-        public List<Bullet> GetBullets()
+
+        public List<Bullet> GetBullet()
         {
-            return Inv.GetBullets();
+            return Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
         }
-        /*public void RemoveBullet(Bullet bullet)
+
+        public void RemoveBullet(int i)
         {
-            Inv.Remove(bullet);
-        }*/
+            Inv.RemoveBullet(i);
+        }
+
         public Polygon Get()
         {
             return Object;
@@ -80,8 +85,9 @@ namespace ConceptMario.Assets.Characters
         }
         private void Shooting()
         {
-            Inv.Shoot(X, Y, Direction);
+            Inv.Shoot(X, Y, (Directions) Direction);
         }
+
         private void Gravity()
         {
             if (!CanJump)

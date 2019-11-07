@@ -8,5 +8,14 @@ namespace Objects.Models
 		public int id { get; set; }
 		
 		public  ICollection<InventoryGun> Guns { get; set; }
+
+        public Inventory()
+        {
+
+        }
+        public Inventory(int id)
+        {
+            this.id = id;
+        }
 	}
 }

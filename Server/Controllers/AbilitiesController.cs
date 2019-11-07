@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Objects.Models;
 using Server.Database;
+using Server.Facades;
 
 namespace Server.Controllers
 {
@@ -14,18 +15,17 @@ namespace Server.Controllers
     [ApiController]
     public class AbilitiesController : ControllerBase
     {
-        private readonly GameContext _context;
-
+        private readonly AbilitiesFacade _facade;
         public AbilitiesController(GameContext context)
         {
-            _context = context;
+            _facade = new AbilitiesFacade(context);
         }
 
         // GET: api/Abilities
         [HttpGet]
-        public IEnumerable<Ability> GetAbilitys()
+        public async Task<IEnumerable<Ability>> GetAbilitys()
         {
-            return _context.Abilities;
+            return await _facade.GetAllAvailableAbilities();
         }
 
         // GET: api/Abilities/5
@@ -37,7 +37,7 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var ability = await _context.Abilities.FindAsync(id);
+            var ability = await _facade.GetAbility(id);
 
             if (ability == null)
             {
@@ -47,82 +47,5 @@ namespace Server.Controllers
             return Ok(ability);
         }
 
-        // PUT: api/Abilities/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAbility([FromRoute] int id, [FromBody] Ability ability)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != ability.id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(ability).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AbilityExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Abilities
-        [HttpPost]
-        public async Task<IActionResult> PostAbility([FromBody] Ability ability)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-			ability.id = _context.Abilities.Count();
-
-			_context.Abilities.Add(ability);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetAbility", new { id = ability.id }, ability);
-        }
-
-        // DELETE: api/Abilities/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAbility([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var ability = await _context.Abilities.FindAsync(id);
-            if (ability == null)
-            {
-                return NotFound();
-            }
-
-            _context.Abilities.Remove(ability);
-            await _context.SaveChangesAsync();
-
-            return Ok(ability);
-        }
-
-        private bool AbilityExists(int id)
-        {
-            return _context.Abilities.Any(e => e.id == id);
-        }
     }
 }

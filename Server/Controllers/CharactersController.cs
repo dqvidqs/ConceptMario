@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Objects.Models;
 using Server.Database;
+using Server.Facades;
 
 namespace Server.Controllers
 {
@@ -14,18 +15,12 @@ namespace Server.Controllers
     [ApiController]
     public class CharactersController : ControllerBase
     {
-        private readonly GameContext _context;
-
+        private readonly GameContext _context; // todo: pasalinti contexta
+        private readonly CharacterFacade _facade;
         public CharactersController(GameContext context)
         {
+            _facade = new CharacterFacade(context);
             _context = context;
-        }
-
-        // GET: api/Characters
-        [HttpGet]
-        public IEnumerable<Character> GetCharacter()
-        {
-            return _context.Characters.ToList();
         }
 
         // GET: api/Characters/5
@@ -117,6 +112,34 @@ namespace Server.Controllers
 
             return Ok(character);
         }
+
+        public async Task <IActionResult> AddAbility(Ability ability)
+        {
+            try
+            {
+                await _facade.AddAbility(ability);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+        public async Task<IActionResult> AddGun(Gun gun)
+        {
+            try
+            {
+                await _facade.EquipGun(gun);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
 
         private bool CharacterExists(int id)
         {
