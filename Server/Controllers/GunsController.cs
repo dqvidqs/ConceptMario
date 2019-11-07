@@ -27,11 +27,11 @@ namespace Server.Controllers
 
        // GET: api/Guns
        //[HttpGet()]
-        public async Task<IEnumerable<Gun>> Get()
-        {
-            var guns = await _facade.GetShopGuns();
-            return guns;
-        }
+        //public async Task<IEnumerable<Gun>> Get()
+        //{
+        //    var guns = await _facade.GetShopGuns();
+        //    return guns;
+        //}
 
         // GET: api/Guns/5
         [HttpGet("{id}")]

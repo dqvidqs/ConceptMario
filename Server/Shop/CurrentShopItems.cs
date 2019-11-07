@@ -14,15 +14,15 @@ namespace Server.Shop
         private static CurrentShopItems _shop;
         private Random random;
 
-        public static CurrentShopItems GetShop()
-        {
-            if(_shop == null)
-            {
-                _shop = new CurrentShopItems();
-            }
+        //public static CurrentShopItems GetShop()
+        //{
+        //    if(_shop == null)
+        //    {
+        //        _shop = new CurrentShopItems();
+        //    }
 
-            return _shop;
-        }
+        //    return _shop;
+        //}
         private CurrentShopItems()
         {
             Guns = new List<Gun>();

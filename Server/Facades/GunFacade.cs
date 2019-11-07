@@ -14,10 +14,10 @@ namespace Server.Facades
         {
         }
 
-        public async Task<List<Gun>> GetShopGuns()
-        {
-            return await Task.FromResult(CurrentShopItems.GetShop().Guns);
-        }
+        //public async Task<List<Gun>> GetShopGuns()
+        //{
+        //    return await Task.FromResult(CurrentShopItems.GetShop().Guns);
+        //}
 
     }
 }
