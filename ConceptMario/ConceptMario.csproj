@@ -102,6 +102,7 @@
     <Compile Include="Assets\ShapeFactory\Shapes\EnemyShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\ObjectShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -128,13 +129,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Assets\Builder\Objects\Block.cs" />
+    <Compile Include="Assets\Builder\Objects\Blocks\Block.cs" />
     <Compile Include="Assets\Map.cs" />
-    <Compile Include="Assets\Builder\Objects\Diamond.cs" />
+    <Compile Include="Assets\Builder\Objects\Blocks\Diamond.cs" />
     <Compile Include="Assets\Builder\IMapBuilder.cs" />
     <Compile Include="Assets\Builder\MapBuilder.cs" />
     <Compile Include="Assets\Builder\MapDirector.cs" />
-    <Compile Include="Assets\Builder\Objects\Wall.cs" />
+    <Compile Include="Assets\Builder\Objects\Blocks\Wall.cs" />
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="MetaData.cs" />
     <Compile Include="Assets\Characters\Player.cs" />

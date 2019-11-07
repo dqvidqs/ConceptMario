@@ -32,19 +32,19 @@ namespace ConceptMario.Files
 		{
 			Guns = new List<Gun>();
 			SetSaleStrategy();
-			GetGuns();
+			//GetGuns();
 		}
 
-		private async void GetGuns()
-		{
-			HttpAdapter Server = new HttpAdapter();
-			var result = await Server.GetGuns();
-			foreach (var item in result)
-			{
-				item.price = _saleStrategy.GetPrice(item.price);
-				Guns.Add(item);
-			}
-		}
+		//private async void GetGuns()
+		//{
+		//	HttpAdapter Server = new HttpAdapter();
+		//	var result = await Server.GetGuns();
+		//	foreach (var item in result)
+		//	{
+		//		item.price = _saleStrategy.GetPrice(item.price);
+		//		Guns.Add(item);
+		//	}
+		//}
 
 		public static void SetSaleStrategy()
 		{
@@ -62,7 +62,6 @@ namespace ConceptMario.Files
 			{
 				_saleStrategy = new AfternoonSaleStrategy();
 			}
-
 		}
 	}
 }

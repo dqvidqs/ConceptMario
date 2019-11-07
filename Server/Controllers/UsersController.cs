@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Objects.Models;
 using Server.Database;
+using Server.Facades;
 
 namespace Server.Controllers
 {
@@ -14,25 +15,25 @@ namespace Server.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly GameContext _context;
+        private readonly UsersFacade _facade;
 
         public UsersController(GameContext context)
         {
-            _context = context;
+            _facade = new UsersFacade(context);
         }
 
         // GET: api/Users
         [HttpGet]
-        public IEnumerable<User> GetUsers()
+        public async Task<IEnumerable<User>> GetUsers()
         {
-			return _context.Users;
+            return await _facade.GetUsers();                
         }
 
         // GET: api/Users/Logged
         [HttpGet("logged")]
-        public int GetLoggedUsers()
+        public async Task<int> GetLoggedUsersCount()
         {
-	        return _context.Users.Where(x=>x.status==true).Count();
+            return await _facade.GetLoggedInCount();
         }
 
 		// GET: api/Users/5
@@ -44,18 +45,16 @@ namespace Server.Controllers
                 return BadRequest(ModelState);
             }
 
-			var user = await _context.Users.FirstAsync(x => x.username == usr.username && x.password == usr.password);
-
-            if (user == null)
+            try
             {
-                return NotFound();
+                var user = await _facade.GetUser(usr);
+                return Ok(user);
             }
-
-            user.status = true;
-            _context.Entry(user).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
-			return Ok(user);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
 
         // GET: api/Users/logout/5
@@ -67,53 +66,15 @@ namespace Server.Controllers
 		        return BadRequest(ModelState);
 	        }
 
-	        var user = await _context.Users.FindAsync(id);
-
-	        if (user == null)
-	        {
-		        return NotFound();
-	        }
-
-	        user.status = false;
-	        _context.Entry(user).State = EntityState.Modified;
-	        await _context.SaveChangesAsync();
-
-	        return NoContent();
-        }
-
-		// PUT: api/Users/5
-		[HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != user.id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(user).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
+                await _facade.Logout(id);
+                return NoContent();
+            } catch (Exception ex)
             {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                Console.WriteLine(ex.Message);
+                throw;
             }
-
-            return NoContent();
         }
 
         // POST: api/Users
@@ -124,52 +85,11 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-			int id = _context.Users.Count() + 1;
-			user.id = id;
-			_context.Users.Add(user);
-            await _context.SaveChangesAsync();
 
-			Inventory inventory = new Inventory();
-			inventory.id = id;
-			_context.Inventories.Add(inventory);
-			await _context.SaveChangesAsync();
+            var returnUser = await _facade.CreateUser(user);
 
-			Character character = new Character();
-			character.id = id;
-			character.fk_user = id;
-			character.fk_inventory= id;
-			character.x = 25;
-			character.y = 25;
-			_context.Characters.Add(character);
-			await _context.SaveChangesAsync();
-
-			return Ok(user);
+            return Ok(returnUser);
         }
 
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return Ok(user);
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.id == id);
-        }
     }
 }

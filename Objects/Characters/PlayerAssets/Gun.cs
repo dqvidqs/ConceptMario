@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
-using System.Windows.Controls;
-using ConceptMario.Assets.ShapeFactory;
+﻿using Objects.Enums;
+using System;
 
 namespace ConceptMario.Assets.Characters.PlayerAssets
 {
-    public abstract class Item
+
+    [Serializable]
+    public abstract class Gun
     {
-        protected int FireRate;
+
+
+        public int FireRate;
         protected int CurrectRate;
-        protected int Ammo;
+        public int Ammo;
         protected int CurrectAmmo;
-        public Item(int FireRate, int Ammo)
+        public string Name;
+
+        public Gun(int FireRate, int Ammo, string name = "Gun")
         {
             CurrectAmmo = Ammo;
             CurrectRate = FireRate;
             this.Ammo = Ammo;
-            this.FireRate = FireRate;           
+            this.FireRate = FireRate;
+            Name = name;
         }
         public void Update()
         {
@@ -29,17 +30,19 @@ namespace ConceptMario.Assets.Characters.PlayerAssets
                 CurrectRate++;
             }
         }
-        public Bullet Shoot(int X, int Y,int Direction)
+
+        public BulletData Shoot(int x, int y, Directions direction)
         {
             if (CurrectAmmo > 0 && CurrectRate == FireRate)
             {
                 CurrectRate = 0;
                 CurrectAmmo--;
-                return new Bullet { X = X, Y = Y, bullet = Factory.GetShape("bullet").Get(), Direction = Direction, BulletSpeed= MetaData.Size};
+                return new BulletData { X = x, Y = y, Direction = (int) direction, BulletSpeed = 20 };
             }
             else
                 return null;
         }
+
         public void Relaod()
         {
             CurrectAmmo = Ammo;

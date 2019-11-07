@@ -29,5 +29,9 @@ namespace ConceptMario.Assets.MapBuilder.Objects
         public int GetY() { return XY[1]; }
         public int GetXGrid() { return XY[0] / Size; }
         public int GetYGrid() { return XY[1] / Size; }
+        public bool CheckCenter(int X, int Y)
+        {
+            return XY[0] < X && XY[0] + Size > X && XY[1] < Y && XY[1] + Size > Y;
+        }
     }
 }
