@@ -16,7 +16,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
-using ConceptMario.Models;
 using ConceptMario.Assets;
 using Objects.Models;
 using ConceptMario.Assets.Characters;
