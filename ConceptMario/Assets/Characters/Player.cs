@@ -57,13 +57,6 @@ namespace ConceptMario.Assets.Characters
         public List<BulletData> GetBullet()
         {
             return Inv.GetBulletsData();
-            /*var bulletdata = Inv.GetBulletsData();
-            foreach (var bulls in bulletdata)
-            {
-                if(bulls)
-            }*/
-            //bullet = Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
-            //return Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
         }
 
         public void RemoveBullet(int i)
