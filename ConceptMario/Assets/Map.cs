@@ -72,7 +72,6 @@ namespace ConceptMario.Assets
                 if (Bullets[i].Bullet == null)
                     Bullets[i].Bullet = ShapeFactory.Factory.GetShape("bullet").Get();
 
-
                 if (!Can.Children.Contains(Bullets[i].Bullet))
                     Can.Children.Add(Bullets[i].Bullet);
                 Canvas.SetBottom(Bullets[i].Bullet, Bullets[i].Y);
@@ -84,7 +83,6 @@ namespace ConceptMario.Assets
                 {
                     Can.Children.Remove(Bullets[i].Bullet);
                     Player.RemoveBullet(i);
-                    //Bullets.RemoveAt(i);
                     Box box = block as Box;
                     if (box != null)
                     {
