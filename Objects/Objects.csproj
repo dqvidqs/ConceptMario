@@ -35,6 +35,8 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -50,11 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\PlayerAssets\BulletData.cs" />
-    <Compile Include="Characters\PlayerAssets\Gun\Pistol.cs" />
-    <Compile Include="Characters\PlayerAssets\Gun\Pistol1.cs" />
-    <Compile Include="Characters\PlayerAssets\Gun\Pistol2.cs" />
-    <Compile Include="Characters\PlayerAssets\Gun\Pistol3.cs" />
-    <Compile Include="Characters\PlayerAssets\Gun\Pistol4.cs" />
+    <Compile Include="Characters\PlayerAssets\Guns\Pistol.cs" />
+    <Compile Include="Characters\PlayerAssets\Guns\Pistol1.cs" />
+    <Compile Include="Characters\PlayerAssets\Guns\Pistol2.cs" />
+    <Compile Include="Characters\PlayerAssets\Guns\Pistol3.cs" />
+    <Compile Include="Characters\PlayerAssets\Guns\Pistol4.cs" />
     <Compile Include="Characters\PlayerAssets\Inventory.cs" />
     <Compile Include="Characters\PlayerAssets\Gun.cs" />
     <Compile Include="Decorator\EndlessItem.cs" />

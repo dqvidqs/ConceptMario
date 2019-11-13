@@ -1,4 +1,4 @@
-﻿using ConceptMario.Assets.Characters.PlayerAssets;
+﻿using Objects.Characters.PlayerAssets;
 
 namespace Objects.Decorator
 {

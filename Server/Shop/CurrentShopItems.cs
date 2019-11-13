@@ -1,4 +1,4 @@
-﻿using ConceptMario.Assets.Characters.PlayerAssets;
+﻿using Objects.Characters.PlayerAssets;
 using Objects.Decorator;
 using Server.Factory;
 using System;

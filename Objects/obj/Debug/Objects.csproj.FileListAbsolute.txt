@@ -106,7 +106,6 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CoreCom
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CopyComplete
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.pdb
-C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csprojAssemblyReference.cache
 C:\Users\ugand\Documents\GitHub\ConceptMario\Objects\bin\Debug\Objects.exe.config
 C:\Users\ugand\Documents\GitHub\ConceptMario\Objects\bin\Debug\Objects.exe
 C:\Users\ugand\Documents\GitHub\ConceptMario\Objects\bin\Debug\Objects.pdb

@@ -1,6 +1,6 @@
 ﻿using Objects.Enums;
 using System.Collections.Generic;
-namespace ConceptMario.Assets.Characters.PlayerAssets
+namespace Objects.Characters.PlayerAssets
 {
     public class Inventory
     {

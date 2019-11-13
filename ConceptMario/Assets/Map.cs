@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using ConceptMario.Assets.MapBuilder.Objects;
 using ConceptMario.Assets.Characters;
-using ConceptMario.Assets.Characters.PlayerAssets;
+using Objects.Characters.PlayerAssets;
 using System.Collections.Generic;
 
 namespace ConceptMario.Assets
@@ -80,6 +80,7 @@ namespace ConceptMario.Assets
                 {
                     Can.Children.Remove(Bullets[i].bullet);
                     Player.RemoveBullet(i);
+                    Bullets.RemoveAt(i);
                     Box box = block as Box;
                     if(box != null)
                     {

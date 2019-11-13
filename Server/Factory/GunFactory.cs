@@ -1,4 +1,5 @@
-﻿using ConceptMario.Assets.Characters.PlayerAssets;
+﻿using Objects.Characters.PlayerAssets.Guns;
+using Objects.Characters.PlayerAssets;
 using System.Collections.Generic;
 
 namespace Server.Factory

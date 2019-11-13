@@ -1,4 +1,4 @@
-﻿namespace ConceptMario.Assets.Characters.PlayerAssets
+﻿namespace Objects.Characters.PlayerAssets.Guns
 {
     public class Pistol : Gun
     {

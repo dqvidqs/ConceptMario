@@ -1,5 +1,4 @@
-﻿using ConceptMario.Assets.Characters.PlayerAssets;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Objects.Models
 {

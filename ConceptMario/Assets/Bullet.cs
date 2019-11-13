@@ -1,5 +1,4 @@
-﻿
-using ConceptMario.Assets.Characters.PlayerAssets;
+﻿using Objects.Characters.PlayerAssets;
 using System.Windows.Shapes;
 
 namespace ConceptMario

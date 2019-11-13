@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConceptMario.Assets.Characters.PlayerAssets
+namespace Objects.Characters.PlayerAssets.Guns
 {
-    public class Pistol3 : Gun
+    public class Pistol1 : Gun
     {
-        public Pistol3() : base(FireRate: 40, Ammo: 7)
+        public Pistol1() : base(FireRate: 60, Ammo: 7)//, "Useless pistol")
         {
         }
     }

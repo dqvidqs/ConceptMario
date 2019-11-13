@@ -2,9 +2,10 @@
 using System.Windows.Controls;
 using System.Collections.Generic;
 using ConceptMario.Assets.ShapeFactory;
-using ConceptMario.Assets.Characters.PlayerAssets;
+using Objects.Characters.PlayerAssets;
 using System.Linq;
 using Objects.Enums;
+using Objects.Characters.PlayerAssets.Guns;
 
 namespace ConceptMario.Assets.Characters
 {
@@ -19,6 +20,7 @@ namespace ConceptMario.Assets.Characters
         private int MoveSpeed = 5;
         private int Direction = 1;
         private Inventory Inv;
+        private List <Bullet> bullets;
 
         public int HitPoints { set; get; }
         public bool CanJump { set; get; }
@@ -32,6 +34,7 @@ namespace ConceptMario.Assets.Characters
         public Player(int X, int Y)
         {
             this.HitPoints = 100;
+            this.bullets = new List<Bullet>();
             this.Inv = new Inventory();
             Object = Factory.GetShape("player").Get();
             this.X = X;
@@ -55,12 +58,20 @@ namespace ConceptMario.Assets.Characters
 
         public List<Bullet> GetBullet()
         {
-            return Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
+            /*var bulletdata = Inv.GetBulletsData();
+            foreach (var bulls in bulletdata)
+            {
+                if(bulls)
+            }*/
+            //bullet = Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
+            //return Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
+            return null;
         }
 
         public void RemoveBullet(int i)
         {
             Inv.RemoveBullet(i);
+            bullets.RemoveAt(i);
         }
 
         public Polygon Get()

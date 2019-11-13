@@ -1,14 +1,12 @@
 ﻿using Objects.Enums;
 using System;
 
-namespace ConceptMario.Assets.Characters.PlayerAssets
-{
 
+namespace Objects.Characters.PlayerAssets
+{
     [Serializable]
     public abstract class Gun
     {
-
-
         public int FireRate;
         protected int CurrectRate;
         public int Ammo;
