@@ -35,7 +35,7 @@ namespace Objects.Characters.PlayerAssets
             {
                 CurrectRate = 0;
                 CurrectAmmo--;
-                return new BulletData { X = x, Y = y, Direction = (int) direction, BulletSpeed = 20 };
+                return new BulletData { X = x, Y = y, Direction = (int) direction, BulletSpeed = 25 };
             }
             else
                 return null;

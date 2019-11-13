@@ -20,7 +20,6 @@ namespace ConceptMario.Assets.Characters
         private int MoveSpeed = 5;
         private int Direction = 1;
         private Inventory Inv;
-        private List <Bullet> bullets;
 
         public int HitPoints { set; get; }
         public bool CanJump { set; get; }
@@ -34,9 +33,8 @@ namespace ConceptMario.Assets.Characters
         public Player(int X, int Y)
         {
             this.HitPoints = 100;
-            this.bullets = new List<Bullet>();
-            this.Inv = new Inventory();
             Object = Factory.GetShape("player").Get();
+            Inv = new Inventory();
             this.X = X;
             this.Y = Y;
             CanRight = true;
@@ -56,8 +54,9 @@ namespace ConceptMario.Assets.Characters
             Move();
         }
 
-        public List<Bullet> GetBullet()
+        public List<BulletData> GetBullet()
         {
+            return Inv.GetBulletsData();
             /*var bulletdata = Inv.GetBulletsData();
             foreach (var bulls in bulletdata)
             {
@@ -65,13 +64,11 @@ namespace ConceptMario.Assets.Characters
             }*/
             //bullet = Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
             //return Inv.GetBulletsData().Select(x => new Bullet(x, Factory.GetShape("bullet").Get())).ToList();
-            return null;
         }
 
         public void RemoveBullet(int i)
         {
             Inv.RemoveBullet(i);
-            bullets.RemoveAt(i);
         }
 
         public Polygon Get()

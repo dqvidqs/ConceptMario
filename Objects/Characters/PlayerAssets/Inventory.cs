@@ -1,5 +1,7 @@
 ﻿using Objects.Enums;
 using System.Collections.Generic;
+using Objects.Characters.PlayerAssets.Guns;
+
 namespace Objects.Characters.PlayerAssets
 {
     public class Inventory

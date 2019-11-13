@@ -14,10 +14,10 @@ namespace ConceptMario.Assets
         //MAP GRID
         private MapGrid Grid;
         //MAP MOVING PARSTS
-        private List<Bullet> Bullets = new List<Bullet>();
+        private List<BulletData> Bullets = new List<BulletData>();
         private List<Enemy> Enemies = new List<Enemy>();
         //other
-        private int  Size = MetaData.Size;
+        private int Size = MetaData.Size;
         public Map(Player player1, Player player2, int MapId)
         {
             Grid = new MapGrid(MapId);
@@ -30,9 +30,9 @@ namespace ConceptMario.Assets
             Can.Children.Add(player1.Get());
             Canvas.SetBottom(player1.Get(), player1.GetY());
             Canvas.SetLeft(player1.Get(), player1.GetX());
-			Can.Children.Add(player2.Get());
-			Canvas.SetBottom(player2.Get(), player2.GetY());
-			Canvas.SetLeft(player2.Get(), player2.GetX());           
+            Can.Children.Add(player2.Get());
+            Canvas.SetBottom(player2.Get(), player2.GetY());
+            Canvas.SetLeft(player2.Get(), player2.GetX());
         }
         public Canvas Get()
         {
@@ -50,8 +50,8 @@ namespace ConceptMario.Assets
         // ---------- PRIVATE ----------
         private void UpdateEnemies(Player Player)
         {
-            for(int i = 0; i < Enemies.Count; i++)
-            {               
+            for (int i = 0; i < Enemies.Count; i++)
+            {
                 Grid.Remove(Enemies[i].GetXGrid(), Enemies[i].GetYGrid());
                 Wall Block = Grid.GetBlock(Enemies[i].GetXGrid() + Enemies[i].Direction, Enemies[i].GetYGrid()) as Wall;
                 Enemies[i].Move();
@@ -69,26 +69,30 @@ namespace ConceptMario.Assets
             Bullets = Player.GetBullet(); // todo: rerender the whole screen to remove non existant bullets
             for (int i = 0; i < Bullets.Count; i++)
             {
-                if (!Can.Children.Contains(Bullets[i].bullet))
-                    Can.Children.Add(Bullets[i].bullet);
-                Canvas.SetBottom(Bullets[i].bullet, Bullets[i].data.Y);
-                Canvas.SetLeft(Bullets[i].bullet, Bullets[i].data.X);
-                Bullets[i].data.X += Bullets[i].data.BulletSpeed * Bullets[i].data.Direction;
-                Wall block = Grid.GetBlock((Bullets[i].data.X - Bullets[i].data.Direction * Size) / Size, Bullets[i].data.Y / Size) as Wall;
-                Enemy EnemyBlock = Grid.GetBlock((Bullets[i].data.X - Bullets[i].data.Direction * Size) / Size, Bullets[i].data.Y / Size) as Enemy;
+                if (Bullets[i].Bullet == null)
+                    Bullets[i].Bullet = ShapeFactory.Factory.GetShape("bullet").Get();
+
+
+                if (!Can.Children.Contains(Bullets[i].Bullet))
+                    Can.Children.Add(Bullets[i].Bullet);
+                Canvas.SetBottom(Bullets[i].Bullet, Bullets[i].Y);
+                Canvas.SetLeft(Bullets[i].Bullet, Bullets[i].X);
+                Bullets[i].X += Bullets[i].BulletSpeed * Bullets[i].Direction;
+                Wall block = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Wall;
+                Enemy EnemyBlock = Grid.GetBlock((Bullets[i].X - Bullets[i].Direction * Size) / Size, Bullets[i].Y / Size) as Enemy;
                 if (block != null)
                 {
-                    Can.Children.Remove(Bullets[i].bullet);
+                    Can.Children.Remove(Bullets[i].Bullet);
                     Player.RemoveBullet(i);
-                    Bullets.RemoveAt(i);
+                    //Bullets.RemoveAt(i);
                     Box box = block as Box;
-                    if(box != null)
+                    if (box != null)
                     {
                         Can.Children.Remove(box.Get());
                         Grid.Remove(box.GetXGrid(), box.GetYGrid());
                     }
                 }
-                if(EnemyBlock != null)
+                if (EnemyBlock != null)
                 {
                     Can.Children.Remove(EnemyBlock.Get());
                     Grid.Remove(EnemyBlock.GetXGrid(), EnemyBlock.GetYGrid());
@@ -145,7 +149,7 @@ namespace ConceptMario.Assets
                     if (Grid.GetBlock(j, i) != null)
                     {
                         Block block = Grid.GetBlock(j, i) as Block;
-                        if(block is Enemy)
+                        if (block is Enemy)
                         {
                             Enemies.Add(block as Enemy);
                         }
