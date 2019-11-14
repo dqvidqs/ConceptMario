@@ -10,7 +10,7 @@ namespace Server.Shop
     public class CurrentShopItems
     {
         bool hasChangedThisHour;
-        public List<Gun> Guns { get; set; }
+        public List<IGun> Guns { get; set; }
         private static CurrentShopItems _shop;
         private Random random;
 
@@ -25,7 +25,7 @@ namespace Server.Shop
         //}
         private CurrentShopItems()
         {
-            Guns = new List<Gun>();
+            Guns = new List<IGun>();
             random = new Random();
             for (int i = 0; i < 3; i++)
             {

@@ -54,13 +54,12 @@
     <Compile Include="Characters\PlayerAssets\BulletData.cs" />
     <Compile Include="Characters\PlayerAssets\Guns\Pistol.cs" />
     <Compile Include="Characters\PlayerAssets\Guns\Pistol1.cs" />
-    <Compile Include="Characters\PlayerAssets\Guns\Pistol2.cs" />
-    <Compile Include="Characters\PlayerAssets\Guns\Pistol3.cs" />
-    <Compile Include="Characters\PlayerAssets\Guns\Pistol4.cs" />
+    <Compile Include="Characters\PlayerAssets\IGun.cs" />
     <Compile Include="Characters\PlayerAssets\Inventory.cs" />
     <Compile Include="Characters\PlayerAssets\Gun.cs" />
     <Compile Include="Decorator\EndlessItem.cs" />
     <Compile Include="Decorator\DarkItem.cs" />
+    <Compile Include="Decorator\GunDecorator.cs" />
     <Compile Include="Enums\Directions.cs" />
     <Compile Include="Models\Ability.cs" />
     <Compile Include="Models\Character.cs" />

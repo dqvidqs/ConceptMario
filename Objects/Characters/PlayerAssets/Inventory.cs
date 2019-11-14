@@ -1,15 +1,14 @@
 ﻿using Objects.Enums;
 using System.Collections.Generic;
-using Objects.Characters.PlayerAssets.Guns;
 
 namespace Objects.Characters.PlayerAssets
 {
     public class Inventory
     {
-        private List<Gun> Guns = new List<Gun>();
+        private List<IGun> Guns = new List<IGun>();
         private List<BulletData> BulletData = new List<BulletData>();
         private int Index = 0;
-        public void AddItem(Gun Gun)
+        public void AddItem(IGun Gun)
         {
             Guns.Add(Gun);
         }
@@ -50,7 +49,7 @@ namespace Objects.Characters.PlayerAssets
             BulletData.RemoveAt(i);
         }
 
-        public Gun GetItem()
+        public IGun GetItem()
         {
             return Guns[CurrectItem];
         }

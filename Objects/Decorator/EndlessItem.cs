@@ -2,11 +2,19 @@
 
 namespace Objects.Decorator
 {
-    public class EndlessItem : Gun
+    public class EndlessItem : GunDecorator
     {
-        public EndlessItem(Gun gun) : base(gun.FireRate, (int)(gun.Ammo * 1.5), "Endless " + gun.Name)
+        public EndlessItem(IGun Gun) : base(Gun)
         {
-
+            if (Gun is Gun)
+            {
+                Upgrade(0.5, 2, "Endless ");
+            }
+            else
+            {
+                var gun = this.Gun as DarkItem;
+                gun.Upgrade(0.5, 2, "Endless ");
+            }
         }
     }
 }

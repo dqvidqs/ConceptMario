@@ -6,7 +6,7 @@ namespace Server.Factory
 {
     public class GunFactory
     {               
-       public static Gun ReturnItem()
+       public static IGun ReturnItem()
         {
             return new Pistol1();
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Objects.Characters.PlayerAssets.Guns
+﻿namespace Objects.Characters.PlayerAssets.Guns
 {
     public class Pistol1 : Gun
     {

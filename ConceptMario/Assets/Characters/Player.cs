@@ -3,9 +3,10 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using ConceptMario.Assets.ShapeFactory;
 using Objects.Characters.PlayerAssets;
+using Objects.Characters.PlayerAssets.Guns;
 using System.Linq;
 using Objects.Enums;
-using Objects.Characters.PlayerAssets.Guns;
+using Objects.Decorator;
 
 namespace ConceptMario.Assets.Characters
 {
@@ -39,7 +40,10 @@ namespace ConceptMario.Assets.Characters
             this.Y = Y;
             CanRight = true;
             CanLeft = true;
-            Inv.AddItem(new Pistol());
+            //Inv.AddItem(new Pistol());
+            //IGun Gun = new Gun(20, 7, "Pistol");
+            //Gun = new EndlessItem(Gun);
+            Inv.AddItem(new DarkItem(new EndlessItem(new Pistol())));
         }
 		public void Update(int X, int Y)
 		{

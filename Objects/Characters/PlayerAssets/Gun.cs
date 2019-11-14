@@ -5,13 +5,13 @@ using System;
 namespace Objects.Characters.PlayerAssets
 {
     [Serializable]
-    public abstract class Gun
+    public class Gun : IGun
     {
-        public int FireRate;
+        public int FireRate { get; set; }
         protected int CurrectRate;
-        public int Ammo;
+        public int Ammo { get; set; }
         protected int CurrectAmmo;
-        public string Name;
+        public string Name { get; set; }
 
         public Gun(int FireRate, int Ammo, string name = "Gun")
         {
@@ -43,6 +43,11 @@ namespace Objects.Characters.PlayerAssets
 
         public void Relaod()
         {
+            CurrectAmmo = Ammo;
+        }
+        public void Reset()
+        {
+            CurrectRate = FireRate;
             CurrectAmmo = Ammo;
         }
     }
