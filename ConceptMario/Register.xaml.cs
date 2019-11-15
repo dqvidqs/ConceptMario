@@ -19,7 +19,7 @@ namespace ConceptMario
 	/// </summary>
 	public partial class Register : Window
 	{
-		private HttpAdapter Server = new HttpAdapter();
+		private IJson Server = new ResponseToJson();
 		public Register()
 		{
 			InitializeComponent();

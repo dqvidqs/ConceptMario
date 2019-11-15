@@ -13,7 +13,7 @@ namespace ConceptMario
     /// </summary>
     public partial class App : Application
     {
-	    private HttpAdapter Server = new HttpAdapter();
+	    private IJson Server = new ResponseToJson();
 
 		private async void Application_Exit(object sender, ExitEventArgs e)
 		{

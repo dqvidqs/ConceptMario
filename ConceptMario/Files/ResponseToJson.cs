@@ -9,7 +9,7 @@ using Objects.Models;
 
 namespace ConceptMario
 {
-	class HttpAdapter
+	class ResponseToJson : IJson
 	{
 		static string page = "http://localhost:60951/api/";
 		static HttpClient client = new HttpClient();
