@@ -115,7 +115,7 @@ namespace ConceptMario.Assets.Characters
         }
         private void MoveUp()
         {
-            try//Chujovai veikia, reiks tvarkyt
+            try//blogai veikia, reiks tvarkyt
             {
                 if (CanJump)
                 {
