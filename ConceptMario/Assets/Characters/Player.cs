@@ -40,9 +40,6 @@ namespace ConceptMario.Assets.Characters
             this.Y = Y;
             CanRight = true;
             CanLeft = true;
-            //Inv.AddItem(new Pistol());
-            //IGun Gun = new Gun(20, 7, "Pistol");
-            //Gun = new EndlessItem(Gun);
             Inv.AddItem(new DarkItem(new EndlessItem(new Pistol())));
         }
 		public void Update(int X, int Y)
