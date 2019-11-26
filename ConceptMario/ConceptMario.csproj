@@ -98,6 +98,7 @@
     <Compile Include="Assets\ShapeFactory\Shapes\EnemyShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\ObjectShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
+    <Compile Include="Files\IJson.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -133,7 +134,7 @@
     <Compile Include="Assets\MapGrid.cs" />
     <Compile Include="MetaData.cs" />
     <Compile Include="Assets\Characters\Player.cs" />
-    <Compile Include="Files\HttpAdapter.cs" />
+    <Compile Include="Files\ResponseToJson.cs" />
     <Compile Include="Files\Session.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

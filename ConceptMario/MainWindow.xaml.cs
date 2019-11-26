@@ -53,7 +53,7 @@ namespace ConceptMario
 		private Player Player;
 		private Player Player2;
 		private Player oldOne = new Player(25, 25);
-		private HttpAdapter Server = new HttpAdapter();
+		private IJson Server = new ResponseToJson();
 		//private bool[] Updates;
 		private bool send = true;
 		private Room Room;

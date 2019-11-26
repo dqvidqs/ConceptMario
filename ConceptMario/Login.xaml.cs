@@ -23,7 +23,7 @@ namespace ConceptMario
 	/// </summary>
 	public partial class Login : Window
 	{
-		private HttpAdapter Server = new HttpAdapter();
+		private IJson Server = new ResponseToJson();
 		public Login()
 		{
 			InitializeComponent();
