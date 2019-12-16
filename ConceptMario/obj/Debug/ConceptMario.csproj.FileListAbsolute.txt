@@ -106,3 +106,5 @@ D:\GitHub\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csproj.CoreCompileInp
 D:\GitHub\ConceptMario\ConceptMario\obj\Debug\ConceptMario.csproj.CopyComplete
 D:\GitHub\ConceptMario\ConceptMario\obj\Debug\ConceptMario.exe
 D:\GitHub\ConceptMario\ConceptMario\obj\Debug\ConceptMario.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.CodeAnalysisLog.xml
+C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.lastcodeanalysissucceeded

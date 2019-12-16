@@ -1,6 +1,6 @@
 ﻿using System.Windows.Shapes;
 
-namespace ConceptMario.Assets.MapBuilder.Objects
+namespace ConceptMario.Assets.Builder.Objects
 {
     public abstract class Block
     {

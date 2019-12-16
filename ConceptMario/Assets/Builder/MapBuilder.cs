@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Builder.Objects;
 using ConceptMario.Assets.ShapeFactory;
 
-namespace ConceptMario.Assets.MapBuilder
+namespace ConceptMario.Assets.Builder
 {
     //Builder
     public class MapBuilder : IMapBuilder

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using System.Windows.Controls;
-using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Builder.Objects;
 using ConceptMario.Assets.Characters;
 using Objects.Characters.PlayerAssets;
 using System.Collections.Generic;
@@ -44,11 +44,11 @@ namespace ConceptMario.Assets
             Player.Update();
             UpdateBullets(Player);
             CatchDiamond(Player);
-            UpdateEnemies(Player);
+            UpdateEnemies();
             //return Updates;
         }
         // ---------- PRIVATE ----------
-        private void UpdateEnemies(Player Player)
+        private void UpdateEnemies()
         {
             for (int i = 0; i < Enemies.Count; i++)
             {
@@ -104,7 +104,7 @@ namespace ConceptMario.Assets
             //DOWN
             if (Blocks[2] != null)
             {
-                if (Blocks[2].CheckDown(Player.GetCenterX(), Player.GetY()))
+                if (Blocks[2].CheckDown(Player.GetY()))
                 { Player.CanJump = true; }
                 else { Player.CanJump = false; }
             }
@@ -112,7 +112,7 @@ namespace ConceptMario.Assets
             //RIGHT
             if (Blocks[1] != null)
             {
-                if (Blocks[1].CheckRight(Player.GetX(), Player.GetY()))
+                if (Blocks[1].CheckRight(Player.GetX()))
                 { Player.CanRight = false; }
                 else { Player.CanRight = true; }
             }
@@ -120,7 +120,7 @@ namespace ConceptMario.Assets
             //LEFT
             if (Blocks[3] != null)
             {
-                if (Blocks[3].CheckLeft(Player.GetX(), Player.GetY()))
+                if (Blocks[3].CheckLeft(Player.GetX()))
                 { Player.CanLeft = false; }
                 else { Player.CanLeft = true; }
             }

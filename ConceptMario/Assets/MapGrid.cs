@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using ConceptMario.Assets.MapBuilder;
-using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Builder;
+using ConceptMario.Assets.Builder.Objects;
 using ConceptMario.Assets.Characters;
 
 namespace ConceptMario.Assets
@@ -17,7 +17,7 @@ namespace ConceptMario.Assets
 
         public MapGrid(int MapID)//CLIENT
         {
-            MapBuilder.MapBuilder MapBuilder = new MapBuilder.MapBuilder(_0GRID[MapID]);
+            MapBuilder MapBuilder = new MapBuilder(_0GRID[MapID]);
             _grid = new object[Height, Width];
             /*switch (MapID)
             {

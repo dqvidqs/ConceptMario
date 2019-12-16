@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rules>
+  <Rule TypeName="CheckOutOfBoundary" Category="Method" CheckId="Id1">
+    <Name>Check out of boundary</Name>
+    <Description>Index should not be out of range</Description>
+    <Owner>Deividas Patalauskas</Owner>
+    <Resolution> please add if else</Resolution>
+    <MessageLevel Certainty="99"> Warning</MessageLevel>
+    <Message Certainty="99"> Warning</Message>
+    <FixCategories> NonBreaking </FixCategories>
+  </Rule>
+</Rules>

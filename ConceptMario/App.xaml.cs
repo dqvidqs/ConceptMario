@@ -17,7 +17,7 @@ namespace ConceptMario
 
 		private async void Application_Exit(object sender, ExitEventArgs e)
 		{
-			await Server.Logout(Session.GetSession().GetId());
+            await Server.Logout(Session.GetSession().GetId());
 		}
 	}
 }

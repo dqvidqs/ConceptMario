@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ConceptMario.Assets.MapBuilder.Objects;
+using ConceptMario.Assets.Builder.Objects;
 
-namespace ConceptMario.Assets.MapBuilder
+namespace ConceptMario.Assets.Builder
 {
     public class MapObjects
     {

@@ -217,7 +217,6 @@ D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.exe
 D:\GitHub\ConceptMario\Objects\obj\Debug\Objects.pdb
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.exe.config
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
-C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csprojAssemblyReference.cache
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\bin\Debug\Objects.exe.config
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\bin\Debug\Objects.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\bin\Debug\Objects.pdb
@@ -324,3 +323,4 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\bin\Debug\System.ComponentModel.
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csproj.CopyComplete
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.exe
 C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.pdb
+C:\MyFiles\MainData\07\OPP\ConceptMario\Objects\obj\Debug\Objects.csprojAssemblyReference.cache

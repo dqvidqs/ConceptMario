@@ -7,7 +7,7 @@ namespace ConceptMario.Assets.ShapeFactory.Color
         private SolidColorBrush green = Brushes.Green;
         public SolidColorBrush Get()
         {
-            return Brushes.Green;
+            return green;
         }
     }
 }

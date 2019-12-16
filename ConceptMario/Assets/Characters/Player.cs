@@ -7,6 +7,7 @@ using Objects.Characters.PlayerAssets.Guns;
 using System.Linq;
 using Objects.Enums;
 using Objects.Decorator;
+using System;
 
 namespace ConceptMario.Assets.Characters
 {
@@ -115,7 +116,7 @@ namespace ConceptMario.Assets.Characters
         }
         private void MoveUp()
         {
-            try//blogai veikia, reiks tvarkyt
+            try
             {
                 if (CanJump)
                 {
@@ -137,7 +138,7 @@ namespace ConceptMario.Assets.Characters
             {
                 DinamicIterartion = 0;
                 CanJump = false;
-                //Todel expectionas yra XDDDDD
+                throw;
             }
         }
     }
