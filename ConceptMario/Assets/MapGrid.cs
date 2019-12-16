@@ -2,6 +2,7 @@
 using ConceptMario.Assets.Builder;
 using ConceptMario.Assets.Builder.Objects;
 using ConceptMario.Assets.Characters;
+using ConceptMario.Assets.Iterator;
 
 namespace ConceptMario.Assets
 {
@@ -27,7 +28,9 @@ namespace ConceptMario.Assets
             }*/
             MapDirector Director = new MapDirector(MapBuilder);
             Director.Construct();
-            BuildGrid(MapBuilder.GetResult());
+            //BuildGrid(MapBuilder.GetResult());
+            ICollection Objects = MapBuilder.GetResult();
+            BuildGrid(Objects.CreateIterator());
             Director = null;
             //MapBuilder = null;
         }
@@ -49,12 +52,17 @@ namespace ConceptMario.Assets
             Blocks[3] = _grid[Player.GetY() / Size, Player.GetX() / Size - 1] as Wall;//LEFT
             return Blocks;
         }
-        private void BuildGrid(MapObjects Blocks)
+        private void BuildGrid(IIterator obj)
         {
-            for(int i =0; i < Blocks.Count;i++)
+            while (obj.HasNext())
+            {
+                Block b = (Block)obj.Next();
+                _grid[b.GetYGrid(), b.GetXGrid()] = b;
+            }
+            /*for(int i =0; i < Blocks.Count;i++)
             {
                 _grid[Blocks[i].GetYGrid(), Blocks[i].GetXGrid()] = Blocks[i];
-            }
+            }*/
         }
         /// <summary>
         /// 

@@ -1,19 +1,31 @@
 ﻿using System.Collections.Generic;
 using ConceptMario.Assets.Builder.Objects;
+using ConceptMario.Assets.Iterator;
 
 namespace ConceptMario.Assets.Builder
 {
-    public class MapObjects
+    public class MapObjects : ICollection
     {
-        private List<Block> Objects = new List<Block>();
-        public void AddBlock(Block Objects)
+        private int MAX = 864;
+        private int index = 0;
+        private Block[] Objects = null;
+        public MapObjects()
         {
-            if (!this.Objects.Contains(Objects))
+            Objects = new Block[MAX];
+        }
+        public void AddBlock(Block Object)
+        {
+            if(index < MAX)
             {
-                this.Objects.Add(Objects);
+                Objects[index++] = Object;
             }
         }
-        public int Count { get { return Objects.Count; } }
-        public Block this[int index] { get { return Objects[index]; } }
+
+        public IIterator CreateIterator()
+        {
+            return new MapObjectIterator(Objects);
+        }
+        //public int Count { get { return Objects.Count; } }
+        //public Block this[int index] { get { return Objects[index]; } }
     }
 }
