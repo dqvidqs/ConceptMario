@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using ConceptMario.Assets.Builder.Objects;
 using ConceptMario.Assets.ShapeFactory;
+using ConceptMario.Assets.TemplateMethod;
+using ConceptMario.Assets.FlyWeight;
 
 namespace ConceptMario.Assets.Builder
 {
@@ -85,7 +87,15 @@ namespace ConceptMario.Assets.Builder
             {
                 if (Grid[i] == '5')
                 {
-                    Objects.AddBlock(new Enemy(i % Width * Size, Step * Size, Factory.GetShape("enemy").Get()));
+                    Enemy e = EnemyFlyWeight.GetEnemy("yellow");
+                    e.SetCoordantes(i % Width * Size, Step * Size);
+                    Objects.AddBlock(e);
+                }
+                if (Grid[i] == '6')
+                {
+                    Enemy e = EnemyFlyWeight.GetEnemy("red");
+                    e.SetCoordantes(i % Width * Size, Step * Size);
+                    Objects.AddBlock(e);
                 }
                 if ((i + 1) % Width == 0 && i != 0)
                 {

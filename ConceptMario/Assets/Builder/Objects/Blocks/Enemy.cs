@@ -2,13 +2,15 @@
 
 namespace ConceptMario.Assets.Builder.Objects
 {
-    public class Enemy : Block
+    public abstract class Enemy : Block
     {
+        protected int _hitPoint;
+        private bool _isDead = false;
+        public int  HP { get { return _hitPoint; } }
         private int _direction = 1;
         private int _speed = 1;
         public int Direction { get { return _direction; } set { _direction = value; } }
-        //public Enemy() : base() { }
-        public Enemy(int X, int Y, Polygon Terrain) : base(X, Y, Terrain) { }
+        public Enemy() : base(-1, -1, null) { TemplateMethod(); }
         public void Move()
         {
             XY[0] += _speed * _direction;
@@ -18,5 +20,27 @@ namespace ConceptMario.Assets.Builder.Objects
         {
             return (XY[0] + Size) / Size;
         }*/
+        private void TemplateMethod()
+        {
+            SetPolygon();
+            SetHP();
+        }
+
+        protected abstract void SetPolygon();
+        protected abstract void SetHP();
+        public void Damage(int Damage)
+        {
+            if (_isDead)
+            {
+                _hitPoint -= Damage;
+            }
+        }
+        public void SetCoordantes(int X, int Y)
+        {
+            XY[0] = X;
+            XY[1] = Y;
+            YX[0] = X + Size;
+            YX[1] = Y + Size;
+        }
     }
 }

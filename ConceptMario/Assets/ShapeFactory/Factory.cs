@@ -22,8 +22,10 @@ namespace ConceptMario.Assets.ShapeFactory
                     return new BulletShape(new Black());
                 case "box":
                     return new BlockShape(new Brown());
-                case "enemy":
+                case "enemy-yellow":
                     return new EnemyShape(new Yellow());
+                case "enemy-red":
+                    return new EnemyShape(new Red());
                 default:
                     return null;
             }
