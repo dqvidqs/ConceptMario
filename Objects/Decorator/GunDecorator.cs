@@ -38,5 +38,9 @@ namespace Objects.Decorator
             Gun.Reset();
             this.Gun = Gun;
         }
+        public int Damage()
+        {
+            return Gun.Damage();
+        }
     }
 }

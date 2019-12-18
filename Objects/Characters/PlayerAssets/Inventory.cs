@@ -35,13 +35,14 @@ namespace Objects.Characters.PlayerAssets
             if (Index < 0)
                 Index = Guns.Count - 1;
         }
-        public void Shoot(int x, int y, Directions direction)
+        public int Shoot(int x, int y, Directions direction)
         {
             var bullet = Guns[Index].Shoot(x, y, direction);
             if (bullet != null)
             {
                 BulletData.Add(bullet);
             }
+            return Guns[Index].Damage();
         }
 
         public void RemoveBullet(int i)

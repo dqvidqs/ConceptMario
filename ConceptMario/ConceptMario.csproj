@@ -91,6 +91,7 @@
     <Compile Include="Assets\Builder\Objects\Blocks\Box.cs" />
     <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Builder\ICollection.cs" />
+    <Compile Include="Assets\FlyWeight\EnemyFlyWeight.cs" />
     <Compile Include="Assets\Iterator\IIterator.cs" />
     <Compile Include="Assets\Iterator\MapObjectIterator.cs" />
     <Compile Include="Assets\ShapeFactory\Color\Black.cs" />
@@ -109,6 +110,8 @@
     <Compile Include="Assets\ShapeFactory\Shapes\EnemyShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\ObjectShape.cs" />
     <Compile Include="Assets\ShapeFactory\Shapes\PlayerShape.cs" />
+    <Compile Include="Assets\TemplateMethod\RedEnemy.cs" />
+    <Compile Include="Assets\TemplateMethod\YellowEnemy.cs" />
     <Compile Include="Files\IJson.cs" />
     <Compile Include="Files\MyShop.cs" />
     <Compile Include="Menu.xaml.cs">
@@ -228,6 +231,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

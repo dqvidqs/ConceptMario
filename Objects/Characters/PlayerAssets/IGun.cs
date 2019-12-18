@@ -8,5 +8,6 @@ namespace Objects.Characters.PlayerAssets
         void Update();
         BulletData Shoot(int x, int y, Directions direction);
         void Relaod();
+        int Damage();
     }
 }

@@ -12,14 +12,16 @@ namespace Objects.Characters.PlayerAssets
         public int Ammo { get; set; }
         protected int CurrectAmmo;
         public string Name { get; set; }
+        private int _damage;
 
-        public Gun(int FireRate, int Ammo, string name = "Gun")
+        public Gun(int FireRate, int Ammo, int Damage, string name = "Gun")
         {
             CurrectAmmo = Ammo;
             CurrectRate = FireRate;
             this.Ammo = Ammo;
             this.FireRate = FireRate;
             Name = name;
+            this._damage = Damage;
         }
         public void Update()
         {
@@ -49,6 +51,10 @@ namespace Objects.Characters.PlayerAssets
         {
             CurrectRate = FireRate;
             CurrectAmmo = Ammo;
+        }
+        public int Damage()
+        {
+            return _damage;
         }
     }
 }

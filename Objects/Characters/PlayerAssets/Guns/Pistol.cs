@@ -2,7 +2,7 @@
 {
     public class Pistol : Gun
     {
-        public Pistol() : base(FireRate: 20, Ammo: 7)
+        public Pistol() : base(FireRate: 20, Ammo: 7, Damage: 20)
         {
         }
     }
