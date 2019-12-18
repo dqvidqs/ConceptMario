@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="State\AfternoonState.cs" />
+    <Compile Include="State\Context.cs" />
+    <Compile Include="State\MorningState.cs" />
+    <Compile Include="State\NightState.cs" />
+    <Compile Include="State\State.cs" />
     <Compile Include="Characters\PlayerAssets\BulletData.cs" />
     <Compile Include="Characters\PlayerAssets\Guns\Pistol.cs" />
     <Compile Include="Characters\PlayerAssets\Guns\Pistol1.cs" />
