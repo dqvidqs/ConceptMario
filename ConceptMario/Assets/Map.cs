@@ -44,7 +44,7 @@ namespace ConceptMario.Assets
             Can.Children.Add(text_coin);
             Canvas.SetTop(text_coin, 25);
             Canvas.SetLeft(text_coin, MetaData.WidthPx + 10);
-            text_coin.Text = "Coin: " + player1.HitPoints.ToString();
+            text_coin.Text = "Coin: " + player1.Coin.ToString();
         }
         public Canvas Get()
         {
