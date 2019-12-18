@@ -14,11 +14,11 @@ namespace ConceptMario
 		static string page = "http://localhost:60951/api/";
 		static HttpClient client = new HttpClient();
 
-		public async Task<Gun[]> GetGuns()
+		public async Task<Gun> GetGuns()
 		{
-			HttpResponseMessage response = await client.GetAsync(page + "Guns/");
+			HttpResponseMessage response = await client.GetAsync(page + "Guns/1");
 			string data = await response.Content.ReadAsStringAsync();
-			var result = JsonConvert.DeserializeObject<Gun[]>(data);
+			var result = JsonConvert.DeserializeObject<Gun>(data);
 
 			return result;
 		}

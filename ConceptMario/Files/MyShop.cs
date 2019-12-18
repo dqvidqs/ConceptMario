@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Objects.Models;
 using Objects.Strategy;
+using Objects.State;
 
 namespace ConceptMario.Files
 {
@@ -11,6 +12,9 @@ namespace ConceptMario.Files
 
 		private static MyShop _shop;
 		public static ISaleStrategy _saleStrategy;
+
+		Context priceSetter;
+
 
 		private static readonly object LockObj = new object();
 		public static MyShop GetShop()
@@ -31,20 +35,21 @@ namespace ConceptMario.Files
 		private MyShop()
 		{
 			Guns = new List<Gun>();
-			SetSaleStrategy();
-			//GetGuns();
+			priceSetter = new Context();
+			//SetSaleStrategy();
+			GetGuns();
 		}
 
-		//private async void GetGuns()
-		//{
-		//	HttpAdapter Server = new HttpAdapter();
-		//	var result = await Server.GetGuns();
-		//	foreach (var item in result)
-		//	{
-		//		item.price = _saleStrategy.GetPrice(item.price);
-		//		Guns.Add(item);
-		//	}
-		//}
+		private async void GetGuns()
+		{
+			ResponseToJson Server = new ResponseToJson();
+			var result = await Server.GetGuns();
+
+			result.price += priceSetter.GetPrice();
+				//item.price = _saleStrategy.GetPrice(item.price);
+				Guns.Add(result);
+			
+		}
 
 		public static void SetSaleStrategy()
 		{

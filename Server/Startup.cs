@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Server.Database;
+using Server.SocketsManager;
 
 namespace Server
 {
@@ -30,10 +31,11 @@ namespace Server
 			string connectionString = Configuration.GetConnectionString("DefaultConnection");
 			services.AddDbContext<GameContext>(opt => opt.UseSqlServer(connectionString));
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddWebSocketManager();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env,IServiceProvider serviceProvider)
 		{
 			if (env.IsDevelopment())
 			{
@@ -46,6 +48,9 @@ namespace Server
 
 			app.UseHttpsRedirection();
 			app.UseMvc();
+			app.UseWebSockets();
+			app.MapWebSocketManager("/ws", serviceProvider.GetService<WebSocketMessageHandler>());
+			app.UseStaticFiles();
 		}
 	}
 }

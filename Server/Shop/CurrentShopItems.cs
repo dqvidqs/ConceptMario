@@ -9,9 +9,9 @@ namespace Server.Shop
 {
     public class CurrentShopItems
     {
-        bool hasChangedThisHour;
+        //bool hasChangedThisHour;
         public List<IGun> Guns { get; set; }
-        private static CurrentShopItems _shop;
+        //private static CurrentShopItems _shop;
         private Random random;
 
         //public static CurrentShopItems GetShop()

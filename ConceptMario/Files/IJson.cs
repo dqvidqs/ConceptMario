@@ -10,7 +10,7 @@ namespace ConceptMario
 {
 	interface IJson
 	{
-		Task<Gun[]> GetGuns();
+		Task<Gun> GetGuns();
 
 
 		Task<Character> GetTeammate(int id);
