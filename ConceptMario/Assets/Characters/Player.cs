@@ -24,6 +24,7 @@ namespace ConceptMario.Assets.Characters
         private Inventory Inv;
 
         public int HitPoints { set; get; }
+        public int Coin { set; get; }
         public bool CanJump { set; get; }
         public bool IsJump { set; get; }
         public bool CanLeft { set; get; }
@@ -31,6 +32,9 @@ namespace ConceptMario.Assets.Characters
         public bool CanRight { set; get; }
         public bool Right { set; get; }
         public bool IsShooting { get; set; }
+        private int gunDamage;
+        public int GunDamage { get { return gunDamage; } }
+        public bool isDead = false;
 
         public Player(int X, int Y)
         {
@@ -50,10 +54,13 @@ namespace ConceptMario.Assets.Characters
 		}
         public void Update()
         {
-            Canvas.SetBottom(Object,Y);
-            Canvas.SetLeft(Object, X);
-            Inv.GetItem().Update();
-            Move();
+            if (!isDead)
+            {
+                Canvas.SetBottom(Object, Y);
+                Canvas.SetLeft(Object, X);
+                Inv.GetItem().Update();
+                Move();
+            }
         }
 
         public List<BulletData> GetBullet()
@@ -69,6 +76,10 @@ namespace ConceptMario.Assets.Characters
         public Polygon Get()
         {
             return Object;
+        }
+        public void Set()
+        {
+            Object = Factory.GetShape("player-dead").Get();
         }
         public int GetX() { return X; }
         public int GetCenterX() { return X + Size / 2; }
@@ -88,7 +99,7 @@ namespace ConceptMario.Assets.Characters
         }
         private void Shooting()
         {
-            Inv.Shoot(X, Y, (Directions) Direction);
+            gunDamage = Inv.Shoot(X, Y, (Directions) Direction);
         }
 
         private void Gravity()

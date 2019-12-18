@@ -18,6 +18,8 @@ namespace ConceptMario.Assets
         private List<Enemy> Enemies = new List<Enemy>();
         //other
         private int Size = MetaData.Size;
+        private TextBlock text_hp;
+        private TextBlock text_coin;
         public Map(Player player1, Player player2, int MapId)
         {
             Grid = new MapGrid(MapId);
@@ -33,6 +35,16 @@ namespace ConceptMario.Assets
             Can.Children.Add(player2.Get());
             Canvas.SetBottom(player2.Get(), player2.GetY());
             Canvas.SetLeft(player2.Get(), player2.GetX());
+            text_hp = new TextBlock();
+            Can.Children.Add(text_hp);
+            Canvas.SetTop(text_hp, 0);
+            Canvas.SetLeft(text_hp, MetaData.WidthPx + 10);
+            text_hp.Text = "Coin: " + player1.HitPoints.ToString();
+            text_coin = new TextBlock();
+            Can.Children.Add(text_coin);
+            Canvas.SetTop(text_coin, 25);
+            Canvas.SetLeft(text_coin, MetaData.WidthPx + 10);
+            text_coin.Text = "Coin: " + player1.HitPoints.ToString();
         }
         public Canvas Get()
         {
@@ -44,6 +56,7 @@ namespace ConceptMario.Assets
             Player.Update();
             UpdateBullets(Player);
             CatchDiamond(Player);
+            CatchEnemy(Player);
             UpdateEnemies();
             //return Updates;
         }
@@ -92,8 +105,18 @@ namespace ConceptMario.Assets
                 }
                 if (EnemyBlock != null)
                 {
-                    Can.Children.Remove(EnemyBlock.Get());
-                    Grid.Remove(EnemyBlock.GetXGrid(), EnemyBlock.GetYGrid());
+                    Can.Children.Remove(Bullets[i].Bullet);
+                    Player.RemoveBullet(i);
+                    bool remove = EnemyBlock.Damage(Player.GunDamage);
+                    if (remove)
+                    {
+                        Can.Children.Remove(EnemyBlock.Get());
+                        Grid.Remove(EnemyBlock.GetXGrid(), EnemyBlock.GetYGrid());
+                        if (Enemies.Contains(EnemyBlock))
+                        {
+                            Enemies.Remove(EnemyBlock);
+                        }
+                    }
                 }
             }
         }
@@ -131,12 +154,39 @@ namespace ConceptMario.Assets
             Diamond diamond = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Diamond;
             if (diamond != null)
             {
+                Player.Coin += diamond.Coin;
                 //int index = Can.Children.IndexOf(diamond.Get());
                 Can.Children.RemoveAt(Can.Children.IndexOf(diamond.Get()));
                 Grid.Remove(Player.GetCenterX() / Size, Player.GetCenterY() / Size);
                 //return true;
+                 text_coin.Text = "Coin: " + Player.Coin.ToString();
             }
             //return false;
+        }
+        int Count = 0;
+        private void CatchEnemy(Player Player)
+        {
+            Enemy enemy = Grid.GetBlock(Player.GetCenterX() / Size, Player.GetCenterY() / Size) as Enemy;
+            if (enemy != null && Count >= 60)
+            {
+                Player.HitPoints -= 15;
+                if(Player.HitPoints <= 0)
+                {
+                    text_hp.Text = "HP: " + 0;
+                    Player.isDead = true;
+                    Can.Children.Remove(Player.Get());
+                    Player.Set();
+                    Can.Children.Add(Player.Get());
+                    Canvas.SetBottom(Player.Get(), Player.GetY());
+                    Canvas.SetLeft(Player.Get(), Player.GetX());
+                }
+                else { text_hp.Text = "HP: " + Player.HitPoints.ToString(); }
+                Count = 0;
+            }
+            else
+            {
+                Count += 1;
+            }
         }
         private void SetupBlock()
         {

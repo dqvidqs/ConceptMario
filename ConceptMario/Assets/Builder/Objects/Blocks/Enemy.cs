@@ -5,7 +5,6 @@ namespace ConceptMario.Assets.Builder.Objects
     public abstract class Enemy : Block
     {
         protected int _hitPoint;
-        private bool _isDead = false;
         public int  HP { get { return _hitPoint; } }
         private int _direction = 1;
         private int _speed = 1;
@@ -28,12 +27,14 @@ namespace ConceptMario.Assets.Builder.Objects
 
         protected abstract void SetPolygon();
         protected abstract void SetHP();
-        public void Damage(int Damage)
+        public bool Damage(int Damage)
         {
-            if (_isDead)
+            _hitPoint -= Damage;
+            if (_hitPoint <= 0)
             {
-                _hitPoint -= Damage;
+                return true;
             }
+            return false;
         }
         public void SetCoordantes(int X, int Y)
         {

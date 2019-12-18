@@ -26,6 +26,8 @@ namespace ConceptMario.Assets.ShapeFactory
                     return new EnemyShape(new Yellow());
                 case "enemy-red":
                     return new EnemyShape(new Red());
+                case "player-dead":
+                    return new PlayerShape(new Gray());
                 default:
                     return null;
             }
