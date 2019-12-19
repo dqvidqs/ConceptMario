@@ -19,7 +19,6 @@ using Newtonsoft.Json;
 using ConceptMario.Assets;
 using Objects.Models;
 using ConceptMario.Assets.Characters;
-using ConceptMario.Assets.CustomConsole;
 using ConceptMario.Assets.Interpreter;
 
 namespace ConceptMario
@@ -186,13 +185,7 @@ namespace ConceptMario
 				case (Key.R):
 					Player.Reload();
                     break;
-                case (Key.Q):
-                    ConsoleManager.Toggle();
-                    break;
                 case (Key.NumPad1):
-                    //neveik cia
-                    ConsoleManager.Write("T");
-                    //
                     inter[0].interpreter(new Context() { Data = "Coin Add 50" });
                     Map.UpdateGUI(Player);
                     break;
