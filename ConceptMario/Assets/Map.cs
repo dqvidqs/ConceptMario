@@ -60,6 +60,11 @@ namespace ConceptMario.Assets
             UpdateEnemies();
             //return Updates;
         }
+        public void UpdateGUI(Player player)
+        {
+            text_coin.Text = "Coin: " + player.Coin.ToString();
+            text_hp.Text = "Coin: " + player.HitPoints.ToString();
+        }
         // ---------- PRIVATE ----------
         private void UpdateEnemies()
         {

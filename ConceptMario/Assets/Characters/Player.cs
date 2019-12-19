@@ -149,7 +149,6 @@ namespace ConceptMario.Assets.Characters
             {
                 DinamicIterartion = 0;
                 CanJump = false;
-                throw;
             }
         }
     }

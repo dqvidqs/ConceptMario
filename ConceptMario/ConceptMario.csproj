@@ -92,6 +92,12 @@
     <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Builder\ICollection.cs" />
     <Compile Include="Assets\FlyWeight\EnemyFlyWeight.cs" />
+    <Compile Include="Assets\Interpreter\AddCoin.cs" />
+    <Compile Include="Assets\Interpreter\Coin.cs" />
+    <Compile Include="Assets\Interpreter\Context.cs" />
+    <Compile Include="Assets\Interpreter\IInterpreter.cs" />
+    <Compile Include="Assets\Interpreter\CheatObject.cs" />
+    <Compile Include="Assets\Interpreter\RemoveCoin.cs" />
     <Compile Include="Assets\Iterator\IIterator.cs" />
     <Compile Include="Assets\Iterator\MapObjectIterator.cs" />
     <Compile Include="Assets\ShapeFactory\Color\Black.cs" />

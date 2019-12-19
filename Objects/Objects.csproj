@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chain\AutomaticDealer.cs" />
+    <Compile Include="Chain\Handler.cs" />
+    <Compile Include="Chain\PistolDealer.cs" />
+    <Compile Include="Chain\SemiAutoDealer.cs" />
+    <Compile Include="Chain\ShotgunDealer.cs" />
     <Compile Include="State\AfternoonState.cs" />
     <Compile Include="State\Context.cs" />
     <Compile Include="State\MorningState.cs" />
