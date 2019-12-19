@@ -19,6 +19,8 @@ using Newtonsoft.Json;
 using ConceptMario.Assets;
 using Objects.Models;
 using ConceptMario.Assets.Characters;
+using ConceptMario.Assets.CustomConsole;
+using ConceptMario.Assets.Interpreter;
 
 namespace ConceptMario
 {
@@ -75,12 +77,21 @@ namespace ConceptMario
 			MainGrind.Children.Add(Map.Get());
 			Frame.Start();
 			Frame2.Start();
-		}
-
-		//---------------------------------------------------
-		//          Frames or Iterations
-		//---------------------------------------------------
-		private void Frame_Tick(object sender, EventArgs e)
+            Interpretor();
+        }
+        List<IInterpreter> inter = new List<IInterpreter>();
+        public void Interpretor()
+        {
+            var int_addcoin = new AddCoin(Player);
+            var int_removecoin = new RemoveCoin(Player);
+            var int_coin = new Coin(int_addcoin, int_removecoin);
+            var int_obj = new CheatObject(int_coin);
+            inter.Add(int_obj);
+        }
+        //---------------------------------------------------
+        //          Frames or Iterations
+        //---------------------------------------------------
+        private void Frame_Tick(object sender, EventArgs e)
 		{
 
 			Map.UpdatePlayer(Player);
@@ -96,11 +107,13 @@ namespace ConceptMario
 				send = true;
 			}
 
-			/*await loadPlayer();
+            /*await loadPlayer();
 			await RemoveDiamond();
 
 			Map.UpdatePlayer(Player2);*/
-			//throw new NotImplementedException();
+            //throw new NotImplementedException();
+            // ConsoleManager.
+
 		}
 
 		private async void Frame_Tick2(object sender, EventArgs e)
@@ -172,8 +185,22 @@ namespace ConceptMario
 					break;
 				case (Key.R):
 					Player.Reload();
-					break;
-			}
+                    break;
+                case (Key.Q):
+                    ConsoleManager.Toggle();
+                    break;
+                case (Key.NumPad1):
+                    //neveik cia
+                    ConsoleManager.Write("T");
+                    //
+                    inter[0].interpreter(new Context() { Data = "Coin Add 50" });
+                    Map.UpdateGUI(Player);
+                    break;
+                case (Key.NumPad2):
+                    inter[0].interpreter(new Context() { Data = "Coin Remove 50" });
+                    Map.UpdateGUI(Player);
+                    break;
+            }
 		}
 
 		private void Window_KeyUp(object sender, KeyEventArgs e) //Released buttons
