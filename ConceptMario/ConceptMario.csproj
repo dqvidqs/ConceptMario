@@ -91,6 +91,8 @@
     <Compile Include="Assets\Builder\Objects\Blocks\Box.cs" />
     <Compile Include="Assets\Builder\MapObjects.cs" />
     <Compile Include="Assets\Builder\ICollection.cs" />
+    <Compile Include="Assets\Characters\IPlayer.cs" />
+    <Compile Include="Assets\Characters\NullPlayer.cs" />
     <Compile Include="Assets\FlyWeight\EnemyFlyWeight.cs" />
     <Compile Include="Assets\Interpreter\AddCoin.cs" />
     <Compile Include="Assets\Interpreter\Coin.cs" />
