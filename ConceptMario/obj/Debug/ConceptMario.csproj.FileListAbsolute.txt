@@ -110,3 +110,5 @@ C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.
 C:\MyFiles\MainData\07\OPP\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.lastcodeanalysissucceeded
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.CodeAnalysisLog.xml
 D:\GitHub\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.lastcodeanalysissucceeded
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.CodeAnalysisLog.xml
+C:\Users\ugand\Documents\GitHub\ConceptMario\ConceptMario\bin\Debug\ConceptMario.exe.lastcodeanalysissucceeded

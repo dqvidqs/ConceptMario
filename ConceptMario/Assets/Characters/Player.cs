@@ -11,7 +11,7 @@ using System;
 
 namespace ConceptMario.Assets.Characters
 {
-    public class Player
+    public class Player : IPlayer
     {
         private Polygon Object;
         private int Size = MetaData.Size;
@@ -89,7 +89,7 @@ namespace ConceptMario.Assets.Characters
         {
             Inv.GetItem().Relaod();
         }
-        private void Move()
+        public void Move()
         {
             Gravity();
             if(IsShooting) { Shooting(); }
@@ -97,19 +97,19 @@ namespace ConceptMario.Assets.Characters
             if (Right) { MoveRight(); }
             if (IsJump) { MoveUp(); }
         }
-        private void Shooting()
+        public void Shooting()
         {
             gunDamage = Inv.Shoot(X, Y, (Directions) Direction);
         }
 
-        private void Gravity()
+        public void Gravity()
         {
             if (!CanJump)
             {
                 Y -= MoveSpeed;
             }
         }
-        private void MoveLeft()
+        public void MoveLeft()
         {
             if (CanLeft)
             {
@@ -117,7 +117,7 @@ namespace ConceptMario.Assets.Characters
                 Direction = -1;
             }
         }
-        private void MoveRight()
+        public void MoveRight()
         {
             if (CanRight)
             {
@@ -125,7 +125,7 @@ namespace ConceptMario.Assets.Characters
                 Direction = 1;
             }
         }
-        private void MoveUp()
+        public void MoveUp()
         {
             try
             {
